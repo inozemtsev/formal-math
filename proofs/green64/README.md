@@ -50,8 +50,8 @@ No personal assistance by its author is claimed. Mathematical priority and
 novelty have not been established by a comprehensive literature search and
 are not claimed.
 
-Proof development and formalization: **gpt-6 astra**, directed by
-**Igor Inozemtsev**, who maintains the project. No independent human
+Proof development and formalization: **gpt-6 astra**.
+I directed the work and maintain the project. No independent human
 mathematical review or Palomar endorsement is claimed.
 
 The statement agrees with `Green64.green_64` in the

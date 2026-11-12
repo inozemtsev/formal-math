@@ -127,8 +127,8 @@ automation:
         Local packaging, module-system migration and preparation of Markdown
         and TeX exposition from the Lean development and matching Markdown.
   notes: >-
-    Proof and formalization credit: gpt-6 astra. Igor Inozemtsev directed the
-    work and maintains the project. AI systems are credited here rather than
+    Proof and formalization credit: gpt-6 astra. I directed the
+    work and maintain the project. AI systems are credited here rather than
     listed as human authors. No independent human mathematical review is
     claimed. Exact current validation results belong in VERIFICATION.md.
 

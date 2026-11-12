@@ -1,7 +1,7 @@
 # Mathematical sources and provenance
 
-Proof development and formalization: **gpt-6 astra**, directed by
-**Igor Inozemtsev**, who maintains the project.
+Proof development and formalization: **gpt-6 astra**.
+I directed the work and maintain the project.
 
 During the final formalization stage, the agent found **Jizhou Guo**'s
 manuscript *Shifted primes with a prescribed parity of the number of prime
