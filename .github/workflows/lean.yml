@@ -1,4 +1,4 @@
-name: Lean proof
+name: Lean proofs
 
 on:
   push:
@@ -11,22 +11,37 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        proof: [gradient-supremum]
+    defaults:
+      run:
+        working-directory: proofs/${{ matrix.proof }}
     env:
-      LEAN_NUM_THREADS: 2
+      LEAN_NUM_THREADS: ${{ matrix.proof == 'green64' && '2' || '1' }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
       - uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596 # v1
         with:
+          lake-package-directory: proofs/${{ matrix.proof }}
           auto-config: false
           build: true
-          build-args: --wfail
+          build-args: ${{ matrix.proof == 'gradient-supremum' && '--wfail' || '' }}
           test: false
           lint: false
           use-mathlib-cache: true
       - name: Verify axioms and statement tests
         run: python3 scripts/verify.py
       - name: Recheck compiled proof declarations
-        run: lake env leanchecker GradientSupremum
+        env:
+          LEAN_NUM_THREADS: 1
+        run: |
+          if [ "${{ matrix.proof }}" = gradient-supremum ]; then
+            lake env leanchecker GradientSupremum
+          else
+            lake env leanchecker --fresh Green64
+          fi

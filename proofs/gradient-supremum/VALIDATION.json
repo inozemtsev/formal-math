@@ -1,0 +1,135 @@
+{
+  "passed": true,
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "axioms": {
+    "GradientSupremum.Brouwer.Cubical.weaker_cubical_sperner": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "GradientSupremum.Brouwer.exists_fixedPoint_cube": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "GradientSupremum.Brouwer.exists_fixedPoint_closedBall": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "GradientSupremum.supremum_gradient_step": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mathoverflow347178.bounded_only": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Mathoverflow347178.bounded_only_strong": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "source_sha256": {
+    "GradientSupremum.lean": "68232e4b38da6f4ce96e07542f7c13e6333abbb4646eddf37f30992e3ff5c2e3",
+    "GradientSupremum/Ascent.lean": "cc69f735d91ed1c89d2a962b5d2a9b693195d08b6fa9b37c7e64c11be30e356c",
+    "GradientSupremum/Brouwer/ClosedBall.lean": "738aefb6d773cfc77b4d7ae42d03ff9b1e47f95c2b4dfdaab284bb6bdb9ad532",
+    "GradientSupremum/Brouwer/Cube.lean": "9868f88e35da26255835c8332dbdc37c0520d2a99750997395c9c9c331ec762e",
+    "GradientSupremum/Brouwer/Sperner.lean": "3f42b1566184e2241a957268e28a4ed4fcbcdb4dd71f70e3854c00d3e0941cb5",
+    "GradientSupremum/Brouwer/Triangulation.lean": "4f9cbc56c339791854caeec36af4d021f44573d113a7610b7bb9f631c01606cd",
+    "GradientSupremum/Deformation.lean": "01e548307d835e198d08863b411934ce2d184a61c09ad4d686cb68d40862dd35",
+    "GradientSupremum/Homotopy.lean": "3000e778c46ae683a2a9d6a12c496080996af3179b3ed41ccf7ce6bd0e67ce6d",
+    "GradientSupremum/Iteration.lean": "a495c030af1db757947aff225a8a9c4747ecc8b2a14fc07378ae52bfeda7eb3e",
+    "GradientSupremum/Main.lean": "e5b62a5dfdf0dfd45cc887963b2bc34eca88f779fa011f15f409d40ea9ab7998",
+    "GradientSupremum/Mathoverflow347178.lean": "fcebc6b6250c7d0c3368f7a934273bd06430cb6a670014bf7d4c802ff3e7046f",
+    "scripts/AxiomAudit.lean": "7cfdb9a2eae430e1e97fbf4f2c799ab8f73d7ae3b336893a62a01a976103e9a0",
+    "scripts/StatementTests.lean": "d908b1850d1c59f41377a4c0198a083502419371a32535da30ef56ba5853a3fa"
+  },
+  "checks": [
+    {
+      "command": [
+        "lake",
+        "--wfail",
+        "build"
+      ],
+      "exit_code": 0,
+      "seconds": 1.925,
+      "output": "Build completed successfully (3169 jobs).\n"
+    },
+    {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j2",
+        "scripts/AxiomAudit.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 6.309,
+      "output": "'GradientSupremum.Brouwer.Cubical.weaker_cubical_sperner' depends on axioms: [propext, Classical.choice, Quot.sound]\n'GradientSupremum.Brouwer.exists_fixedPoint_cube' depends on axioms: [propext, Classical.choice, Quot.sound]\n'GradientSupremum.Brouwer.exists_fixedPoint_closedBall' depends on axioms: [propext, Classical.choice, Quot.sound]\n'GradientSupremum.supremum_gradient_step' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Mathoverflow347178.bounded_only' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Mathoverflow347178.bounded_only_strong' depends on axioms: [propext, Classical.choice, Quot.sound]\nMathoverflow347178.bounded_only (n : ℕ) :\n  n ≥ 2 →\n    ∀ (f : EuclideanSpace ℝ (Fin n) → ℝ),\n      ContDiff ℝ 1 f →\n        BddAbove (Set.range f) →\n          BddAbove (Set.range fun x => f (x + gradient f x)) → ⨆ x, f x = ⨆ x, f (x + gradient f x)\n"
+    },
+    {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j2",
+        "scripts/StatementTests.lean"
+      ],
+      "exit_code": 0,
+      "seconds": 3.498,
+      "output": ""
+    }
+  ],
+  "dependencies": {
+    "mathlib": {
+      "revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "expected_revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "tracked_files_unchanged": true
+    },
+    "plausible": {
+      "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+      "expected_revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+      "tracked_files_unchanged": true
+    },
+    "LeanSearchClient": {
+      "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+      "expected_revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+      "tracked_files_unchanged": true
+    },
+    "importGraph": {
+      "revision": "16f02aa7642864af59f1ff0e384a015994db9118",
+      "expected_revision": "16f02aa7642864af59f1ff0e384a015994db9118",
+      "tracked_files_unchanged": true
+    },
+    "proofwidgets": {
+      "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+      "expected_revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+      "tracked_files_unchanged": true
+    },
+    "aesop": {
+      "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+      "expected_revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+      "tracked_files_unchanged": true
+    },
+    "Qq": {
+      "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+      "expected_revision": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+      "tracked_files_unchanged": true
+    },
+    "batteries": {
+      "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+      "expected_revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+      "tracked_files_unchanged": true
+    },
+    "Cli": {
+      "revision": "6130a47896ce867c6a4a55373441e59e565bad0f",
+      "expected_revision": "6130a47896ce867c6a4a55373441e59e565bad0f",
+      "tracked_files_unchanged": true
+    }
+  }
+}
