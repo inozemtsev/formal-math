@@ -1,7 +1,6 @@
 # Mathematical sources and provenance
 
 Proof development and formalization: **gpt-6 astra**.
-I directed the work and maintain the project.
 
 During the final formalization stage, the agent found **Jizhou Guo**'s
 manuscript *Shifted primes with a prescribed parity of the number of prime
@@ -22,6 +21,22 @@ parity, squarefreeness or quantitative assertion in the cited sources.
 Mathematical novelty and priority have not been established by a comprehensive
 literature search and are not claimed. The source relationships and limitations
 are also recorded in [formalization.yaml](formalization.yaml).
+
+## Verification status of the OpenAI sources
+
+The mathematical strategy and supporting arguments build on the two OpenAI
+manuscripts cited below. Their
+[accompanying README](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/README.md)
+describes results at different stages of verification and warns that some
+unformalized results may contain errors. No independent human verification
+of these source manuscripts is claimed here.
+
+The supporting inputs needed for the two Green64 statements are proved in
+the included Lean development. The completed axiom audit reports only
+`propext`, `Quot.sound`, and `Classical.choice`. The scope and limitations of
+the machine checks are recorded in [VERIFICATION.md](VERIFICATION.md).
+Those checks do not establish every claim of the source manuscripts or
+constitute independent human review of their mathematics.
 
 ## Pinned mathematical sources
 

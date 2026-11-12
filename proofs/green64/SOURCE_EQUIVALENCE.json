@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_utc": "2026-11-12T22:27:23.302164+00:00",
+  "checked_utc": "2026-11-12T22:46:48.027485+00:00",
   "audited_preparation_commit": "1ecdaed9f4c4fb9b792cbd6cb8f89b5624f8790f",
   "validation_sha256": "e03533f41ac85bcefb01459f1e4d4fb8f22734669be73ec97a31cabdf01f6dc2",
   "kernel_validation_sha256": "fc40c599a1c0be5325613d88f06e8e7fba1b1697f832b0200eaec4e39bda0277",
@@ -978,7 +978,7 @@
   "descriptive_metadata_changes": {
     "formalization.yaml": {
       "audited_sha256": "5ec2eceb053cb7cd5cdfe71c99cf7d1b31527d38bdd85878acb6d1ef7b23197c",
-      "submission_sha256": "096eabe7f727cc68c36cc80bcf0569cfac9cc2ca84c5279ea01db5f935eef79b"
+      "submission_sha256": "0b2f1938854dbf94371bb6c5ac325f6899019fc7f0f4b89cfe97bb69b7274d5e"
     }
   },
   "scope": "Byte equality of every audited input except descriptive metadata; not a new build or Palomar result."

@@ -50,8 +50,16 @@ No personal assistance by its author is claimed. Mathematical priority and
 novelty have not been established by a comprehensive literature search and
 are not claimed.
 
+The strategy and supporting arguments build on the cited OpenAI manuscripts.
+OpenAI describes results at different stages of verification and warns that
+some unformalized results may contain errors. Independent human verification
+of these manuscripts is not claimed here; see the
+[source-status note](ACKNOWLEDGEMENTS.md#verification-status-of-the-openai-sources).
+The supporting inputs needed for the two submitted Green64 statements are
+proved in the included Lean development.
+
 Proof development and formalization: **gpt-6 astra**.
-I directed the work and maintain the project. No independent human
+No independent human
 mathematical review or Palomar endorsement is claimed.
 
 The statement agrees with `Green64.green_64` in the
