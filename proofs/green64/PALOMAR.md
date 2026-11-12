@@ -11,7 +11,7 @@ The submission selects a commit of `main` using these repository-relative paths:
 
 | Field | Value |
 | --- | --- |
-| Repository | `inozemtsev/gradient-supremum` |
+| Repository | `inozemtsev/formal-math` |
 | Selected project | `proofs/green64` |
 | Comparator configuration | `proofs/green64/comparator.json` |
 | Metadata | `proofs/green64/formalization.yaml` |
