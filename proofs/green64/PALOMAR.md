@@ -87,12 +87,16 @@ memory and 20 GiB of free workspace, and has the same time budget. The
 Namespace runner labels belong to Palomar. The profile is a workflow input,
 not a field in the submitted Comparator configuration.
 
-The current local machine lacks the free workspace required by either profile.
-Its source-build
-and kernel checks remain useful diagnostics, but cannot establish that the
-complete protected workflow fits the registry's resource budget. In
-particular, an incremental build time must not be reported as a fresh
-submission's verification time.
+After clearing reproducible build caches on 12 November 2026, the local
+machine passes the `palomar-standard-v1` capacity check with more than 24 GiB
+of free workspace. Cgroup delegation and the pinned bubblewrap 0.12.0
+namespace test also pass after installation of the official path-specific
+AppArmor profile; see [HOST_PREFLIGHT.json](HOST_PREFLIGHT.json). The Namespace
+profile's CPU and memory requirements remain above this machine's capacity.
+
+These setup checks do not establish that the complete protected workflow
+fits the registry's resource budget. An incremental build time must not
+be reported as a fresh submission's verification time.
 
 ## Full mechanical workflow
 

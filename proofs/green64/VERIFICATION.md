@@ -54,15 +54,18 @@ and 20 GiB minima. These are local environment limitations, not a verdict on
 the proof. The profile and its time budget are described in
 [PALOMAR.md](PALOMAR.md#registry-execution-profile).
 
-The GitHub-hosted `palomar-standard-v1` profile permits this machine's CPU and
-memory capacity, but its actual host preflight also rejected the available
-workspace, which remained below 20 GiB after relocating part of the task's
-generated cache. Neither host-preflight result is a source or kernel check.
+The initial `palomar-standard-v1` preflight also rejected the available
+workspace. After clearing reproducible build caches on 12 November 2026,
+the official capacity check passes with more than 24 GiB free. The profile
+permits the machine's four effective CPUs and approximately 15.4 GiB of
+memory. Cgroup delegation passes as well. [HOST_PREFLIGHT.json](HOST_PREFLIGHT.json)
+records these checks; they are not source or kernel checks.
 
-Local bubblewrap smoke tests also failed because the host did not permit the
-requested namespace setup. No system security settings were changed. The
-public Comparator script continues to require bubblewrap. The successful local
-diagnostic without it does not establish protected-workflow verification.
+The pinned bubblewrap 0.12.0 was built. Its namespace smoke test initially
+failed under the host's AppArmor restriction, then passed after the official
+path-specific profile was installed. Global namespace restrictions were not
+disabled. A complete protected workflow remains to be verified; the earlier
+local diagnostic without the sandbox does not establish that result.
 
 Local diagnostic controls from the pinned Palomar verifier passed on
 12 November 2026. Lean, NanoDa and con-ron accepted the matching valid export

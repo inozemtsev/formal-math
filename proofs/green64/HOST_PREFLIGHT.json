@@ -1,0 +1,24 @@
+{
+  "checked_utc": "2026-11-12T23:04:24.897802+00:00",
+  "verifier_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+  "profile": "palomar-standard-v1",
+  "host_capacity_passed": true,
+  "observed_host": {
+    "architecture": "x86_64",
+    "effective_cpus": 4.0,
+    "memory_bytes": 16539869184,
+    "memory_high_bytes": 15712875724,
+    "memory_max_bytes": 16209071800,
+    "workspace_free_bytes": 26170544128
+  },
+  "cgroup_delegation_probe_passed": true,
+  "bubblewrap": {
+    "version": "0.12.0",
+    "sha256": "0a648eb11ca2a69daf69a176218002539cf4108484a20e87b56ce41b472c2b47",
+    "namespace_smoke_test_passed": true,
+    "apparmor_profile_sha256": "9b2398467b77f34d2e6618238ed07e881016e3761ff0feb988e02aced1ee41f4",
+    "setup": "The official path-specific AppArmor userns profile was installed by the user. Global namespace restrictions were not disabled."
+  },
+  "protected_verification_passed": false,
+  "scope": "Local capacity and sandbox setup checks only; not acceptance of the proof or registration with Palomar."
+}
