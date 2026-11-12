@@ -1,0 +1,101 @@
+{
+  "passed": true,
+  "status": "passed_local_diagnostic",
+  "timestamp_utc": "2026-11-12T20:35:31.720287+00:00",
+  "completed_utc": "2026-11-12T21:07:44.575330+00:00",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "scope": "Statement comparison and replay of the exported theorem dependency closure. This is not a whole-import replay or protected Palomar verification.",
+  "driver_sha256": "b1e8f5efc1e9820930b8ce715c10f0a60c61202ff6bc1a1668a3d75295374f41",
+  "verifier_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+  "compiler_version": "Lean (version 4.35.0-rc2, x86_64-unknown-linux-gnu, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)",
+  "validation_sha256": "e03533f41ac85bcefb01459f1e4d4fb8f22734669be73ec97a31cabdf01f6dc2",
+  "controls_sha256": "41a4c94c05229c983c09b33d38f22f6a914e83f8699ed0acec34a35ea443e57e",
+  "sandboxed": false,
+  "palomar_verification_claimed": false,
+  "mandatory_comparator_accepted": true,
+  "all_three_kernels_accepted": true,
+  "checks": [
+    {
+      "name": "export-challenge",
+      "exit_code": 0,
+      "seconds": 3.004,
+      "stdout_sha256": "bdb6373fa33b7b802798c074907d0c6d61c28dbb9687a494c821581b969238e5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 11824873,
+      "stop_reason": null
+    },
+    {
+      "name": "export-solution",
+      "exit_code": 0,
+      "seconds": 195.064,
+      "stdout_sha256": "e26307a61403afaf8d2fc0697eec12d2a659f47224235c181dcfb75b5387149d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 2394876804,
+      "stop_reason": null
+    },
+    {
+      "name": "comparator",
+      "exit_code": 0,
+      "seconds": 902.343,
+      "stdout_sha256": "5b304adfe00c8107856812ee5184f11fcb2582fe7931ce1f2038375a4cce8171",
+      "stderr_sha256": "f5116b885fb9675a2e3518a60a8f0540ad3b6bd72e6ca28a52db834ec4cccf96",
+      "stdout_bytes": 173,
+      "stop_reason": null,
+      "stdout": "Running nanoda kernel on solution\nnanoda kernel accepts the solution\nRunning Lean default kernel on solution\nLean default kernel accepts the solution\nYour solution is okay!\n",
+      "stderr": "WARNING: Sandbox disabled, this run is not trustworthy.\n"
+    },
+    {
+      "name": "con-ron",
+      "exit_code": 0,
+      "seconds": 829.271,
+      "stdout_sha256": "434a492f027540ccc7220439103296a596d7718a98f2c570e0aec4b443c82e67",
+      "stderr_sha256": "b765c67dc18be0dc15dcc90598f61f229ab4784e48fadf939807cea16858ae8c",
+      "stdout_bytes": 51,
+      "stop_reason": null,
+      "stdout": "con-ron: accepted 142651 declarations (--verified)\n",
+      "stderr": "con-ron: 1 inductive blocks modelled in-process: Lean.Syntax (30 generated records, checked by the fold as declarations and not counted as records of the file)\n"
+    }
+  ],
+  "exports": {
+    "challenge": {
+      "sha256": "bdb6373fa33b7b802798c074907d0c6d61c28dbb9687a494c821581b969238e5",
+      "bytes": 11824873
+    },
+    "solution": {
+      "sha256": "e26307a61403afaf8d2fc0697eec12d2a659f47224235c181dcfb75b5387149d",
+      "bytes": 2394876804
+    }
+  },
+  "tool_sha256": {
+    "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+    "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+    "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+    "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+    "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8",
+    "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef"
+  },
+  "con_ron_jobs": 1,
+  "local_check_budget_seconds": 19800,
+  "budget_scope": "Export and kernel diagnostics only; excludes the source build and audit.",
+  "seconds": 1932.856,
+  "mandatory_kernel_acceptance_reported": {
+    "nanoda": true,
+    "Lean default": true
+  },
+  "con_ron": {
+    "name": "con-ron",
+    "status": "accepted",
+    "reason": "complete",
+    "exit_code": 0,
+    "detail": "con-ron: accepted 142651 declarations (--verified)\n\ncon-ron: 1 inductive blocks modelled in-process: Lean.Syntax (30 generated records, checked by the fold as declarations and not counted as records of the file)",
+    "budget_seconds": 1800
+  },
+  "source_unchanged_during_check": true,
+  "max_resident_kib": 9963524,
+  "kernel_acceptance_reported": {
+    "nanoda": true,
+    "Lean default": true,
+    "con-ron": true
+  },
+  "private_run_receipt_sha256": "0f05179e735877fa5cc028351392986e98b14cc558072a2fbc5d3727f512ee12"
+}

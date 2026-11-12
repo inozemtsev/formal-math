@@ -1,0 +1,163 @@
+version: v0.4
+
+project:
+  name: "Green's Problem 64: odd prime-factor parity in shifted primes"
+  description: >-
+    There are infinitely many primes p for which p - 2 has an odd number of
+    prime factors, counted with multiplicity. A second theorem gives such
+    a prime above every natural bound and explicitly records p - 2 > 0.
+    Both statements have no additional hypotheses. The standalone Lean
+    development includes its supporting analytic number theory and uses
+    Mathlib as its only direct Lake dependency.
+  authors: [Igor Inozemtsev]
+  responsible_maintainers: [Igor Inozemtsev]
+  license: Apache-2.0
+
+classification:
+  arxiv: [math.NT]
+  msc2020: [11N36, 11N05]
+
+sources:
+  - title: "100 Open Problems, Problem 64"
+    authors: [Ben Green]
+    type: paper
+    id: https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf#problem.64
+    location: "December 2025 revision, page 31, Problem 64"
+    relationship: formalizes
+    author_endorsement: not-contacted
+    note: >-
+      The source poses the infinitude question. This development formalizes
+      its fixed-shift statement with prime factors counted with multiplicity
+      and proves an affirmative answer. The source is not cited as containing
+      this proof. Priority and novelty have not been established by a
+      comprehensive literature search and are not claimed.
+  - title: "Shifted primes with a prescribed parity of the number of prime factors"
+    authors: [Jizhou Guo]
+    type: paper
+    id: https://github.com/aster2024/openai-math-followups/blob/563cece082b628dfe3ba0290c9e4e30b92ffeca6/shifted-prime-parity/source/main.tex
+    location: "October 2026; fixed-shift specialization of the affine-prime-form argument"
+    relationship: adapts
+    author_endorsement: not-contacted
+    note: >-
+      The agent found this manuscript on GitHub during the final stage of
+      formalization and used its exposition to guide the r0 = 20 weight,
+      arithmetic side conditions, full-cell proxies and parameter order.
+      Guo did not participate in the project or provide personal assistance.
+      Earlier work pursued the same fixed-shift strategy from the
+      common OpenAI sources. The broader shift, parity, squarefreeness and
+      quantitative claims in this paper are not all formalized here. The
+      retained source was hash-checked; the original URL returned 404 on
+      2026-11-12. See ACKNOWLEDGEMENTS.md for the exact source identity.
+  - title: "Prime Predecessors with an Even Number of Prime Factors"
+    authors: [OpenAI]
+    type: paper
+    id: https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Prime-Predecessors-with-an-Even-Number-of-Prime-Factors-September-17-2026/build/main.tex
+    relationship: adapts
+    author_endorsement: not-contacted
+    note: >-
+      Source of the parity-selecting weight, prime-slot correlation method
+      and weighted prime-extraction architecture, adapted to p - 2.
+  - title: "Weighted dilation graphs, smooth shifted primes and totient fibers"
+    authors: [OpenAI]
+    type: paper
+    id: https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Weighted-Dilation-Graphs-Smooth-Shifted-Primes-and-Totient-Fibers-September-24-2026
+    relationship: builds-on
+    author_endorsement: not-contacted
+    note: >-
+      Source of supporting dilation-graph, correlation, sieve and ordinary
+      cell-approximation arguments. Required inputs are proved in the
+      included Lean development rather than introduced as axioms.
+
+related_formalizations:
+  - id: https://github.com/google-deepmind/formal-conjectures/blob/a425ca3eb797fe927cb88c950565fdcbbbbada70/FormalConjectures/GreensOpenProblems/64.lean
+    relationship: other
+    note: >-
+      The main proposition matches Green64.green_64 in this statement
+      collection. Its utility package is not imported here.
+  - id: https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a
+    relationship: builds-on
+    note: "Adapted supporting analysis and number theory; see THIRD_PARTY.md."
+  - id: https://github.com/AlexKontorovich/PrimeNumberTheoremAnd/tree/c39a751132c88b6e8080b74c74023fd95b3d8be0
+    relationship: builds-on
+    note: "Locally included analytic prime-number-theorem sources; see THIRD_PARTY.md."
+  - id: https://github.com/abenenson/rellich-kondrachov/tree/70f85d4c1bf99c6e7d61e8be4daa6f3664d08d23
+    relationship: builds-on
+    note: "Locally included compactness and Sobolev lemmas; see THIRD_PARTY.md."
+  - id: https://github.com/lixiang90/chen_theorem/tree/11dcca8fc3ab340358503278c46d72aef072a6e7
+    relationship: adapts
+    note: >-
+      Supporting character-sum, zero-free-region and sieve formalizations.
+      Redistribution permission for sources outside its explicitly licensed
+      incorporated subtrees remains unresolved. A licence clarification
+      request was sent to the repository maintainer by email on 2026-11-12;
+      a reply and permission are pending. See THIRD_PARTY.md.
+
+status:
+  scope: >-
+    The infinitude statement for p - 2 and an unbounded-witness statement
+    are the principal claims. Subtraction is in the natural numbers, and
+    Omega is Mathlib's cardFactors. The witness statement includes positivity
+    of p - 2. Thresholds in the analytic argument are eventual; no explicit
+    numerical threshold is asserted. The Challenge's two deliberate proof
+    holes are excluded from the proof-development counts below.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: [propext, Classical.choice, Quot.sound]
+  known_gaps: >-
+    The local source and kernel checks are recorded in VERIFICATION.md.
+    SOURCE_EQUIVALENCE.json records the unchanged formal inputs and the
+    descriptive metadata changes since those checks. They are not protected
+    Palomar verification or editorial review. The third-party permission
+    issue documented in THIRD_PARTY.md remains unresolved. The repository
+    maintainer was contacted by email on 2026-11-12; a reply and permission
+    are pending. The request is not a licence grant or endorsement. The full
+    informal proof and article are outside this submitted version.
+
+automation:
+  methods:
+    - method: agent
+      models: [gpt-6 astra]
+      framework: Codex
+      tool_setup: >-
+        AI proof development and Lean formalization, followed by local
+        compilation, exact-statement tests and axiom audits.
+    - method: agent
+      framework: Codex
+      tool_setup: >-
+        Local packaging, module-system migration and preparation of Markdown
+        and TeX exposition from the Lean development and matching Markdown.
+  notes: >-
+    Proof and formalization credit: gpt-6 astra. Igor Inozemtsev directed the
+    work and maintains the project. AI systems are credited here rather than
+    listed as human authors. No independent human mathematical review is
+    claimed. Exact current validation results belong in VERIFICATION.md.
+
+fidelity:
+  divergences: >-
+    The main proposition is the fixed-shift question stated as an affirmative
+    infinitude theorem. It has no extra hypotheses. The additional witness
+    theorem makes unboundedness and positivity explicit. Omega counts
+    multiplicities, so p = 11 does not qualify, since Omega(9) = 2.
+
+review:
+  status: agent-reviewed
+  notes: >-
+    Local source compilation, exact-statement checks, axiom audits and
+    independent-kernel checks passed for the formal inputs recorded in
+    VERIFICATION.md. Separate AI first-reader reports concern the article
+    being revised outside this submitted version. No human peer review or
+    Palomar endorsement is claimed.
+
+alignment:
+  namespace: Green64
+  statements:
+    - source: "100 Open Problems, Problem 64"
+      lean: Green64.green_64
+      module: Green64.Main
+      status: proved
+      note: "The proposition uses Nat.Prime and Mathlib's cardFactors without hypotheses."
+    - source: "Unbounded-witness form of Problem 64"
+      lean: Green64.primes_unbounded
+      module: Green64.Main
+      status: proved
+      note: "For every natural bound, supplies a larger prime and records p - 2 > 0."
