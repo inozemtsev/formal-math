@@ -1,0 +1,662 @@
+\hypertarget{source-correspondence}{%
+\section{Further source correspondence}\label{source-correspondence}}
+
+\Needspace{10\baselineskip}
+
+\hypertarget{correlation-source-correspondence}{%
+\subsection{Replacing prime and roughness
+tests}\label{correlation-source-correspondence}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Text
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Definitions and proved identities
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+(C1)--(C3), complete-cell discrepancies &
+\href{../Green64/Library/Weights/Part012.lean}{\nolinkurl{Weights/Part012}}:
+{\small\nolinkurl{sourceD20Rough}},
+{\small\nolinkurl{sourceD20LogCell}},
+{\small\nolinkurl{sourceD20FullProxy}},
+{\small\nolinkurl{sourceD20FullDelta}},
+{\small\nolinkurl{sourceD20_full_delta_zero}};
+\href{../Green64/Library/Analysis/Estimates/Part005.lean}{\nolinkurl{Estimates/Part005}}:
+{\small\nolinkurl{sourceD20_principal_interval_bound}},
+{\small\nolinkurl{sourceD20_mesh_scalar}},
+{\small\nolinkurl{sourceD21_full_nonprincipal_saving}};
+\href{../Green64/Library/Analysis/Estimates/PrimeFineProxy.lean}{\nolinkurl{PrimeFineProxy}}:
+{\small\nolinkurl{b627PrimeFullProxy434}},
+{\small\nolinkurl{b627_actual_fine_rough_all_character_saving434}},
+{\small\nolinkurl{b627_prime_full_delta_eq_actual_rough434}} \\
+(C5)--(C6), common bilinear precision &
+\href{../Green64/Library/Sieve/Foundations/Part050.lean}{\nolinkurl{Foundations/Part050}}:
+{\small\nolinkurl{parity_original_TypeII_target_K0_precision_compatible434}},
+{\small\nolinkurl{parity_eventually_original_signed_quarter_b629_fine_one_slot_Psi_Mellin_source_anylog_common_precision434}};
+the exponents are defined in
+\href{../Green64/Library/Sieve/Foundations/Part013.lean}{\nolinkurl{Foundations/Part013}}:
+{\small\nolinkurl{parityOriginalW1PolylogExponent434}},
+\href{../Green64/Library/Sieve/Foundations/Part011.lean}{\nolinkurl{Part011}}:
+{\small\nolinkurl{parityOriginalSelectedECoefficientPolylogExponent434}},
+and
+\href{../Green64/Library/Sieve/Foundations/Part010.lean}{\nolinkurl{Part010}}:
+{\small\nolinkurl{parityOriginalB590FixedFourierPolynomialExponent434}} \\
+(C7)--(C8), two replacements and dyadic partition &
+\href{../Green64/Library/Sieve/Foundations/Part045.lean}{\nolinkurl{Foundations/Part045}}:
+{\small\nolinkurl{parity_original_actual_fullcell_proxy_beta_norm_le_two434}},
+{\small\nolinkurl{parity_original_actual_second_proxy_beta_half_norm_le_one434}};
+\href{../Green64/Library/Sieve/Foundations/Part050.lean}{\nolinkurl{Foundations/Part050}}:
+{\small\nolinkurl{parity_original_parity_positive_Icc_eq_quarter_nested_sources434}} \\
+(C9)--(C12), total error and normalization &
+\href{../Green64/Library/Sieve/Foundations/Part053.lean}{\nolinkurl{Foundations/Part053}}:
+{\small\nolinkurl{requiredProxyError}},
+{\small\nolinkurl{allOrdersProxyError}},
+{\small\nolinkurl{parity_eventually_original_sieve_all_proxy_errors434}},
+{\small\nolinkurl{parity_original_littleO_exp222_to_Xrho434}};
+\href{../Green64/Sieve/Parameters.lean}{\nolinkurl{Parameters}}:
+{\small\nolinkurl{proxy_parameters_exist}} \\
+\end{longtable}
+
+\Needspace{10\baselineskip}
+
+\hypertarget{bilinear-source-correspondence}{%
+\subsection{The bilinear
+reduction}\label{bilinear-source-correspondence}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Argument
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Lean source
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Common-precision rectangle statement &
+\href{../Green64/Library/Sieve/Foundations/Part050.lean}{\nolinkurl{Foundations/Part050}}:
+{\small\nolinkurl{parity_eventually_original_signed_quarter_b629_fine_one_slot_Psi_Mellin_source_anylog_common_precision434}} \\
+Smooth allocation functions &
+\href{../Green64/Library/Weights/Part003.lean}{\nolinkurl{Weights/Part003}}:
+{\small\nolinkurl{sourceBufferedGateReal}} \\
+Slot ordering and frequency scales &
+\href{../Green64/Library/Correlation/Part065.lean}{\nolinkurl{Correlation/Part065}}:
+{\small\nolinkurl{sourceOrderedLabels}},
+{\small\nolinkurl{sourceActualSortedFrequencyScales}} \\
+Prefix bounds, partition, and the exponent \(88\) &
+\href{../Green64/Library/Weights/Part117.lean}{\nolinkurl{Weights/Part117}} \\
+Fourier phases and endpoint sums &
+\href{../Green64/Library/Weights/Part020.lean}{\nolinkurl{Weights/Part020}},
+\href{../Green64/Library/Sieve/Foundations/Part009.lean}{\nolinkurl{Foundations/Part009}},
+\href{../Green64/Library/Sieve/Foundations/Part011.lean}{\nolinkurl{Part011}} \\
+Intrinsic \(H\) and \(a_v\) &
+\href{../Green64/Library/Sieve/Foundations/Part017.lean}{\nolinkurl{Foundations/Part017}}:
+{\small\nolinkurl{parityOriginalIntrinsicH434}},
+{\small\nolinkurl{parityOriginalIntrinsicSignedAV434}} \\
+Windowed \(a_e\) and source comparison &
+\href{../Green64/Library/Sieve/Foundations/Part018.lean}{\nolinkurl{Foundations/Part018}}:
+{\small\nolinkurl{parityOriginalHistoricalWindowAE434}} \\
+Finite \(\mathcal B'\) and divisor-moment diagonal &
+\href{../Green64/Library/Sieve/Foundations/Part032.lean}{\nolinkurl{Foundations/Part032}}:
+{\small\nolinkurl{parityOriginalHistoricalUngatedCauchyAtDeltaNoUCap434}} \\
+Smooth square and exact off-diagonal &
+\href{../Green64/Library/Sieve/Foundations/Part022.lean}{\nolinkurl{Foundations/Part022}},
+\href{../Green64/Library/Sieve/Foundations/Part025.lean}{\nolinkurl{Part025}},
+\href{../Green64/Library/Sieve/Foundations/Part028.lean}{\nolinkurl{Part028}} \\
+Shift coordinates and residue mask &
+\href{../Green64/Library/Sieve/Foundations/Part019.lean}{\nolinkurl{Foundations/Part019}},
+\href{../Green64/Library/Sieve/Foundations/Part029.lean}{\nolinkurl{Part029}},
+\href{../Green64/Library/Weights/Part005.lean}{\nolinkurl{Weights/Part005}} \\
+Exact two-endpoint cofactor identity &
+\href{../Green64/Library/Weights/Part102.lean}{\nolinkurl{Weights/Part102}}:
+{\small\nolinkurl{b633_parity_full_physical_pair434}} \\
+Physical correlation saving (B18) &
+\href{../Green64/Library/Sieve/Foundations/Part008.lean}{\nolinkurl{Foundations/Part008}}:
+{\small\nolinkurl{parity_eventually_actual_original_Parity417_physical_cofactor_saving_common_precision434}} \\
+Actual Fourier moments (B19a) and the extra precision in (B19b) &
+\href{../Green64/Library/Sieve/Foundations/Part026.lean}{\nolinkurl{Foundations/Part026}}:
+{\small\nolinkurl{parity_original_historical_full_odd_3d_fourier_moment_uniform_polylog434}};
+\href{../Green64/Library/Sieve/Foundations/Part032.lean}{\nolinkurl{Part032}}:
+{\small\nolinkurl{parity_original_historical_box_source_BH_uniform_polylog434}};
+\href{../Green64/Library/Sieve/Foundations/Part037.lean}{\nolinkurl{Part037}}:
+{\small\nolinkurl{parity_original_actual_capfree_Bprime_M0_uniform_polylog434}},
+{\small\nolinkurl{parity_original_actual_capfree_Bprime_primary_inverse_log_from_M0434}} \\
+Fourier ball, tails, and common precision &
+\href{../Green64/Library/Sieve/Foundations/Part046.lean}{\nolinkurl{Foundations/Part046}},
+\href{../Green64/Library/Sieve/Foundations/Part049.lean}{\nolinkurl{Part049}},
+\href{../Green64/Library/Sieve/Foundations/Part050.lean}{\nolinkurl{Part050}} \\
+\end{longtable}
+
+\Needspace{10\baselineskip}
+
+\hypertarget{marked-correlation-correspondence-with-lean}{%
+\subsection{Cancellation in the marked
+correlation}\label{marked-correlation-correspondence-with-lean}}
+
+The transfer formulas have the following more detailed correspondence.
+Here {\small\nolinkurl{k}} in a local operator declaration means
+\(s=2k\) in (B14), {\small\nolinkurl{rho}} in the memory declarations
+means \(\rho_0\) (not parity), and {\small\nolinkurl{mu}} in a
+physical-state declaration is the tilted law (T2).
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Text and mathematical operation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Definitions and proved identities
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+(M0), arbitrary joint endpoint tests and permutation averaging &
+\href{../Green64/Library/Weights/Part090.lean}{\nolinkurl{Weights/Part090}}:
+{\small\nolinkurl{sourceOriginalUnfilteredIdealEndpointMean434}};
+\href{../Green64/Library/Weights/Part091.lean}{\nolinkurl{Part091}}:
+{\small\nolinkurl{source_original_unfiltered_ideal_ENDPOINT_PAIR_MEAN434}} \\
+(M0a), the phase and the asymmetric splice in (T7) &
+\href{../Green64/Library/Weights/Part024.lean}{\nolinkurl{Weights/Part024}}:
+{\small\nolinkurl{originalEdgeScalar}};
+\href{../Green64/Library/Weights/Part091.lean}{\nolinkurl{Part091}}:
+{\small\nolinkurl{sourceOriginalUnfilteredIdealHeadPhase434}},
+{\small\nolinkurl{source_original_unfiltered_ideal_raw_splice_phase434}} \\
+(M4a), product matching and the resampling reference &
+\href{../Green64/Library/Weights/Part091.lean}{\nolinkurl{Weights/Part091}}:
+{\small\nolinkurl{source_original_unfiltered_ideal_raw_splice_phase434}};
+\href{../Green64/Library/Weights/Part092.lean}{\nolinkurl{Part092}}:
+{\small\nolinkurl{source_original_unfiltered_ideal_RAW_FORM_RESIDUAL434}}
+(the displayed matching kernel explains the finite product-law
+substitution in these identities) \\
+(T1)--(T3), actual state spaces and measures &
+\href{../Green64/Library/Analysis/Estimates/Part003.lean}{\nolinkurl{Estimates/Part003}}:
+{\small\nolinkurl{SmallState}}, {\small\nolinkurl{stateMass}};
+\href{../Green64/Library/Weights/Part002.lean}{\nolinkurl{Weights/Part002}}:
+{\small\nolinkurl{FockState}}, {\small\nolinkurl{fockMass}},
+{\small\nolinkurl{BigState}}, {\small\nolinkurl{bigStateMass}};
+\href{../Green64/Library/Correlation/Part006.lean}{\nolinkurl{Correlation/Part006}}:
+{\small\nolinkurl{physicalSourceBaseline}},
+{\small\nolinkurl{physicalSourceMuTilde}} \\
+(T4), quotient map, mass and norm &
+\href{../Green64/Library/Correlation/Part005.lean}{\nolinkurl{Correlation/Part005}}:
+{\small\nolinkurl{physicalFockProjection}},
+{\small\nolinkurl{physicalOrbitMass}};
+\href{../Green64/Library/Correlation/Part006.lean}{\nolinkurl{Part006}}:
+{\small\nolinkurl{fullPhysicalOrbitAverage}};
+\href{../Green64/Library/Weights/Part093.lean}{\nolinkurl{Weights/Part093}}:
+{\small\nolinkurl{sourceOriginalUnfilteredIdealOrbitEnergy434}} \\
+(T5), legal transitions, fresh births and the two OLD gates &
+\href{../Green64/Library/Weights/Part002.lean}{\nolinkurl{Weights/Part002}}:
+{\small\nolinkurl{PhysicalEdgeLegal}},
+{\small\nolinkurl{physicalBigBranchCoefficient}};
+\href{../Green64/Library/Weights/Part024.lean}{\nolinkurl{Part024}}:
+{\small\nolinkurl{sourceOrientedPhysicalCoefficient}};
+\href{../Green64/Library/Weights/Part093.lean}{\nolinkurl{Part093}}:
+{\small\nolinkurl{sourceOriginalUnfilteredEdgeLiteralKeep434}},
+{\small\nolinkurl{sourceOriginalUnfilteredEdgeSeenErasedPhase434}} \\
+(T6)--(T7), frozen form and raw/comparison/ban identity &
+\href{../Green64/Library/Correlation/B26FrozenCleanPhysicalFourier.lean}{\nolinkurl{B26FrozenCleanPhysicalFourier}}:
+{\small\nolinkurl{sourceOriginalB26FrozenFreshLaw434}},
+{\small\nolinkurl{sourceOriginalB26FrozenBigWeight434}};
+\href{../Green64/Library/Weights/Part092.lean}{\nolinkurl{Weights/Part092}}:
+{\small\nolinkurl{source_original_unfiltered_ideal_FULL_FROZEN_PAIR434}},
+{\small\nolinkurl{eventually_source_original_unfiltered_ideal_FULL_UNIT434}} \\
+(T8)--(T12), common density, fresh collisions and exact three-term
+identity &
+\href{../Green64/Library/Weights/Part090.lean}{\nolinkurl{Weights/Part090}}:
+{\small\nolinkurl{source_original_unfiltered_ideal_COMMON_ENERGY434}},
+{\small\nolinkurl{source_original_unfiltered_ideal_PHYSICAL_COMMON_DENSITY434}};
+\href{../Green64/Library/Weights/Part092.lean}{\nolinkurl{Part092}}:
+{\small\nolinkurl{source_original_physical_FROZEN_BAD_FAMILY434}};
+\href{../Green64/Library/Weights/Part094.lean}{\nolinkurl{Part094}}:
+{\small\nolinkurl{source_original_physical_EXACT_THREE_TERM434}},
+{\small\nolinkurl{eventually_source_original_physical_FULL_TILTED_NODUP_BIG434}} \\
+(T13)--(T15), SMALL fibres and Fourier transform of the actual
+translation &
+\href{../Green64/Library/Weights/B26CleanSmallCoherentPairing.lean}{\nolinkurl{B26CleanSmallCoherentPairing}}:
+{\small\nolinkurl{sourceOriginalB26SmallLift434}},
+{\small\nolinkurl{source_original_B26_MOVING_SMALL_CLEAN_FRAME_PAIR434}},
+{\small\nolinkurl{source_original_B26_ORIGINAL_CLEAN_SMALL_FOURIER434}} \\
+(T16)--(T17), both endpoint energies and orbit transfer &
+\href{../Green64/Library/Analysis/Estimates/Part013.lean}{\nolinkurl{Estimates/Part013}}:
+{\small\nolinkurl{source_original_B26_SMALL_OLD_TRANSFER434}};
+\href{../Green64/Library/Weights/Part091.lean}{\nolinkurl{Weights/Part091}}:
+{\small\nolinkurl{source_original_unfiltered_ideal_LITERAL_SECTOR_TRANSFER434}};
+\href{../Green64/Library/Correlation/Part063.lean}{\nolinkurl{Correlation/Part063}}:
+{\small\nolinkurl{eventually_source_original_physical_FULL_SEEN_ERASED_CLEAN434}} \\
+(M11)--(M13), exceptional transitions; (T18)--(T19), full local estimate
+&
+\href{../Green64/Library/Correlation/Part062.lean}{\nolinkurl{Correlation/Part062}}:
+{\small\nolinkurl{source_original_edge_LITERAL_DIRTY_FINITE434}};
+\href{../Green64/Library/Weights/Part094.lean}{\nolinkurl{Weights/Part094}}:
+{\small\nolinkurl{eventually_source_original_edge_SOURCE_PHASED_BOUNDS434}};
+\href{../Green64/Library/Correlation/Part065.lean}{\nolinkurl{Correlation/Part065}}:
+{\small\nolinkurl{eventually_source_original_edge_FULL_NEAR_CONTRACTION434}},
+{\small\nolinkurl{eventually_source_original_root_SOURCE_LOCAL_BANKS434}} \\
+(T20), background births, signs and factorials &
+\href{../Green64/Library/Weights/Part002.lean}{\nolinkurl{Weights/Part002}}:
+{\small\nolinkurl{sourceGhostTerm}};
+\href{../Green64/Library/Correlation/Part005.lean}{\nolinkurl{Correlation/Part005}}:
+{\small\nolinkurl{physicalVisitGKernel}};
+\href{../Green64/Library/Weights/Part094.lean}{\nolinkurl{Weights/Part094}}:
+{\small\nolinkurl{source_original_evolution_FINAL_G_ENERGY434}} \\
+(T21)--(T23), all moment constants &
+\href{../Green64/Library/Correlation/Part005.lean}{\nolinkurl{Correlation/Part005}}:
+{\small\nolinkurl{memorySmallRowConstant}},
+{\small\nolinkurl{memoryPromotionDampingConstant}};
+\href{../Green64/Library/Correlation/Part062.lean}{\nolinkurl{Part062}}:
+{\small\nolinkurl{sourceOriginalRootPinnedRowBudget434}};
+\href{../Green64/Library/Weights/Part072.lean}{\nolinkurl{Weights/Part072}}:
+{\small\nolinkurl{sourceOriginalActualSourceSignedInitialSmallMass434}};
+\href{../Green64/Library/Weights/Part093.lean}{\nolinkurl{Part093}}:
+{\small\nolinkurl{sourceOriginalUnfilteredEdgeExponent434}};
+\href{../Green64/Library/Weights/Part094.lean}{\nolinkurl{Part094}}:
+{\small\nolinkurl{source_original_global_root_PREFACTOR434}} \\
+(T24)--(T25), prime lifespans and the exact residue model &
+\href{../Green64/Library/Correlation/Part009.lean}{\nolinkurl{Correlation/Part009}}:
+{\small\nolinkurl{memoryAbsentTerm}},
+{\small\nolinkurl{memoryRepresentedTerm}};
+\href{../Green64/Library/Correlation/Part010.lean}{\nolinkurl{Part010}}:
+{\small\nolinkurl{memory_frozen_prime_all_lifespans}},
+{\small\nolinkurl{memory_frozen_prime_supported_normal_form}};
+\href{../Green64/Library/Correlation/Part025.lean}{\nolinkurl{Part025}}:
+{\small\nolinkurl{memory_source_root_actual_prime_product_exact}};
+\href{../Green64/Library/Correlation/Part027.lean}{\nolinkurl{Part027}}:
+{\small\nolinkurl{memory_source_original_physical_root_eq_frozen_Haar}} \\
+(M16a)--(M19), same-integer densities and signed transfer &
+\href{../Green64/Library/Weights/WeightedActualPaths.lean}{\nolinkurl{WeightedActualPaths}}:
+{\small\nolinkurl{b645ActualMarkedPathModel434}},
+{\small\nolinkurl{b645_eventually_actual_weighted_paths_CRT434}};
+\href{../Green64/Library/Weights/Part073.lean}{\nolinkurl{Weights/Part073}}:
+{\small\nolinkurl{b645_eventually_actual_parity_physical_root_transfer434}},
+{\small\nolinkurl{b654_actual_parity_moment_eq_return434}};
+\href{../Green64/Library/Correlation/Part042.lean}{\nolinkurl{Correlation/Part042}}:
+{\small\nolinkurl{b650_physical_root_moment_array434}};
+\href{../Green64/Library/Weights/Part048.lean}{\nolinkurl{Weights/Part048}}:
+{\small\nolinkurl{b654ParityIntervalWindow434}},
+{\small\nolinkurl{b654ParitySeedPositions434}} \\
+(M20), spectral interpolation and position blocks &
+\href{../Green64/Library/Weights/Part005.lean}{\nolinkurl{Weights/Part005}}:
+{\small\nolinkurl{b652_mark_independent_position_endpoint434}} \\
+(M20a), the full path window and fixed endpoint bounds &
+\href{../Green64/Library/Weights/ParityStepCap.lean}{\nolinkurl{ParityStepCap}}:
+{\small\nolinkurl{b651ParityDConstant434}},
+{\small\nolinkurl{b651ParityMaxStep434}};
+\href{../Green64/Library/Weights/ParityLocalizationWindow.lean}{\nolinkurl{ParityLocalizationWindow}}:
+{\small\nolinkurl{b651ParityWindowSize434}};
+\href{../Green64/Library/Weights/Part109.lean}{\nolinkurl{Weights/Part109}}:
+{\small\nolinkurl{b660_eventually_actual_parity_dyadic_saving434}} (uses
+norm exponent 9 and supremum exponent 5) \\
+(M23a)--(M23b), rank budgets and the coupled auxiliary sum &
+\href{../Green64/Library/Correlation/Part072.lean}{\nolinkurl{Correlation/Part072}}:
+{\small\nolinkurl{parity_canonical_rank_card434}},
+{\small\nolinkurl{parity_eventually_actual_rank_family_budget434}};
+\href{../Green64/Library/Weights/Part112.lean}{\nolinkurl{Weights/Part112}}:
+{\small\nolinkurl{parity_actual_rank_aux_coupled_reindex434}};
+\href{../Green64/Library/Weights/Part111.lean}{\nolinkurl{Weights/Part111}}:
+{\small\nolinkurl{parity_fixed_rank_cutoff_pair_budget434}} \\
+(M23c)--(M23f), exact endpoints, shared restoration and the
+free-auxiliary error &
+\href{../Green64/Library/Weights/Part046.lean}{\nolinkurl{Weights/Part046}}:
+{\small\nolinkurl{parityFirstRankMark434}},
+{\small\nolinkurl{paritySecondRankMark434}};
+\href{../Green64/Library/Correlation/Part072.lean}{\nolinkurl{Correlation/Part072}}:
+{\small\nolinkurl{parityActualRankEndpoint434}},
+{\small\nolinkurl{parity_eventually_comparison_weighted_restored434}};
+\href{../Green64/Library/Weights/WeightedStrippedRank.lean}{\nolinkurl{WeightedStrippedRank}}:
+{\small\nolinkurl{parity_actual_weighted_stripped_rank_difference434}};
+\href{../Green64/Library/Weights/Part113.lean}{\nolinkurl{Weights/Part113}}:
+{\small\nolinkurl{parity_eventually_actual_free_collision_pair_bound434}};
+\href{../Green64/Library/Weights/FreeAuxCollisionJoin.lean}{\nolinkurl{FreeAuxCollisionJoin}}:
+{\small\nolinkurl{parity_actual_stripped_family_rank_main_difference434}} \\
+(M23g)--(M23i), Mellin-circle pairing with the full auxiliary product &
+\href{../Green64/Library/Analysis/Estimates/RankFourier.lean}{\nolinkurl{RankFourier}}:
+{\small\nolinkurl{parity_actual_rank_pair_fourier434}};
+\href{../Green64/Library/Analysis/Estimates/Part016.lean}{\nolinkurl{Estimates/Part016}}:
+{\small\nolinkurl{parity_actual_weighted_cell_rank_main_mellin434}},
+{\small\nolinkurl{parity_actual_cell_rank_family_circle434}},
+{\small\nolinkurl{parity_actual_cell_coupled_kernel_norm434}} \\
+\end{longtable}
+
+The chapter follows the finite constructions and their estimates in the
+following files. These references identify the proof being explained;
+the mathematical argument above uses the displayed identities and
+inequalities.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Step
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Included Lean source
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Hoeffding components and (M1) &
+\href{../Green64/Library/Weights/Part017.lean}{\nolinkurl{Weights/Part017}},
+{\small\nolinkurl{source_original_hoeffding_physical_all_degree_saving434}} \\
+Actual BIG block sizes &
+\href{../Green64/Library/Weights/Part100.lean}{\nolinkurl{Weights/Part100}} \\
+Alternating identity and its squared bound &
+\href{../Green64/Library/Weights/Part092.lean}{\nolinkurl{Weights/Part092}},
+{\small\nolinkurl{source_original_unfiltered_ideal_RAW_FORM_RESIDUAL434}} \\
+Character Gram matrices &
+\href{../Green64/Library/Correlation/Part037.lean}{\nolinkurl{Correlation/Part037}} \\
+Global kernel norm &
+\href{../Green64/Library/Weights/ActualGlobalKernelL2.lean}{\nolinkurl{ActualGlobalKernelL2}} \\
+Rational phase, product fibres, and minor arcs &
+\href{../Green64/Library/Correlation/Part039.lean}{\nolinkurl{Correlation/Part039}},
+\href{../Green64/Library/Weights/Part047.lean}{\nolinkurl{Weights/Part047}},
+\href{../Green64/Library/Weights/Part053.lean}{\nolinkurl{Part053}} \\
+Arithmetic mesh choices &
+\href{../Green64/Library/Correlation/Part041.lean}{\nolinkurl{Correlation/Part041}} \\
+SMALL omission uniqueness &
+\href{../Green64/Library/Correlation/Part043.lean}{\nolinkurl{Correlation/Part043}} \\
+OLD, density, and collision corrections &
+\href{../Green64/Library/Correlation/Part062.lean}{\nolinkurl{Correlation/Part062}},
+\href{../Green64/Library/Weights/Part094.lean}{\nolinkurl{Weights/Part094}} \\
+Forest rank split and restoration &
+\href{../Green64/Library/Correlation/GlobalRootScalar.lean}{\nolinkurl{GlobalRootScalar}},
+\href{../Green64/Library/Correlation/Part065.lean}{\nolinkurl{Correlation/Part065}} \\
+Removal of the OLD cutoff &
+\href{../Green64/Library/Weights/Part064.lean}{\nolinkurl{Weights/Part064}},
+\href{../Green64/Library/Weights/Part090.lean}{\nolinkurl{Part090}},
+\href{../Green64/Library/Correlation/Part050.lean}{\nolinkurl{Correlation/Part050}},
+\href{../Green64/Library/Correlation/Part052.lean}{\nolinkurl{Part052}} \\
+Bonferroni--CRT interval estimate &
+\href{../Green64/Library/Correlation/Part035.lean}{\nolinkurl{Correlation/Part035}} \\
+Signed path transfer &
+\href{../Green64/Library/Weights/WeightedActualPaths.lean}{\nolinkurl{WeightedActualPaths}},
+\href{../Green64/Library/Sieve/Foundations/Part005.lean}{\nolinkurl{Foundations/Part005}} \\
+Physical states, matrix entries, and returning paths &
+\href{../Green64/Library/Correlation/Part021.lean}{\nolinkurl{Correlation/Part021}},
+\href{../Green64/Library/Correlation/Part041.lean}{\nolinkurl{Part041}},
+\href{../Green64/Library/Correlation/Part042.lean}{\nolinkurl{Part042}},
+\href{../Green64/Library/Weights/Part073.lean}{\nolinkurl{Weights/Part073}} \\
+Spectral endpoint estimate &
+\href{../Green64/Library/Analysis/Estimates/Part015.lean}{\nolinkurl{Analysis/Estimates/Part015}},
+{\small\nolinkurl{b655_eventually_actual_parity_endpoint_saving434}} \\
+Literal core and ordered-mark weights &
+\href{../Green64/Library/Weights/Part037.lean}{\nolinkurl{Weights/Part037}},
+\href{../Green64/Library/Weights/Part038.lean}{\nolinkurl{Part038}},
+\href{../Green64/Library/Weights/Part044.lean}{\nolinkurl{Part044}} \\
+Marked arc estimate (M25)--(M26) &
+\href{../Green64/Library/Weights/Part045.lean}{\nolinkurl{Weights/Part045}},
+{\small\nolinkurl{eventually_source_original_arc_conclusion434}} \\
+Comparison main term and its subtraction &
+\href{../Green64/Library/Sieve/Foundations/Part007.lean}{\nolinkurl{Foundations/Part007}},
+\href{../Green64/Library/Sieve/Foundations/Part008.lean}{\nolinkurl{Part008}} \\
+Cap and shared-divisor errors &
+\href{../Green64/Library/Weights/Part111.lean}{\nolinkurl{Weights/Part111}},
+\href{../Green64/Library/Weights/Part115.lean}{\nolinkurl{Part115}} \\
+\end{longtable}
+
+\Needspace{10\baselineskip}
+
+\hypertarget{physical-lift-source-correspondence}{%
+\subsection{From one mark to the physical
+matrix}\label{physical-lift-source-correspondence}}
+
+The raw slice is {\small\nolinkurl{parityRawPhysicalSlice434}} in
+\href{../Green64/Library/Correlation/Part072.lean}{\nolinkurl{Correlation/Part072}}.
+The clean identity and (L4) are
+{\small\nolinkurl{parity_raw_clean_slice_exact434}} and
+{\small\nolinkurl{parity_raw_shared_restoration_bound434}} in
+\href{../Green64/Library/Weights/RawSharedRestoration.lean}{\nolinkurl{RawSharedRestoration}}.
+The carrier reindexing is in
+\href{../Green64/Library/Weights/RawSharedCarrier.lean}{\nolinkurl{RawSharedCarrier}},
+and the arithmetic cancellation and original-source identification are
+in
+\href{../Green64/Library/Weights/Part115.lean}{\nolinkurl{Weights/Part115}}.
+The endpoint vectors, removed-product fourth moment, and exact Fourier
+pairing are in
+\href{../Green64/Library/Weights/Part109.lean}{\nolinkurl{Weights/Part109}}.
+
+\Needspace{10\baselineskip}
+
+\hypertarget{forest-moments-source-correspondence}{%
+\subsection{The forest expansion of the history
+sum}\label{forest-moments-source-correspondence}}
+
+The list identity is
+{\small\nolinkurl{source_original_root_LIST_FOREST_EXPANSION434}} in
+\href{../Green64/Library/Weights/Part093.lean}{\nolinkurl{Weights/Part093}}.
+The actual linear functional, exact forest sum, sign-field average,
+owner count and energy iteration are in
+\href{../Green64/Library/Correlation/Part064.lean}{\nolinkurl{Correlation/Part064}},
+especially {\small\nolinkurl{sourceOriginalRootFunctionalRoot434}},
+{\small\nolinkurl{source_original_root_ORIGINAL_FOREST_SUM434}} and
+{\small\nolinkurl{source_original_root_FOREST_FINITE_BOUND434}}. The
+pinned row estimate is
+{\small\nolinkurl{source_original_forest_E_PINNED_FULL_ROW434}} in
+\href{../Green64/Library/Weights/Part090.lean}{\nolinkurl{Weights/Part090}}.
+The full-rank suffix induction and the initial distinctness case are in
+\href{../Green64/Library/Correlation/Part064.lean}{\nolinkurl{Correlation/Part064}};
+the resulting bound (F11) is
+{\small\nolinkurl{eventually_source_original_global_root_SOURCE_HIGH434}}
+in
+\href{../Green64/Library/Correlation/Part065.lean}{\nolinkurl{Correlation/Part065}}.
+
+\Needspace{10\baselineskip}
+
+\hypertarget{local-energy-source-correspondence}{%
+\subsection{From complete-cell discrepancy to additive arc
+energy}\label{local-energy-source-correspondence}}
+
+The local-energy transfer is
+{\small\nolinkurl{source_linear_to_log_arc434}} in
+\href{../Green64/Library/Weights/Part012.lean}{\nolinkurl{Weights/Part012}},
+using {\small\nolinkurl{source_physical_collar_replacement_error434}} in
+\href{../Green64/Library/Analysis/PrimeNumberTheorem/Part003.lean}{\nolinkurl{Analysis/PrimeNumberTheorem/Part003}}.
+The weighted Schur estimate is
+{\small\nolinkurl{source_actual_physical_normalized_L2_schur434}} in
+\href{../Green64/Library/Weights/Part023.lean}{\nolinkurl{Weights/Part023}}.
+The arithmetic identities and (E13) are in
+\href{../Green64/Library/Analysis/Estimates/Part009.lean}{\nolinkurl{Analysis/Estimates/Part009}},
+especially
+{\small\nolinkurl{source_original_global_physical_mellin_exact434}} and
+{\small\nolinkurl{eventually_source_original_global_physical_from_literal_cells434}}.
+The direct low-frequency estimate is in
+\href{../Green64/Library/Analysis/Estimates/SourceLowFrequencyFourFactorIntegral.lean}{\nolinkurl{SourceLowFrequencyFourFactorIntegral}}.
+The three-region argument and retained Fourier frequencies are in
+\href{../Green64/Library/Weights/Part040.lean}{\nolinkurl{Weights/Part040}}.
+The exceptional residual estimates are in
+\href{../Green64/Library/Weights/Part035.lean}{\nolinkurl{Weights/Part035}}
+and
+\href{../Green64/Library/Weights/Part039.lean}{\nolinkurl{Weights/Part039}}.
+The long-prime statement (U1) and its shift are
+{\small\nolinkurl{sourceCorrelationLongPrime_shifted_U1}} in
+\href{../Green64/Library/Correlation/Part002.lean}{\nolinkurl{Correlation/Part002}}.
+The contour bound (U4), its closure (U3)--(U5), and the matching
+zero-free interface are
+{\small\nolinkurl{p1p2_canonical_source_prime_bound}},
+{\small\nolinkurl{sourceLongPrimeU1_of_sourceKhaleZeroFree}}, and
+{\small\nolinkurl{KhalePublished11}} in
+\href{../Green64/Library/Analysis/Estimates/Part003.lean}{\nolinkurl{Estimates/Part003}}.
+The unconditional declaration there,
+{\small\nolinkurl{sourceLongPrimeU1_unconditional}}, obtains (U2) from
+the included stronger theorem
+{\small\nolinkurl{OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re}}
+in
+\href{../Green64/Library/Analysis/NumberTheory/DirichletL/Detector/Part016.lean}{\nolinkurl{Detector/Part016}}.
+The text invokes the weaker, independently published statement (U2); no
+stronger zero-free conclusion is needed for the contour proof. The use
+of (U1) on occupied intervals is in
+\href{../Green64/Library/Analysis/Estimates/Part006.lean}{\nolinkurl{Analysis/Estimates/Part006}}.
+The final four-term estimate is
+{\small\nolinkurl{eventually_source_original_full_additive434}} in
+\href{../Green64/Library/Correlation/Part033.lean}{\nolinkurl{Correlation/Part033}}.
+
+\Needspace{10\baselineskip}
+
+\hypertarget{congruences-source-correspondence}{%
+\subsection{Distribution in residue
+classes}\label{congruences-source-correspondence}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Argument
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Lean source and declaration
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Orthogonality with the nonunit correction &
+\href{../Green64/Library/Weights/Part108.lean}{\nolinkurl{Weights/Part108}}:
+{\small\nolinkurl{source_unit_class_remainder_identity}},
+{\small\nolinkurl{source_shift_two_genuine_remainder_bound}} \\
+Squarefree totient sum &
+\href{../Green64/Library/Weights/Part107.lean}{\nolinkurl{Weights/Part107}}:
+{\small\nolinkurl{source_squarefree_totient_sum_harmonic}} \\
+Rough-support correction &
+\href{../Green64/Library/Weights/Part108.lean}{\nolinkurl{Weights/Part108}}:
+{\small\nolinkurl{shift_two_nonunit_reciprocal_harmonic}},
+{\small\nolinkurl{shift_two_prime_reciprocal_rough_bound}} \\
+Deleted-slot convolution and both masks &
+\href{../Green64/Library/Sieve/Foundations/Part005.lean}{\nolinkurl{Foundations/Part005}}:
+{\small\nolinkurl{source_original_moving_deleted_prime_convolution}},
+{\small\nolinkurl{source_original_conductor_masked_convolution}} \\
+Small conductors and final parameter choice &
+\href{../Green64/Library/Weights/Part108.lean}{\nolinkurl{Weights/Part108}}:
+{\small\nolinkurl{source_original_SW_finite_Echi_eventually}},
+{\small\nolinkurl{source_shift_two_congruence_input_unconditional}} \\
+Large-conductor bilinear estimate &
+\href{../Green64/Library/Weights/Part107.lean}{\nolinkurl{Weights/Part107}},
+with its dyadic expansion in
+\href{../Green64/Library/Weights/Part108.lean}{\nolinkurl{Part108}} \\
+Prime Siegel--Walfisz interface &
+\href{../Green64/Library/Analysis/Estimates/Part005.lean}{\nolinkurl{Analysis/Estimates/Part005}}:
+{\small\nolinkurl{sourcePrimeSiegelWalfisz_unconditional}} \\
+Multiplicative large sieve &
+\href{../Green64/Library/Sieve/Foundation/LargeSieve/Part001.lean}{\nolinkurl{Foundation/LargeSieve/Part001}} \\
+Specialization used in the final argument &
+\href{../Green64/Library/Sieve/Foundations/Part053.lean}{\nolinkurl{Foundations/Part053}}:
+{\small\nolinkurl{parity_original_negative_congruence_D230_bound434}} \\
+\end{longtable}
+
+\Needspace{10\baselineskip}
+
+\hypertarget{block-sieve-source-correspondence}{%
+\subsection{The quantitative finite block
+sieve}\label{block-sieve-source-correspondence}}
+
+The statement and proof are {\small\nolinkurl{weighted_block_sieve}} in
+\href{../Green64/Library/Sieve/Foundations/Part001.lean}{\nolinkurl{Foundations/Part001}}.
+The shifted constant and depth estimates are in
+\href{../Green64/Library/Sieve/Foundations/Part053.lean}{\nolinkurl{Foundations/Part053}}
+and
+\href{../Green64/Library/Sieve/Foundations/Part054.lean}{\nolinkurl{Part054}}.
+The ordinary-rough constant is {\small\nolinkurl{sieveC}} in
+\href{../Green64/Library/Analysis/Estimates/Part003.lean}{\nolinkurl{Analysis/Estimates/Part003}}.
+
+\Needspace{10\baselineskip}
+
+\hypertarget{rectangles-source-correspondence}{%
+\subsection{A positive estimate on factor
+rectangles}\label{rectangles-source-correspondence}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Argument
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Lean source and declaration
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Assignment-mask majorant &
+\href{../Green64/Library/Sieve/Foundations/Part056.lean}{\nolinkurl{Foundations/Part056}}:
+{\small\nolinkurl{parity_original_A0_assignment_mask_majorant434}} \\
+Assignment moments, weighted-fibre reduction, sieve application &
+\href{../Green64/Library/Sieve/Foundations/Part056.lean}{\nolinkurl{Foundations/Part056}} \\
+CRT density and boundary count &
+\href{../Green64/Library/Sieve/Foundations/Part002.lean}{\nolinkurl{Foundations/Part002}},
+\href{../Green64/Library/Weights/Part035.lean}{\nolinkurl{Weights/Part035}} \\
+Finite Brun--Hooley block sieve &
+\href{../Green64/Library/Sieve/Foundations/Part001.lean}{\nolinkurl{Foundations/Part001}} \\
+Euler-product comparison and mask average &
+\href{../Green64/Library/Sieve/Foundations/Part057.lean}{\nolinkurl{Foundations/Part057}} \\
+Complete finite bound (R1) &
+\href{../Green64/Library/Sieve/Foundations/Part057.lean}{\nolinkurl{Foundations/Part057}}:
+{\small\nolinkurl{parity_original_literal_weighted_box_normalized434}} \\
+Error exponents and uniform normalization &
+\href{../Green64/Sieve/BoxRemainder.lean}{\nolinkurl{BoxRemainder}},
+\href{../Green64/Sieve/BoxError.lean}{\nolinkurl{BoxError}},
+\href{../Green64/Sieve/BoxNormalization.lean}{\nolinkurl{BoxNormalization}} \\
+Uniform final statement &
+\href{../Green64/Sieve/WeightedBoxes.lean}{\nolinkurl{WeightedBoxes}}:
+{\small\nolinkurl{weighted_box_bound_uniform}} \\
+\end{longtable}
+
+\Needspace{10\baselineskip}
+
+\hypertarget{sieve-source-correspondence}{%
+\subsection{Sieve estimates and the remaining
+composites}\label{sieve-source-correspondence}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Text
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Definitions and proved identities
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Singular product and (S1) &
+\href{../Green64/Library/Sieve/Foundations/Part006.lean}{\nolinkurl{Foundations/Part006}}:
+{\small\nolinkurl{singularSeries_converges_and_ge_one}}; the congruence
+source map is in
+\protect\hyperlink{congruences-source-correspondence}{Section~\ref{congruences-source-correspondence}} \\
+(S6), balanced rectangle count &
+\href{../Green64/Sieve/BalancedBoxes.lean}{\nolinkurl{BalancedBoxes}}:
+{\small\nolinkurl{balanced_rough_pair_bound}} \\
+(S7)--(S8d), rough density and the full-cell estimate &
+\href{../Green64/Library/Analysis/Estimates/Part003.lean}{\nolinkurl{Estimates/Part003}}:
+{\small\nolinkurl{sourceDensity}} (the displayed index is \(k=n+2\));
+\href{../Green64/Library/Weights/Part037.lean}{\nolinkurl{Weights/Part037}}:
+{\small\nolinkurl{sourceD29_original_full_proxy_pointwise_compact}},
+{\small\nolinkurl{literal_density_rough_unconditional}},
+{\small\nolinkurl{literal_small_b_exp_bound_unconditional}} \\
+Conditional Euler limit and (S9) &
+\href{../Green64/Library/Sieve/Foundations/Part055.lean}{\nolinkurl{Foundations/Part055}}:
+{\small\nolinkurl{parity_original_negative_conditional_natural_euler_limit434}},
+{\small\nolinkurl{negative_prime_or_composite_mass_lower_bound}} \\
+(S10), composite cover and two proxy errors &
+\href{../Green64/Library/Sieve/Foundations/Part052.lean}{\nolinkurl{Foundations/Part052}}:
+{\small\nolinkurl{parity_eventually_original_balanced_composite_prime_pair434}};
+\href{../Green64/Sieve/ApproximationError.lean}{\nolinkurl{ApproximationError}}:
+{\small\nolinkurl{balancedTwoStepError}};
+\href{../Green64/Sieve/BalancedMass.lean}{\nolinkurl{BalancedMass}} \\
+\end{longtable}
+
+The one-bin specialization for (S10) is in
+\href{../Green64/Sieve/CompositeMass.lean}{\nolinkurl{CompositeMass}}.

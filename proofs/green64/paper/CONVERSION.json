@@ -1,0 +1,36 @@
+{
+  "source_sha256": {
+    "proof.md": "ef368b0ab2ec56335d5b06963adb83ec81e311d0a6f96528b55105e1d1e8eb8a",
+    "weights.md": "f43acdf5d7ebdcd1484f79f17c2838812d2d73db75e643305d8ace5857af1764",
+    "correlation.md": "0d1b4895e389cf3cfac4c0de298becc49b05238e9327dc493f6b10bb95775779",
+    "bilinear.md": "b3600cf55b657dc3357049e881bd66d90dfe91d9e39c9eb0a6f6bf501f54b3de",
+    "marked-correlation.md": "cb6375cb8d80528242c4e60e0acb2b9b4cfcba2cc7a93b23133e127d569d0c30",
+    "physical-lift.md": "6ec8f7d3986e8e64c502a3ebd6b33b462bbe37de710558a12cff6fb6acad788e",
+    "forest-moments.md": "822c460d9a02e5042364605fd54d4aa2b088f3a27c1fc7abaa93f56adc3451a9",
+    "local-energy.md": "8b78395b66b8d12c0c9dec5c520ca0b0b0ef512d9c00ad14e022b5c85669593b",
+    "congruences.md": "1107bd0e4c5efa5afa32cd7321217268672f865c6677eca5761d1e4c4ca106e8",
+    "block-sieve.md": "92d29016c4f0e3cd945f49dcafd99f0ed5461ff9b1e780c0da99f98247ff04f5",
+    "rectangles.md": "b4d4b106875f4128b9a79300225ba62601c7d4f11952bdcc99e05abbae023912",
+    "sieve.md": "60a1d702fd3267f235999ea175275ef933ec455f600ec6dea5b5d109a5bf079a",
+    "lean-guide.md": "2c3957f47b3f7dea88580b38d747d752cd53c72b1bc736591cbfd80acb0a2975"
+  },
+  "generated_sha256": {
+    "proof.tex": "b0cc2cf0b753692196b8d20274e0dd209359e766fa9e565cf82f7b243dc48e56",
+    "weights.tex": "abfe38b79613a58146bd9c606570560f48f5cd6444fe8831174c499604d56d04",
+    "correlation.tex": "3bc34259d39e8a1ed20a41fb2eda3371c158de528fe8c6e50a12c9f8f5bdee92",
+    "bilinear.tex": "53b0a2922bed5861cf62f7755a036763b2182fcb6718a35d75c2bff0d6c99225",
+    "marked-correlation.tex": "79b2afb8de6da54006da906c7446e0d50a62fa16b8e2164d104e2120bf92df20",
+    "physical-lift.tex": "098484815c1f1d5ce19175bb01d1b548867419bd774d31c6e76ab97dd639ccf7",
+    "forest-moments.tex": "cc4f03f4cfa724f774ac486f706f6244be253d32111fc545365fc908f1c7e46c",
+    "local-energy.tex": "cb49aa9daeac055b3242499601f3bb843f2630176cfe388d44fd3c296712b4b7",
+    "congruences.tex": "b93386e51a5cd1a43b32c2e62b695fc4522d98c4b9b2efeeeaeb04fca41394f4",
+    "block-sieve.tex": "b3ed775d4bcf400f997cb846ef4c3401d72b6b26aab418fb6d5b2ca7c81bc677",
+    "rectangles.tex": "3efb2aca1f1b9e8dcfec50de34234d34863878be11c07030762b0745d51e91b9",
+    "sieve.tex": "0ab4fed12b05f79a3f15886b057c02603e4edfe19f47a9e69bdf495ae67a080a",
+    "lean-guide.tex": "01e48a9771cd0d80700fe3b2db36d7981c4cdfc35de64ca5cacd7c5f84dc5a02",
+    "source-correspondence.tex": "cc6e0c4056f1688dbbc05cbc838195ee25df41dfcd8b366fd21f5783cd5b35a2"
+  },
+  "math_nodes_preserved": 2280,
+  "math_payloads_equal": true,
+  "scope": "Conversion preserves the Markdown mathematics; it is not a Lean proof audit."
+}

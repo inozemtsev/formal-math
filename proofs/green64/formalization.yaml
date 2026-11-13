@@ -104,14 +104,15 @@ status:
   sorry_in_definitions: 0
   axioms: [propext, Classical.choice, Quot.sound]
   known_gaps: >-
-    The local source and kernel checks are recorded in VERIFICATION.md.
-    SOURCE_EQUIVALENCE.json records the unchanged formal inputs and the
-    descriptive metadata changes since those checks. They are not protected
-    Palomar verification or editorial review. The third-party permission
-    issue documented in THIRD_PARTY.md remains unresolved. The repository
-    maintainer was contacted by email on 2026-11-12; a reply and permission
-    are pending. The request is not a licence grant or endorsement. The full
-    informal proof and article are outside this submitted version.
+    The formal proof has passed the full protected Palomar workflow in CI
+    and a complete protected local run. VERIFICATION.md records the scope,
+    timings and original reports; SOURCE_EQUIVALENCE.json records unchanged
+    formal inputs and descriptive metadata changes. Registry editorial review
+    and registration remain separate. The third-party permission issue in
+    THIRD_PARTY.md remains unresolved. The repository maintainer was contacted
+    by email on 2026-11-12; a reply and permission are pending. The request is
+    not a licence grant or endorsement. The full informal proof, PDF article
+    and conceptual proof outline are included in this version.
 
 automation:
   methods:
@@ -141,11 +142,12 @@ fidelity:
 review:
   status: agent-reviewed
   notes: >-
-    Local source compilation, exact-statement checks, axiom audits and
-    independent-kernel checks passed for the formal inputs recorded in
-    VERIFICATION.md. Separate AI first-reader reports concern the article
-    being revised outside this submitted version. No human peer review or
-    Palomar endorsement is claimed. Independent human verification of the
+    The full protected CI workflow and complete local protected verifier
+    passed for the formal inputs recorded in VERIFICATION.md. AI first-reader
+    and PDF reviews of the included article, their findings and repairs are
+    recorded in paper/PDF_REVIEW.md and paper/REVISION.md. These are manuscript
+    assessments, not additional formal proof certificates. No human peer review
+    or Palomar endorsement is claimed. Independent human verification of the
     cited OpenAI source manuscripts is not claimed; their verification
     status is discussed in ACKNOWLEDGEMENTS.md.
 

@@ -1,0 +1,216 @@
+# Green's Problem 64
+
+**Theorem.** There are infinitely many primes $p$ such that $\Omega(p-2)$
+is odd, where $\Omega(n)$ counts prime factors with multiplicity.
+
+This answers Problem 64 in [Ben Green's list](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf), p. 31.
+We prove the assertion for the fixed shift $p-2$. Throughout the argument,
+$\lambda(n)=(-1)^{\Omega(n)}$ for positive integers $n$.
+
+The proof constructs a nonnegative weight supported on integers $u$ with
+$\lambda(u)=-1$, and shows that its sum over prime values of $u+2$ is positive
+in every sufficiently large multiplicative interval. The central analytic
+input is the shifted-correlation estimate (B18), which gives the Type II
+estimate (B3) uniformly in its bounded companion coefficient. Its proof
+transfers cancellation on independent prime coordinates to arithmetic
+histories, retaining the signed comparison and accounting for repeated
+labels. A weighted sieve then removes most composites; a separate estimate
+bounds those whose two prime factors are close in size. The constants in the bound
+for the remaining composites are chosen before the width of the balanced
+range; this permits that last contribution to be subtracted.
+
+The argument is divided into [weights and their mass](weights.md),
+[correlation and bilinear estimates](correlation.md), and the
+[sieve estimates](sieve.md). The present file defines the objects used in the
+conclusion and derives the theorem from the two quantitative sieve estimates.
+
+## 1. Weights with a prescribed parity
+
+Write $x=e^L$, $T=\log L$, and suppose $L$ is sufficiently large. Set
+
+$$
+r=20,\qquad \sigma=\frac1{44},\qquad s_j=\sigma 2^{-j}L,
+\qquad d=\max\{j\ge0:s_j\ge20T\}.
+$$
+
+For $0\le j\le d$ let
+
+$$
+Q_j=\{q\text{ prime}:s_j\le\log q\le\tfrac65s_j\}.
+$$
+
+Also take every prime interval
+
+$$
+P_j=\{p\text{ prime}:\tfrac32s_j\le\log p\le\tfrac95s_j\}
+$$
+
+whose logarithmic interval is contained in either
+$[L^{1/10},L^{1/5}]$ or $[L^{3/10},L^{2/5}]$.
+Let $\mathcal G$ be this set of indices and $\mathcal P=\bigcup_{g\in\mathcal G}P_g$.
+All the $Q_j$ and $P_g$ are pairwise disjoint. Put
+
+$$
+V_j=\sum_{q\in Q_j}\frac1q,\qquad M_g=\sum_{p\in P_g}\frac1p.
+$$
+
+The bounds used below hold uniformly for large $L$:
+
+$$
+\frac1{12}\le V_j\le4,\qquad
+\nu\le M_g\le4,\qquad \nu=\frac14\log\frac{12}{11}>0.
+$$
+
+For a positive integer $u$, separate its prime factors as $u=u_*u_{\mathcal P}$,
+where $u_*$ has no prime factor in $\mathcal P$ and $u_{\mathcal P}$ has no
+prime factor outside $\mathcal P$. Define
+
+$$
+\omega_g(u)=\#\{p\in P_g:p\mid u\},\qquad
+W(u)=\prod_{g\in\mathcal G}
+       \frac{\omega_g(u)2^{-(\omega_g(u)-1)}}{M_g},
+$$
+
+with a zero factor when $\omega_g(u)=0$. Notice the distinction between
+$\omega_g$, which counts distinct primes, and $\Omega$, which counts
+multiplicities.
+
+Let $a(v)$ be zero unless all prime factors of $v$ lie in the $Q_j$ and
+$v$ has exactly $20$ factors, with multiplicity, in each $Q_j$. On that support set
+
+$$
+a(v)=\prod_{q\mid v}\frac1{v_q(v)!}.
+$$
+
+Equivalently, $a(v)$ counts ordered choices of twenty primes in each $Q_j$
+with product $v$, divided by $(20!)^{d+1}$. Repeated primes are allowed.
+Define
+
+$$
+E(u)=(-1)^{\sum_{p\in\mathcal P}v_p(u)},\qquad
+A_\rho(u)=W(u)a(u_*)\frac{1+\rho E(u)}2
+\quad(\rho\in\{-1,1\}).
+$$
+
+We write $A_0(u)=W(u)a(u_*)$ for the unsigned weight; the subscript zero
+is a separate notation, outside the two-sign definition above.
+
+Since $20(d+1)$ is even, $a(u_*)>0$ implies $\lambda(u_*)=1$.
+Consequently
+
+$$
+A_\rho(u)>0\quad\Longrightarrow\quad\lambda(u)=\rho. \tag{1}
+$$
+
+This identity uses prime multiplicities throughout; it does not require $u$
+to be squarefree.
+
+Fix a smooth function $\Psi:\mathbb R\to[0,1]$, supported in $[1,2]$ and
+positive at some point of $(1,2)$. Such a function is obtained by translating
+and rescaling a smooth bump function. Set
+
+$$
+w_\rho(u)=A_\rho(u)\Psi(u/x),\qquad
+X_\rho=\sum_{u\ge1}w_\rho(u).
+$$
+
+Set $w_\rho(0)=0$, consistently with $\Psi(0)=0$.
+All these sums are finite because $w_\rho(u)$ vanishes outside $[x,2x]$.
+The mass estimate proved in [weights.md](weights.md#3-localization) gives a
+constant $c_0>0$, depending on $\Psi$ but not on $L$ or $\rho$, such that
+
+$$
+X_\rho\ge c_0xL^{-221}>0 \tag{2}
+$$
+
+for both signs and all sufficiently large $L$.
+
+## 2. The two sieve estimates
+
+Let
+
+$$
+\mathfrak S=2\prod_{p\ge3,\ p\text{ prime}}
+                  \left(1-\frac1{(p-1)^2}\right).
+$$
+
+The product converges, and $\mathfrak S\ge1$; the elementary product bound
+is proved in [sieve.md](sieve.md#1-local-densities).
+Write
+
+$$
+\mathcal M_\rho(L)=\sum_{u+2\text{ prime}}w_\rho(u)
+$$
+
+and, for $0<\kappa<1/50$, write
+
+$$
+\mathcal C_\rho(L,\kappa)
+ =\sum_{\substack{u+2\text{ composite}\\
+                   P^-(u+2)>x^{1/2-\kappa}}}w_\rho(u),
+$$
+
+where $P^-(n)$ is the least prime factor of $n>1$.
+
+The weighted sieve and the subtraction of composites outside the balanced
+range give, for every fixed $0<\kappa<1/50$ and all sufficiently large $L$,
+
+$$
+\mathcal M_{-1}(L)+\mathcal C_{-1}(L,\kappa)
+ \ge\frac{\mathfrak S}{2}\frac{X_{-1}}L. \tag{3}
+$$
+
+The negative sign is the one needed here. The complete subtraction,
+including the order of the approximation parameters, is given in
+[sieve.md](sieve.md#4-removing-the-unbalanced-composites).
+
+The bound for the remaining composites has the following uniform form:
+there exists $C_{\mathrm{bal}}>0$ such that, for every
+$0<\kappa<1/50$ and every $\varepsilon>0$, both signs satisfy
+
+$$
+\mathcal C_\rho(L,\kappa)
+ \le (C_{\mathrm{bal}}\kappa+\varepsilon)\frac{X_\rho}L
+ \tag{4}
+$$
+
+once $L$ is sufficiently large. The threshold may depend on $\kappa$ and
+$\varepsilon$; $C_{\mathrm{bal}}$ does not. Its proof in
+[sieve.md](sieve.md#5-balanced-composites) uses an upper bound for positive
+factor pairs in a rectangle, followed by a count of compatible dyadic
+rectangles. It includes pairs with equal prime factors.
+
+## 3. Positive prime mass and infinitude
+
+Choose
+
+$$
+\kappa=\min\left\{\frac1{100},
+                  \frac{\mathfrak S}{8C_{\mathrm{bal}}}\right\},
+\qquad \varepsilon=\frac{\mathfrak S}{8}.
+$$
+
+Then $0<\kappa<1/50$ and
+$C_{\mathrm{bal}}\kappa+\varepsilon\le\mathfrak S/4$.
+For this fixed choice, intersect the eventual ranges in (2), (3), and (4).
+Subtracting (4) from (3) gives
+
+$$
+\mathcal M_{-1}(L)
+ \ge\frac{\mathfrak S}{4}\frac{X_{-1}}L>0. \tag{5}
+$$
+
+Every summand in $\mathcal M_{-1}$ is nonnegative. Therefore some positive
+integer $u$ satisfies
+
+$$
+u+2\text{ is prime},\qquad A_{-1}(u)>0,\qquad\Psi(u/x)>0.
+$$
+
+The support of $\Psi$ gives $x\le u\le2x$. By (1), $\lambda(u)=-1$,
+so $\Omega(u)$ is odd. For $p=u+2$ we have $p-2=u>0$ and hence
+$\Omega(p-2)$ odd.
+
+Given any natural number $M$, choose $L$ in the eventual range of (5) with
+$e^L>M$. The resulting prime satisfies $p=u+2>M$. Thus the set of primes
+in the theorem is unbounded, and therefore infinite. $\square$
