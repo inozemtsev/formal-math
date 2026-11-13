@@ -11,6 +11,32 @@ in analytic number theory and sieve theory. It makes an infinitude claim;
 no numerical threshold, uniform range of shifts, or squarefreeness assertion
 is part of the two submitted theorems.
 
+## Read the proof
+
+- [Full proof — green64.pdf](paper/green64.pdf): the 83-page article, with detailed arguments and source correspondence.
+- [Proof idea — proof-idea.md](docs/proof-idea.md): a short account of the weight, correlation estimate and sieve argument.
+- [Proof in Markdown](docs/proof.md): the full exposition and its linked chapters.
+- [Lean source guide](docs/lean-guide.md): the correspondence with the formal development.
+
+The [article sources and build instructions](paper/README.md) reproduce the
+PDF. The exposition follows the included Lean development; its short outline
+links to the detailed estimates.
+
+## Development timeline
+
+The [development timeline](TIMELINE.md) records the initial plan, intermediate
+results, revisions, article preparation and verification milestones. It makes
+no claim of mathematical priority.
+
+## Verification
+
+The formal proof has passed the full [Palomar verification workflow in CI](https://github.com/inozemtsev/formal-math/actions/workflows/palomar-preflight.yml),
+including a fresh source build, protected statement comparison and kernel
+checks. The complete protected verifier has also passed locally. See
+[VERIFICATION.md](VERIFICATION.md) for the reports, timings and scope.
+Mechanical verification does not constitute registry registration or human
+peer review.
+
 ## Exact statements
 
 ```lean
@@ -59,8 +85,7 @@ The supporting inputs needed for the two submitted Green64 statements are
 proved in the included Lean development.
 
 Proof development and formalization: **gpt-6 astra**.
-No independent human
-mathematical review or Palomar endorsement is claimed.
+No independent human mathematical review or Palomar endorsement is claimed.
 
 The statement agrees with `Green64.green_64` in the
 [formal-conjectures collection](https://github.com/google-deepmind/formal-conjectures/blob/a425ca3eb797fe927cb88c950565fdcbbbbada70/FormalConjectures/GreensOpenProblems/64.lean).
@@ -94,13 +119,9 @@ The initial source build includes a substantial supporting analytic library.
 Python 3 is needed for the audit script, not for `lake build`. The Comparator
 script requires an environment that supports bubblewrap namespaces.
 
-[VERIFICATION.md](VERIFICATION.md) distinguishes the passed local build,
-statement and kernel checks from the protected Palomar workflow.
+[VERIFICATION.md](VERIFICATION.md) records the successful protected CI and
+local verification, alongside the earlier source, statement and kernel checks.
 [SOURCE_EQUIVALENCE.json](SOURCE_EQUIVALENCE.json) records that the submitted
 Lean and build inputs are byte-identical to those used in the local checks;
 only the descriptive metadata in that audit's hash list has changed.
 [PALOMAR.md](PALOMAR.md) records the submission paths and pinned workflow.
-
-This submission contains the formal proof and its mathematical statement and
-provenance. A full informal proof and PDF article are being revised separately
-and are not included in this version.

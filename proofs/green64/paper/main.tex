@@ -1,0 +1,149 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=29mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{unicode-math}
+\setmathfont{TeX Gyre Pagella Math}
+\setmathfont[version=bold]{TeX Gyre Pagella Math}
+\usepackage{microtype}
+\usepackage{longtable,booktabs,array,calc}
+\usepackage{needspace}
+\usepackage{enumitem}
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,fontsize=\small}
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,fontsize=\small}
+\usepackage{xurl}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,
+  citecolor=blue!45!black]{hyperref}
+\usepackage{xcolor}
+\hypersetup{pdftitle={Odd prime-factor parity in shifted primes},pdfauthor={Igor Inozemtsev}}
+\setlength{\emergencystretch}{2em}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.25em}
+\setlist{itemsep=0.2em,topsep=0.4em}
+\setcounter{tocdepth}{2}
+\allowdisplaybreaks[1]
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\newcommand{\lean}[1]{{\small\nolinkurl{#1}}}
+\Urlmuskip=0mu plus 1mu
+\title{Odd prime-factor parity in shifted primes\\[0.3em]
+  \large A proof of Green's Problem 64}
+\author{Igor Inozemtsev}
+\date{12 November 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove that infinitely many primes $p$ satisfy $\Omega(p-2)\equiv1\pmod2$,
+where prime factors are counted with multiplicity. The proof constructs a
+nonnegative weight of prescribed parity and positive mass. Correlation
+estimates justify a weighted sieve, while a bound uniform in the width of a
+balanced factor range controls the remaining composites. Subtracting these
+composites leaves positive prime mass and supplies a prime above every bound.
+Detailed proofs of the weight, correlation, congruence and rectangle estimates are included;
+appendices identify their formal counterparts.
+\end{abstract}
+
+\noindent\textit{Mathematical sources.}
+During the final stage of the Lean formalization, the agent found Jizhou
+Guo's manuscript~\cite{guo} on GitHub and used its exposition as a guide.
+Guo did not participate in the project or provide personal assistance.
+The final development follows the specialization
+of its affine-prime-form argument to $N(u)=u+2$, including the choice
+$r_0=20$, $\sigma=1/44$, the arithmetic side conditions and the order of
+analytic parameter choices. The parity-weight, correlation and sieve
+strategy is based on the two OpenAI manuscripts~\cite{openai-e,openai-s}.
+Guo's broader statements concerning other shifts, both parities and
+squarefree values are outside the scope of the two public Lean theorems here.
+
+The OpenAI collection's
+\href{https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/README.md}{README at the cited revision}
+describes results at different stages of verification and warns that some
+unformalized results may contain errors. No independent human verification
+of these source manuscripts is claimed here. These citations record the
+origin of the strategy. The supporting inputs needed for the two Green64
+statements are proved in the included Lean development. Its machine checks
+do not constitute independent human review of the source manuscripts or
+establish all of their claims.
+
+\noindent\textit{Formalization and production.}
+The proof and formalization were developed with gpt-6 astra in Codex.
+This article is derived from the mathematical
+Markdown exposition of the Lean development. The statement is the fixed-shift
+question in Green's collection~\cite[Problem 64]{green}. No claim of priority
+or a comprehensive literature survey is made. The accompanying verification
+records specify the checked Lean version, statements and axiom audit.
+Those checks and the mathematical exposition are separate parts of the
+verification; this article does not assert an independent human review.
+
+\clearpage
+\begingroup
+\setlength{\parskip}{0pt}
+\tableofcontents
+\endgroup
+
+\clearpage
+\input{sections/proof}
+\clearpage
+\input{sections/weights}
+\clearpage
+\input{sections/correlation}
+\clearpage
+\input{sections/bilinear}
+\clearpage
+\input{sections/marked-correlation}
+\clearpage
+\input{sections/physical-lift}
+\clearpage
+\input{sections/forest-moments}
+\clearpage
+\input{sections/local-energy}
+\clearpage
+\input{sections/congruences}
+\clearpage
+\input{sections/block-sieve}
+\clearpage
+\input{sections/rectangles}
+\clearpage
+\input{sections/sieve}
+
+\appendix
+\clearpage
+\input{sections/lean-guide}
+\clearpage
+\input{sections/source-correspondence}
+
+\clearpage
+\begin{thebibliography}{9}
+\bibitem{khale}
+Tanmay Khale, \emph{An explicit Vinogradov--Korobov zero-free region for
+Dirichlet $L$-functions}, Theorem~1.1,
+\url{https://arxiv.org/abs/2210.06457}.
+Published in \emph{The Quarterly Journal of Mathematics} 75 (2024), no.~1,
+\url{https://doi.org/10.1093/qmath/haae010}.
+\bibitem{green}
+Ben Green, \emph{100 Open Problems}, December 2025 revision,
+Problem 64, p.~31.
+\url{https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf}.
+\bibitem{guo}
+Jizhou Guo, \emph{Shifted primes with a prescribed parity of the number of
+prime factors}, October 2026. Retained TeX source from
+\url{https://github.com/aster2024/openai-math-followups}, revision
+\nolinkurl{563cece082b628dfe3ba0290c9e4e30b92ffeca6},
+\nolinkurl{shifted-prime-parity/source/main.tex}.
+The source identity and availability are recorded in the accompanying
+\nolinkurl{ACKNOWLEDGEMENTS.md}.
+\bibitem{openai-e}
+OpenAI, \emph{Prime Predecessors with an Even Number of Prime Factors},
+manuscript dated 17 September 2026, \url{https://github.com/openai/math},
+revision \nolinkurl{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.
+\bibitem{openai-s}
+OpenAI, \emph{Weighted dilation graphs, smooth shifted primes and totient
+fibers}, manuscript dated 24 September 2026,
+\url{https://github.com/openai/math},
+revision \nolinkurl{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.
+\end{thebibliography}
+\end{document}

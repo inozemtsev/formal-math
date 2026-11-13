@@ -1,0 +1,229 @@
+# Distribution in residue classes
+
+We prove the negative-parity estimate used in [the sieve argument](sieve.md).
+All weights, prime bands, and normalizing factors are those of
+[the main proof](proof.md). Put $x=e^L$, $Y=\lfloor2x\rfloor$, and
+$X=X_{-1}=\sum_{u\le Y}w_{-1}(u)$. For odd squarefree $d$, set
+
+$$
+r(d)=\sum_{\substack{u\le Y\\u\equiv-2\pmod d}}w_{-1}(u)
+       -\frac X{\varphi(d)}.
+$$
+
+For fixed $0<\vartheta<1/2$ and every $D>0$, the result is
+
+$$
+\sum_{\substack{d\le x^\vartheta\\d\text{ odd, squarefree}}}|r(d)|
+ \ll_{\Psi,\vartheta,D}xL^{-D}+XL^{-18}. \tag{G1}
+$$
+
+The proof below concerns $w_{-1}$. No distribution assertion for the other
+parity sign is needed here.
+
+## 1. Orthogonality and the nonunit correction
+
+Extend Dirichlet characters by zero on nonunits, and write
+
+$$
+S_d(\chi)=\sum_{u\le Y}w_{-1}(u)\chi(u),\qquad
+N(d)=\sum_{\substack{u\le Y\\(u,d)>1}}w_{-1}(u).
+$$
+
+Since $-2$ is a unit modulo an odd $d$, character orthogonality gives
+
+$$
+\varphi(d)r(d)
+ =\sum_{\chi\ne\chi_0}\chi((-2)^{-1})S_d(\chi)-N(d).
+ \tag{G2}
+$$
+
+The correction $N(d)$ occurs because the principal character sums to
+$X-N(d)$, rather than $X$. In particular,
+
+$$
+|r(d)|\le\frac1{\varphi(d)}
+ \left(\sum_{\chi\ne\chi_0}|S_d(\chi)|+N(d)\right). \tag{G3}
+$$
+
+Let
+
+$$
+H(N)=\sum_{\substack{d\le N\\d\text{ squarefree}}}\frac1{\varphi(d)}.
+$$
+
+For a fixed $u$, assign a noncoprime squarefree $d$ to any prime
+$p\mid(u,d)$ and write $d=pe$. Dropping the conditions $(p,e)=1$ and
+$e\le N/p$ gives
+
+$$
+\sum_{\substack{d\le N\\d\text{ squarefree}\\(u,d)>1}}
+ \frac1{\varphi(d)}
+ \le H(N)\sum_{p\mid u}\frac1{p-1}. \tag{G4}
+$$
+
+The squarefree totient sum satisfies $H(\lfloor x^\vartheta\rfloor)\le eL$
+eventually. Every prime divisor of a supported $u\le2x$ is at least
+$L^{20}$. Also $2^{\omega(u)}\le u$, where $\omega$ counts distinct
+prime divisors. Therefore, eventually,
+
+$$
+\sum_{p\mid u}\frac1{p-1}
+ \le\frac{2\omega(u)}{L^{20}}
+ \le\frac4{\log2}L^{-19}.
+$$
+
+Multiply (G4) by $w_{-1}(u)\ge0$ and interchange the finite sums. This proves
+
+$$
+\sum_{\substack{d\le x^\vartheta\\d\text{ odd, squarefree}}}
+ \frac{N(d)}{\varphi(d)}
+ \le\frac{4e}{\log2}XL^{-18}. \tag{G5}
+$$
+
+## 2. Exposing one prime variable
+
+Reserve one labelled slot in $Q_0$, whose prime values satisfy
+
+$$
+x^\alpha\le q\le x^{6\alpha/5},\qquad \alpha=1/44.
+$$
+
+The ordered-slot expansion of the ordinary coefficient gives an exact
+convolution
+
+$$
+w_{-1}(u)=\Psi(u/x)
+ \sum_{\substack{q\in Q_0\\q\mid u}}b_L(u/q). \tag{G6}
+$$
+
+Here $b_L$ is the sum over the remaining ordinary slots and all marked
+group factors, with the original factorial normalization and negative
+parity projection. Deleting the slot changes the number of slot variables,
+not that normalization. If a prime occurs several times, its different
+slot assignments remain in this finite expansion. After factorial
+normalization the ordinary-slot coefficient is at most one, and the
+marked factors are bounded by a fixed power of $L$. Hence, for a fixed
+$c\ge0$,
+
+$$
+0\le b_L(R)\le L^c. \tag{G7}
+$$
+
+If $\chi$ modulo $d$ is induced by a primitive character $\chi^*$ of
+conductor $f\mid d$, put $h=d/f$. Inserting (G6) gives the exact sum
+
+$$
+S_d(\chi)=\sum_{\substack{q\in Q_0,\ R\ge1\\(q,h)=(R,h)=1}}
+ b_L(R)\Psi(qR/x)\chi^*(q)\chi^*(R). \tag{G8}
+$$
+
+The two coprimality masks are retained. Since $d$ is squarefree,
+$(f,h)=1$ and $\varphi(d)=\varphi(f)\varphi(h)$. Summing the complementary
+level $h$ costs at most $H(\lfloor x^\vartheta\rfloor)=O(L)$.
+
+Partition the two variables into binary dyadic intervals $q\asymp P$,
+$R\asymp U$. The support $x\le qR\le2x$ leaves $O(L)$ pairs of scales,
+and they satisfy
+
+$$
+P\le x^{6\alpha/5},\qquad U\le4x^{1-\alpha},\qquad
+x/4<PU\le2x. \tag{G9}
+$$
+
+It remains to bound the primitive-character sums on each such rectangle.
+
+## 3. Small and large conductors
+
+The two analytic inputs are the prime Siegel--Walfisz estimate and the
+multiplicative large sieve. In the forms used here, Siegel--Walfisz gives
+arbitrary logarithmic saving for prime partial sums twisted by a
+nonprincipal character of modulus at most a fixed power of $L$. The large
+sieve bounds the primitive-character quadratic mean of a sequence on an
+interval of length $N$ by its squared $\ell^2$ norm times $Q^2+\pi N$,
+with the usual $f/\varphi(f)$ conductor weight for $f\le Q$.
+
+Choose a conductor cutoff $2^K\le L^{C_*}$. For $f\le2^K$, apply
+Siegel--Walfisz to the $q$ variable in (G8). Abel summation incorporates
+$\Psi(qR/x)$; its supremum and total variation are fixed constants.
+The excluded primes $q\mid h$ number at most $\vartheta/\alpha$, since
+$q\ge x^\alpha$ and $h\le x^\vartheta$. Thus the small-conductor
+contribution on one retained rectangle is at most
+
+$$
+L^{C_*+c}\left(
+ 2xB_\Psi L^{-A}V_\Psi
+ +4x^{1-\alpha}\frac\vartheta\alpha S_\Psi\right), \tag{G10}
+$$
+
+where $B_\Psi,S_\Psi,V_\Psi$ are fixed nonnegative constants from the
+prime partial-sum estimate and the cutoff. The exponent $A$ may be chosen
+arbitrarily large once $C_*$ is fixed.
+
+For $F<f\le2F$, use Fourier inversion in the logarithmic variable to
+separate $\Psi(qR/x)$. If $\psi(t)=\Psi(e^t)$, write
+$M_\Psi=\int_{\mathbb R}|\widehat\psi(s)|\,ds<\infty$.
+At each frequency, Cauchy--Schwarz in the primitive characters, followed
+by the large sieve for the two factors, yields
+
+$$
+\mathcal B_F\le M_\Psi L^c
+ \sqrt{\frac{(4F^2+\pi P)P}{F}}
+ \sqrt{\frac{(4F^2+\pi U)U}{F}}. \tag{G11}
+$$
+
+Here $\mathcal B_F$ is the sum of the absolute bilinear character sums
+weighted by $1/\varphi(f)$, for the fixed complementary level $h$ and
+rectangle. The masks in (G8) only decrease the coefficient norms.
+Expanding the right side with
+$\sqrt{a+b}\le\sqrt a+\sqrt b$, using (G9), and summing over
+$2^K<F\le2^T$ gives
+
+$$
+\sum_F\mathcal B_F\le M_\Psi L^c\left(
+8\cdot2^T x^{1/2}
++12\sqrt\pi\,T x^{1-\alpha/2}
++\frac{4\pi x}{2^K}\right). \tag{G12}
+$$
+
+For a requested exponent $D$, take
+
+$$
+k=c+D+2,\qquad C_*=k+1,\qquad A=C_*+c+D+2,
+$$
+
+and choose integer $K,T$ with
+
+$$
+L^k\le2^K\le L^{k+1},\qquad
+x^\vartheta\le2^T\le2x^\vartheta.
+$$
+
+The two remaining costs, the complementary levels and the rectangle
+count, are each $O(L)$. They turn the first term of (G10) and the last
+term of (G12) into $O(xL^{-D})$. All other terms contain a fixed negative
+power of $x$ after division by $x$: the first term in (G12) uses exactly
+$\vartheta<1/2$. These powers absorb every fixed logarithmic factor.
+We conclude that
+
+$$
+\sum_{\substack{d\le x^\vartheta\\d\text{ odd, squarefree}}}
+ \frac1{\varphi(d)}\sum_{\chi\ne\chi_0}|S_d(\chi)|
+ \ll xL^{-D}. \tag{G13}
+$$
+
+Equations (G3), (G5), and (G13) prove (G1). At $D=230$, the lower mass
+bound $X\gg xL^{-221}$ makes its right side $o(X/L)$.
+
+## Source correspondence
+
+| Argument | Lean source and declaration |
+| --- | --- |
+| Orthogonality with the nonunit correction | [Weights/Part108](../Green64/Library/Weights/Part108.lean): `source_unit_class_remainder_identity`, `source_shift_two_genuine_remainder_bound` |
+| Squarefree totient sum | [Weights/Part107](../Green64/Library/Weights/Part107.lean): `source_squarefree_totient_sum_harmonic` |
+| Rough-support correction | [Weights/Part108](../Green64/Library/Weights/Part108.lean): `shift_two_nonunit_reciprocal_harmonic`, `shift_two_prime_reciprocal_rough_bound` |
+| Deleted-slot convolution and both masks | [Foundations/Part005](../Green64/Library/Sieve/Foundations/Part005.lean): `source_original_moving_deleted_prime_convolution`, `source_original_conductor_masked_convolution` |
+| Small conductors and final parameter choice | [Weights/Part108](../Green64/Library/Weights/Part108.lean): `source_original_SW_finite_Echi_eventually`, `source_shift_two_congruence_input_unconditional` |
+| Large-conductor bilinear estimate | [Weights/Part107](../Green64/Library/Weights/Part107.lean), with its dyadic expansion in [Part108](../Green64/Library/Weights/Part108.lean) |
+| Prime Siegel--Walfisz interface | [Analysis/Estimates/Part005](../Green64/Library/Analysis/Estimates/Part005.lean): `sourcePrimeSiegelWalfisz_unconditional` |
+| Multiplicative large sieve | [Foundation/LargeSieve/Part001](../Green64/Library/Sieve/Foundation/LargeSieve/Part001.lean) |
+| Specialization used in the final argument | [Foundations/Part053](../Green64/Library/Sieve/Foundations/Part053.lean): `parity_original_negative_congruence_D230_bound434` |

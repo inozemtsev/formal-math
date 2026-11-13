@@ -1,0 +1,1730 @@
+\hypertarget{marked-correlation}{%
+\section{Cancellation in the marked
+correlation}\label{marked-correlation}}
+
+We prove the estimate (B18) of
+\protect\hyperlink{bilinear}{Section~\ref{bilinear}}. All the sums and
+operators below are finite. We use prime Siegel--Walfisz, the
+complete-cell discrepancy (C3), the high-frequency prime estimate
+\protect\hyperlink{local-energy-the-high-frequency-prime-input}{(U1)},
+smooth Fourier inversion, and the displayed finite energy estimates. The
+bilinear exponential-sum bound comes from the row sums of an additive
+Gram matrix and Cauchy--Schwarz.
+
+Write \(L=\log x\) and \(\mathrm e(t)=e^{2\pi it}\). We retain the
+actual marked groups and the multiplicity parity from
+\protect\hyperlink{proof}{Section~\ref{proof}}. The BIG groups have
+\(\log p\ge L^{3/10}\); the SMALL groups used for omissions have
+\(\log p\le L^{1/5}\). Their harmonic masses lie in \([v,v_{\max}]\),
+where \(v=\tfrac14\log(12/11)\) and \(v_{\max}=4\). We write these
+masses as \(V_g\) in this chapter; they are \(M_g\) in the definition of
+the weight. The fixed damping parameter is \(q=1/2\). The number of
+groups is \(O(\log L)\). Constants implicit in this chapter may depend
+on the fixed accuracy, frequency bounds, and mark counts, but not on
+\(L\), the shift, or the endpoints of a fine cell.
+
+The proof estimates a signed difference between the original correlation
+and an arithmetic resampling term. A separate use of the fine-cell
+discrepancy then makes the resampling term small. There are three
+different spaces in this argument: a product of prime alphabets in
+\protect\hyperlink{marked-correlation-orthogonal-averages-and-the-alternating-identity}{the
+orthogonal-average argument},
+\protect\hyperlink{marked-correlation-the-arithmetic-state-space-and-the-local-contraction}{the
+residue and memory space}, and
+\protect\hyperlink{marked-correlation-from-residue-averages-to-the-integer-interval}{the
+integer-position space}. The local contraction is on the second space.
+Its relation to the third is a moment identity and an interval-counting
+estimate, not an identification of their norms. Throughout the operator
+argument write \(s=2k\) for the integer shift in (B17). A forward frame
+moves by \(sD\), and a reverse frame by \(-sD\).
+
+\Needspace{6\baselineskip}
+
+\hypertarget{marked-correlation-orthogonal-averages-and-the-alternating-identity}{%
+\subsection{Orthogonal averages and the alternating
+identity}\label{marked-correlation-orthogonal-averages-and-the-alternating-identity}}
+
+In a BIG group \(P_g\), use the probability law
+
+\[
+V_g=\sum_{p\in P_g}\frac1p,
+\qquad \mu_g(p)=\frac1{V_gp}.
+\]
+
+There are \(M=J+\ell\) labelled coordinates in each group. Here \(J\)
+will be fixed later and the application has \(\ell=1\). Precisely, put
+\(\mathcal X=\prod_{g\in\mathrm{BIG}}P_g^M\), with probability
+\(\mu(x)=\prod_{g,i}\mu_g(x_{g,i})\), and use
+\(\langle f,h\rangle_\mu=\sum_x\mu(x)\overline{f(x)}h(x)\). The tests
+before symmetrization are arbitrary functions
+\(F,H:\mathcal X\to\mathbb C\). Set
+
+\[
+(\mathcal SF)(x)=\frac1{(M!)^{G}}
+ \sum_{\sigma\in\prod_g S_M}F((x_{g,\sigma_g(i)})_{g,i}),
+\qquad f=\mathcal SF,\quad h=\mathcal SH,
+\tag{M0}
+\]
+
+where \(G=\#\mathrm{BIG}\). Relabelling coordinates preserves \(\mu\),
+so Jensen gives \(\|\mathcal SF\|_\mu\le\|F\|_\mu\). The actual kernel
+independently averages its source and target permutations: changing
+variables by their inverses moves these two averages onto \(F\) and
+\(H\), exactly. This identity, rather than a symmetry assumption on the
+arithmetic coefficients, licenses (M0). The tests can depend jointly on
+all groups. The maps (T14)--(T15) identify them as Fourier coefficients
+of the two physical endpoint tests.
+
+Let \(E_i\) average coordinate \(i\). These are commuting orthogonal
+projections. The Hoeffding components
+
+\[
+H_Sf=\prod_{i\in S}(I-E_i)\prod_{i\notin S}E_i f
+\quad(S\subseteq[M])
+\]
+
+are orthogonal and sum to \(f\). Symmetry gives equal squared norms to
+components of the same degree \(|S|\). Choose disjoint sets of \(m\)
+probe coordinates and \(\ell\) trailing coordinates. At degree \(j\),
+the fraction of components containing every probe and no trailing
+coordinate is
+
+\[
+\frac{\binom{M-m-\ell}{j-m}}{\binom Mj}
+\le\binom{m+\ell}{m}^{-1}.
+\]
+
+Consequently
+
+\[
+\left\|\prod_{i\in\mathrm{probe}}(I-E_i)
+             \prod_{i\in\mathrm{tail}}E_i f\right\|_2^2
+\le\binom{m+\ell}{m}^{-1}\|f\|_2^2. \tag{M1}
+\]
+
+Apply this successively to different groups, using Fubini. For
+\(\ell=1\) and \(s\) groups the factor is \((m+1)^{-s}\). The actual BIG
+groups contain two disjoint blocks \(\mathcal A,\mathcal B\), each of
+size at least \(c\log L\), where \(c=(120\log2)^{-1}\). Given \(A_0>0\),
+choose a fixed \(m\) so that \(A_0\le c\log(m+1)\). Then each block
+gives squared-energy saving \(L^{-A_0}\).
+
+The coupled phase cannot be moved through these coordinate averages. To
+retain it exactly, put
+
+\[
+R(f,h)=\mathbb E[\overline f\,\Phi h],\qquad |\Phi|=1,
+\]
+
+For a fixed positive SMALL divisor \(d\), orientation \(o\in\{1,-1\}\),
+and real \(\zeta,\theta\), its precise value is
+
+\[
+D(x)=d\prod_{g\in\mathrm{BIG}}\prod_{i=0}^{J-1}x_{g,i},
+\qquad
+\Phi(x)=D(x)^{io\zeta}\mathrm e(o sD(x)\theta).
+\tag{M0a}
+\]
+
+Thus \(|\Phi|=1\), and \(\Phi\) ignores the \(\ell\) trailing
+coordinates. It need not ignore the probes. Let \(U\) average all
+trailing coordinates, and set
+
+\[
+E_a=U\prod_{i\in a}E_i,
+\qquad P_{\mathcal A}=\sum_{a\subseteq\mathcal A\times[m]}
+ (-1)^{|a|}E_a
+ =U\prod_{i\in\mathcal A\times[m]}(I-E_i).
+\]
+
+Define \(P_{\mathcal B}\) in the same way. Expanding the two products
+gives the exact identity
+
+\[
+\begin{aligned}
+R(Uf,Uh)&-
+\sum_{\substack{\varnothing\ne a\subseteq\mathcal A\times[m]\\
+                 \varnothing\ne b\subseteq\mathcal B\times[m]}}
+ (-1)^{|a|+|b|}R(E_af,E_bh)\\
+&=R(P_{\mathcal A}f,Uh)+R(Uf,P_{\mathcal B}h)
+  -R(P_{\mathcal A}f,P_{\mathcal B}h).
+\end{aligned} \tag{M2}
+\]
+
+Both subsets in the comparison sum are nonempty. Each term on the right
+has a contracted endpoint; since \(|\Phi|=1\), Cauchy--Schwarz and (M1)
+give
+
+\[
+|\text{right side of (M2)}|^2
+ \le9L^{-A_0}\|f\|_2^2\|h\|_2^2. \tag{M3}
+\]
+
+The number of comparison patterns is a fixed power of \(L\): \(m\) is
+fixed and there are \(O(\log L)\) groups. We will pay this cost in the
+arithmetic approximation to each pattern. It is not subtracted from the
+exponent supplied by the already summed identity (M2).
+
+\Needspace{6\baselineskip}
+
+\hypertarget{marked-correlation-implementing-the-averages-by-characters}{%
+\subsection{Implementing the averages by
+characters}\label{marked-correlation-implementing-the-averages-by-characters}}
+
+For a nonempty collection of probes, let \(D\) be their product under
+the product probability law. Partition its logarithm into cells
+\(I_j=[e^{jh},e^{(j+1)h})\), put \(\nu_j=\Pr(D\in I_j)\), and retain
+cells with \(\nu_j\ge\xi\). The arithmetic kernel is
+
+\[
+K(D,X)=\sum_{\nu_j\ge\xi}
+ \frac{\mathbf1_{D,X\in I_j}}{\nu_j}
+ \sum_{\substack{\chi\ \mathrm{primitive}\\\operatorname{cond}\chi\le Q}}
+       \overline{\chi(D)}\chi(X). \tag{M4}
+\]
+
+The reference operation is exact matching of the product, not the
+constant kernel. If \(\pi(X)=\Pr(D=X)\), put
+
+\[
+I_\pi(D,X)=\frac{1_{D=X}}{\pi(X)},\qquad
+\sum_D\pi(D)I_\pi(D,X)\phi(D)=\phi(X)
+\quad(\pi(X)>0).
+\tag{M4a}
+\]
+
+Set the kernel to zero when \(\pi(X)=0\); such \(X\) do not occur in the
+product law. Applying (M4a) separately in the two probe blocks sets the
+auxiliary products equal to the target first-probe and source
+second-probe products. The other, freed endpoint coordinates are then
+averaged with their original laws. This is the ordinary resampling form
+in (M2). In particular, it evaluates the phase at the spliced products;
+it does not average that phase independently. The estimate below
+compares this matching form with (M4), including its phase and endpoint
+tests; it does not assert that their kernels are close in operator norm.
+
+All marked primes exceed \(Q\). Characters in (M4) thus have modulus one
+on its support. The cell Gram matrix has diagonal \(\nu_j\). For two
+different primitive characters, freeze every prime coordinate but one.
+The condition on the product clips that remaining prime to an interval.
+The quotient of the two characters induces a nonprincipal primitive
+character with conductor at most \(Q^2\). Prime Siegel--Walfisz and
+partial summation bound the corresponding entry by
+
+\[
+|G_j(\chi,\chi')|\le (K_1/V_g)L^{-B_1}.
+\]
+
+The other coordinates have total probability one. Summing over them does
+not introduce the number of tuples. There are at most \(Q^2\)
+characters. Therefore, if \(Q\le L^{C_q}\) and
+\(\xi^{-1}\le L^{C_\xi}\), requesting accuracy \(B_1=B+C_\xi+2C_q\)
+gives
+
+\[
+\|K\|_{2\to2}\le1+(K_1/v)L^{-B}. \tag{M5}
+\]
+
+Different cells give orthogonal blocks of this operator, so their number
+does not multiply (M5).
+
+To compare (M4) with ordinary resampling, retain the full phase
+\(\mathrm e(\theta'XY)(XY)^{i\zeta}\). On a major arc
+\(\theta'=a/r+\beta\), \(r\le Q\), the function \(\mathrm e(aXY/r)\) on
+units is a sum of primitive-character modes with coefficient \(\ell^1\)
+norm at most \(r\). The two kernels reproduce these modes up to
+
+\[
+(2\epsilon+\epsilon^2)r,
+\qquad \epsilon=(K_1/v)L^{-B}.
+\]
+
+Within two matched logarithmic cells, the remaining phase varies by at
+most
+
+\[
+Q^4\bigl(|\zeta|+2\pi|\beta|R_0\bigr)(h_A+h_B),
+\qquad R_0=e^{(j_A+1)h_A+(j_B+1)h_B}. \tag{M6}
+\]
+
+Here \(R_0\) bounds the product of the two cell variables. This follows
+by differentiating the phase in the two logarithmic coordinates. The
+factor \(Q^4\) bounds the two finite character sums.
+
+On minor arcs, move the two kernels onto the endpoint tests and use
+(M5), eventually with norm at most \(2\). The finite integer bilinear
+exponential-sum inequality on dyads of sizes \(M_0,N_0\) has spectral
+factor bounded by
+
+\[
+\frac1r+\frac2{N_0}+\frac{\log(2r)}{M_0}
+       +\frac{r\log(2r)}{M_0N_0}. \tag{M7}
+\]
+
+For example, for windows of integer lengths \(P\le M_0\), \(Q'\le N_0\),
+the bound preceding (M7) is \([P+(1+Q'/r)(P+r\log(2r))]/(M_0N_0)\). Thus
+(M7) is at most \(5L^{-D}\) provided
+
+\[
+r,N_0\ge L^D,\quad M_0\ge L^D\log(2r),\quad
+M_0N_0\ge L^Dr\log(2r). \tag{M8}
+\]
+
+Here is a denominator choice that verifies this alternative. Put
+\(d_*=2/5\), \(S_D=L^{D+d_*+2}\), and apply Dirichlet approximation with
+cutoff \(\lfloor M_0N_0/S_D\rfloor\). It gives a reduced \(a/r\) with
+
+\[
+r\le M_0N_0/S_D,\qquad
+|\beta|M_0N_0\le S_D/r,\qquad |\beta|\le r^{-2}.
+\]
+
+Each nonempty BIG probe product is at least \(e^{L^{3/10}}\) and has
+logarithm \(O_m(L^{2/5}\log L)\); in particular
+\(\log(2M_0N_0)\le L^{d_*+2}\) eventually. If \(r>Q\ge L^D\), these
+bounds give all four inequalities in (M8). If \(r\le Q\), the matched
+cells satisfy \(R_0\le4e^{h_A+h_B}M_0N_0\), so \(|\beta|R_0\) has a
+fixed polynomial bound. This supplies the major-arc variation estimate
+with explicit control of its denominator.
+
+Passing from labelled prime tuples to their products costs at most
+
+\[
+\prod_g\frac{k_g!}{V_g^{k_g}}, \tag{M9}
+\]
+
+because a product in a group has at most \(k_g!\) ordered
+representations. Here \(k_g\le m\), so (M9) is another fixed power of
+\(L\). After including it in the requested minor-arc precision, the
+source bounds for the raw term and the two-kernel term are,
+respectively, \(125L^{-B}\|f\|_2^2\|h\|_2^2\) and
+\(2000L^{-B}\|f\|_2^2\|h\|_2^2\). Their squared difference is bounded by
+\(4250L^{-B}\|f\|_2^2\|h\|_2^2\).
+
+If the two product ranges meet \(n_A,n_B\) cells, the probability lost
+on discarded cells is at most \(2(n_A+n_B)\xi\). To bound their number,
+each probe product has logarithm at most \(B_L=mC_G L^{2/5}\log L\),
+where \(C_G\log L\) bounds the BIG group count. Consequently
+
+\[
+n_A,n_B\le2+B_L/h,\qquad
+\#\{\text{coarse dyads for either product}\}
+ \le2+B_L/\log2.
+\tag{M9a}
+\]
+
+These are polynomial bounds for the mesh (M10), uniform in the
+conditioned shared coordinates. They apply also when the product range
+is further clipped. The number of patterns is at most
+\(2^{m(|\mathcal A|+|\mathcal B|)}\), also polynomial. Shared
+coordinates are conditioned on and then integrated by Cauchy--Schwarz.
+For a requested one-rectangle saving \(B_{\rm save}\), let
+\(C_{\rm factor}\) pay for (M9). The following choices suffice:
+
+\[
+\begin{gathered}
+D\ge B_{\rm save}+2C_{\rm factor},\qquad
+C_s\ge D+d_*+2,\\
+C_4\ge C_s+1,\quad C_4\ge C_{\rm freq},\\
+H_m\ge B_{\rm save}+4C_q+C_4,\qquad
+C_\xi\ge B_{\rm save}+H_m+d_*+4.
+\end{gathered}
+\]
+
+Here \(|\zeta|\le L^{C_{\rm freq}}\) and \(C_q\) bounds the conductor
+cutoff. Request precision \(B_{\rm save}+C_q\) in the rational-phase
+reproduction to pay for \(r\le L^{C_q}\); the prime Siegel--Walfisz
+precision is then increased by \(C_\xi+2C_q\) as in (M5). Any fixed
+constants can be absorbed by an extra power and a larger threshold.
+After paying the pattern and dyad counts in \(B_{\rm save}\), (M3)--(M9)
+give the small local signed-operator estimate with
+
+\[
+h=\frac{\log2}{\lceil4L^{H_m}\rceil},\qquad
+Q=\lceil4L^{D+1}\rceil,\qquad \xi=L^{-C_\xi}. \tag{M10}
+\]
+
+Choose \(C_q>D+1\) after \(D\) and before \(H_m,C_\xi\).
+
+\Needspace{6\baselineskip}
+
+\hypertarget{marked-correlation-the-arithmetic-state-space-and-the-local-contraction}{%
+\subsection{The arithmetic state space and the local
+contraction}\label{marked-correlation-the-arithmetic-state-space-and-the-local-contraction}}
+
+\Needspace{6\baselineskip}
+
+\hypertarget{marked-correlation-residues-active-marks-and-memory}{%
+\subsubsection{Residues, active marks and
+memory}\label{marked-correlation-residues-active-marks-and-memory}}
+
+Fix \(N=2\lceil L^{13/25}\rceil\), \(M=J+1\), and finite cutoffs \(B_g\)
+for the BIG memory lengths. The estimates below are uniform in these
+cutoffs. For a SMALL group put
+
+\[
+\mathbb T_g=\prod_{p\in P_g}\mathbb Z/p\mathbb Z,
+\qquad
+\mathscr S_g=\{(y,a):y\in\mathbb T_g,\ a:[M]\hookrightarrow P_g,
+                         \ y_{a_i}=0\ (i\in[M])\}.
+\tag{T1}
+\]
+
+Here and below \([M]=\{0,\ldots,M-1\}\). Give every element of
+\(\mathscr S_g\) mass \(|\mathbb T_g|^{-1}V_g^{-M}\), and write
+\(\omega_g(y)=\#\{p:y_p=0\}\). This is Haar probability in \(y\) and
+counting measure in the valid ordered marks, with the displayed factor
+\(V_g^{-M}\); it is not a probability on the marked fibre. Translation
+means \(y_p\mapsto y_p+\Delta\pmod p\) simultaneously for every \(p\).
+
+For BIG primes set
+
+\[
+q_i=\begin{cases}\sqrt q,&i=0,N,\\q,&0<i<N,\end{cases}
+\quad \eta_i=1-q_i,\quad H_N=\sum_{i=0}^N\eta_i,
+\quad b_p=1-H_N/p,\quad \widetilde\mu_g(p)=\frac1{V_gp b_p}.
+\tag{T2}
+\]
+
+Eventually \(b_p\ge1/2\). A BIG state consists of an active array
+\(a_g\in P_g^M\) and an ordered list \(((p_1,r_1),\ldots,(p_j,r_j))\),
+\(0\le j\le B_g\), where \(r_i\in\mathbb Z/p_i\mathbb Z\). Its mass is
+
+\[
+\left(\prod_{i<M}\widetilde\mu_g(a_{g,i})\right)
+ \frac1{j!}\prod_{i=1}^j\widetilde\mu_g(p_i).
+\tag{T3}
+\]
+
+The residues in this list have \textbf{counting} measure: summing the
+mass of \((p,r)\) over \(r\) gives \(p\widetilde\mu_g(p)\), while its
+zero residue has mass \(\widetilde\mu_g(p)\). Equal primes and equal
+atoms are allowed here. The active BIG array also has no distinctness
+condition at this stage. Distinctness is imposed on the appropriate
+birth lists in the transition and then globally in the forest expansion.
+
+Let \(\widetilde{\mathscr S}\) be the product of (T1) and these BIG
+spaces, with mass \(w\). Let \(\pi\) replace each ordered OLD list by
+its multiset, leaving all SMALL states and active arrays unchanged. On
+\(\mathscr S=\pi(\widetilde{\mathscr S})\) put
+
+\[
+\bar w(X)=\sum_{\pi(x)=X}w(x),\qquad
+\mathcal E(F)=\sum_X\bar w(X)|F(X)|^2,
+\qquad
+(\Pi u)(X)=\frac{\sum_{\pi(x)=X}w(x)u(x)}{\bar w(X)}.
+\tag{T4}
+\]
+
+A zero-mass fibre is assigned zero. In our nonempty fibres the masses
+are positive. Pullback \(\pi^*F=F\circ\pi\) is an isometry,
+\(\Pi\pi^*=I\), and Jensen gives
+\(\mathcal E(\Pi u)\le\sum_xw(x)|u(x)|^2\). For a multiset with atom
+multiplicities \(n_z\), the OLD part of its mass is
+\(\prod_z\widetilde\mu_g(p(z))^{n_z}/\prod_z n_z!\). This follows by
+counting its \(j!/\prod_z n_z!\) ordered representatives in (T3). In
+particular, passing to multisets never discards collisions.
+
+An OLD atom records a previously introduced prime and its current
+residue. On a step \(\Delta=o sD\) all surviving residues become
+\(r+\Delta\pmod p\). A \emph{promotion} supplies an unshared target
+active slot from an OLD occurrence whose translated residue is zero;
+distinct promoted slots use distinct OLD indices. A \emph{store} puts an
+unshared source active occurrence into OLD, at residue
+\(\Delta\pmod p\). Stored and promoted primes must not divide \(D\). The
+remaining unshared target slots are new births sampled with
+\(\widetilde\mu_g\). The output length must stay below \(B_g\). A
+transition is \emph{clean} when it has no stores and no promotions.
+Clean transitions translate every OLD occurrence, including repetitions.
+
+For definiteness the active operator is the following finite sum. Choose
+the raw pattern or a nonempty pair \((a,b)\) of probe subsets, auxiliary
+primes with the original harmonic law \(\mu\), and two independent
+uniform permutations in each SMALL and BIG group. Copy the shared active
+coordinates, use the divisor \(D\) of (M18b), and sum all legal
+store/promotion choices just described. In each BIG group the
+coefficient is
+
+\[
+\rho_0^{z_g+z'_g}V_g^{-t_g}
+ \prod_{i\text{ fresh at the target}}\widetilde\mu_g(a'_{g,i}),
+\tag{T5}
+\]
+
+where \(z_g,z'_g\) count zero-residue OLD occurrences at the two
+endpoints and \(t_g\) is the number of promotions. Choose
+\(q^{1/4}<\rho_0<1\). In each SMALL group multiply by
+\(V_g^{-1}q^{(\omega_g(y)+\omega_g(y')-2M)/2}\), imposing shared marks
+and \(y'=y+\Delta\). Finally multiply by the auxiliary mass, the
+permutation masses, and \(K_fD^{i\zeta}\mathrm e(sD\theta)\) in the
+forward orientation; the reverse orientation conjugates
+\(K_fD^{i\zeta}\) and changes \(\theta\) to \(-\theta\) in the return
+phase. There is only one such complex scalar for the full frame.
+
+The operator \(E_o\) is this row sum, pulled back and averaged by (T4),
+with the two gates \(|\mathrm{OLD}|\le T=\lceil L^2\rceil\) and the
+condition that the list of fresh target numerical primes is distinct.
+Only distinctness between different birth times is omitted. These are
+the operators denoted \(E_i\) in (F7), with alternating \(o\). The
+integer-position matrix (M18c) has a different carrier and will be
+related to their full path sum in
+\protect\hyperlink{marked-correlation-from-residue-averages-to-the-integer-interval}{the
+residue-to-interval transfer}.
+
+\Needspace{6\baselineskip}
+
+\hypertarget{marked-correlation-the-frozen-big-form-including-its-errors}{%
+\subsubsection{The frozen BIG form, including its
+errors}\label{marked-correlation-the-frozen-big-form-including-its-errors}}
+
+We first identify the harmonic form bounded by (M1)--(M10). Freeze the
+SMALL shared tuple and its product \(d>0\). For a pattern \(\nu\), let
+\(S_g\subset[J]\) be its shared coordinates. For source and target
+arrays \(u,v\) and permutations \(\sigma,\tau\), put
+
+\[
+B_\mu(u,v)=\prod_g\left[
+ \prod_{i\in S_g}1_{u_{g,\sigma_g(i)}=v_{g,\tau_g(i)}}
+ \prod_{i\notin S_g}\mu_g(v_{g,\tau_g(i)})\right].
+\tag{T6}
+\]
+
+In this formula the complement is in \([M]\), so it includes the
+trailing coordinate. Multiply (T6) by the auxiliary mass, the two
+permutation masses, the two-endpoint auxiliary ban, and the single
+oriented scalar from (T5); sum over \(\nu\), auxiliaries and
+permutations to obtain a kernel \(\mathsf B_\mu(d,\zeta,\theta,o,s)\).
+Its pairing is
+\(\sum_{u,v}\mu(u)\overline{F(u)}\mathsf B_\mu(u,v)H(v)\). This defines
+the frozen form for arbitrary tests; no factorization of \(F\) or \(H\)
+between groups is required.
+
+Here is the identity connecting it to (M2). Temporarily remove the
+auxiliary ban. In a comparison pattern replace the two character kernels
+by ordinary probe resampling. Use the shared-copy indicators to identify
+the unchanged coordinates. At a probe belonging to the first subset use
+the target value, at a probe belonging to the second use the source
+value, and integrate the freed counterpart. The trailing coordinates at
+both endpoints are independently integrated. The divisor in the phase is
+the head product of this spliced array, so the resulting pairing is
+exactly \(-(-1)^{|a|+|b|}R(E_a\mathcal SF,E_b\mathcal SH)\). The empty
+pattern has the opposite sign and gives
+\(R(U\mathcal SF,U\mathcal SH)\). Changing variables by the independent
+endpoint permutations proves
+
+\[
+\mathsf B_\mu(F,H)=\mathsf R(F,H)
+              +\mathsf C(F,H)-\mathsf Z(F,H),
+\tag{T7}
+\]
+
+where \(\mathsf R\) is the right side of (M2), \(\mathsf C\) is the sum
+of (character-resampling minus ordinary-resampling) comparison forms
+without the ban, and \(\mathsf Z\) is the character form on auxiliaries
+meeting either endpoint. This is an identity of signed forms, before
+taking absolute values. In particular, the phase is never commuted
+through a coordinate average.
+
+Equations (M4)--(M10) bound \(|\mathsf C|^2\) by
+\(L^{-A}\|F\|_\mu^2\|H\|_\mu^2\) at any fixed accuracy \(A\). The same
+bound holds for \(\mathsf Z\) eventually: for a fixed endpoint array,
+the probability that one of at most \(mG\) auxiliaries hits its \(MG\)
+marked values is at most \(mMG^2/(v e^{L^{3/10}})\). Split the ban into
+its source and target parts and apply weighted Cauchy--Schwarz to each
+part. The unrestricted marginal at the other endpoint is the original
+product law. The pointwise kernel cap and pattern sum are polynomial in
+\(L\), so this exponential atom saving absorbs them. This argument keeps
+the tests in their original \(L^2\) norms; it does not bound a test on a
+rare set by its supremum. Together with (M3) and
+\(|a+b-c|^2\le3(|a|^2+|b|^2+|c|^2)\), (T7) gives the explicit squared
+bound \(33L^{-A}\) times the two energies. To obtain exponent \(2E\),
+use \(A=2E+2\). The reduction to \(d=s=1\) replaces \(\theta\) by
+\(ds\theta\) and introduces the unit scalar \(d^{io\zeta}\); hence this
+bound is uniform in \(d>0\), \(s\ne0\) and \(\theta\in\mathbb R\).
+
+The density in (T6) must next be changed to (T2). This is done with one
+multiplier common to every pattern and permutation. Put
+
+\[
+r_g(p)=b_p^{-1/2},\qquad
+(\mathcal AF)(u)=\prod_{g,i}r_g(u_{g,i})F(u).
+\tag{T8}
+\]
+
+Then \(\|\mathcal AF\|_\mu=\|F\|_{\widetilde\mu}\). The precise ratio of
+the tilted joint law to the harmonic joint law, after this change at
+both endpoints, is
+
+\[
+R_\nu(u,v;\sigma,\tau)=
+ \prod_g\prod_{i\notin S_g}
+ r_g(u_{g,\sigma_g(i)})r_g(v_{g,\tau_g(i)}).
+\tag{T9}
+\]
+
+For a shared coordinate the indicator in (T6) makes the two endpoint
+square roots supply its full ratio; for a free coordinate an additional
+square root is needed at each end. This verifies (T9) coordinate by
+coordinate. Auxiliary draws still use \(\mu\), not \(\widetilde\mu\).
+
+Let \(\mathsf B_{\widetilde\mu}^{\rm nd}\) include the fresh-birth list
+condition in \(E_o\), and let \(\mathsf B_\mu^{\rm bad}\) be the same
+harmonic form restricted to its failure. The exact identity is
+
+\[
+\mathsf B_{\widetilde\mu}^{\rm nd}(F,H)
+ =\mathsf B_\mu(\mathcal AF,\mathcal AH)
+   +\mathsf T(F,H)-\mathsf B_\mu^{\rm bad}(\mathcal AF,\mathcal AH),
+\tag{T10}
+\]
+
+where \(\mathsf T\) uses the multiplier \((R_\nu-1)\) and retains the
+fresh-birth condition. Set \(P=e^{L^{3/10}}\), \(a_0=1-H_N/P\),
+\(I=MG\), and
+
+\[
+\delta_{\rm tilt}=a_0^{-I}-1,\qquad
+\mathcal K=1+(2^{m|\mathcal A|}-1)(2^{m|\mathcal B|}-1)Q^4\xi^{-2}.
+\tag{T11}
+\]
+
+The raw pattern has cap one and every other pattern has cap
+\(Q^4\xi^{-2}\), so \(\mathcal K\) is their total cap. From (T9),
+\(1\le R_\nu\le a_0^{-I}\); normalized auxiliary and permutation sums
+and the two marginals of (T6) therefore give
+
+\[
+\begin{aligned}
+|\mathsf T(F,H)|^2
+ &\le(\mathcal K\delta_{\rm tilt})^2
+       \|F\|_{\widetilde\mu}^2\|H\|_{\widetilde\mu}^2,\\
+|\mathsf B_\mu^{\rm bad}(\mathcal AF,\mathcal AH)|^2
+ &\le\mathcal K^2\frac{I^2}{vP}
+       \|F\|_{\widetilde\mu}^2\|H\|_{\widetilde\mu}^2.
+\end{aligned}\tag{T12}
+\]
+
+For the second bound, expose the fresh coordinates in (T6). Any pair
+coincides with conditional probability at most \(1/(vP)\); there are at
+most \(I^2\) pairs. The restricted row has this saving and the full
+column has mass one. Weighted Schur gives the displayed squared bound,
+valid even for tests concentrated on the bad set. Since \(H_N\le5L\),
+\(I=O_J(\log L)\), and \(\mathcal K\le L^{C(m,C_q,C_\xi)}\), both errors
+in (T12) are smaller than any inverse power of \(L\). Applying the
+three-term square inequality to (T10) gives \(9L^{-2E}\) times the
+tilted endpoint energies, after choosing the harmonic precision. This is
+the full tilted BIG estimate, including the ban and the actual list
+filter.
+
+\Needspace{6\baselineskip}
+
+\hypertarget{marked-correlation-the-small-maps-and-the-translated-old-residues}{%
+\subsubsection{The SMALL maps and the translated OLD
+residues}\label{marked-correlation-the-small-maps-and-the-translated-old-residues}}
+
+It remains to transfer this bound to (T4). Fix the OLD lengths \(j_g\)
+and the ordered OLD primes \(\boldsymbol\pi_g\), retaining their
+residues as variables. On this sector use the finite abelian group
+
+\[
+\mathbb T=\prod_{g\in\mathrm{SMALL}}\mathbb T_g
+       \times\prod_{g\in\mathrm{BIG}}\prod_{i=1}^{j_g}
+                                  \mathbb Z/\pi_{g,i}\mathbb Z.
+\tag{T13}
+\]
+
+Repeated OLD primes give separate coordinates. The translation
+\(t\mapsto t+\Delta\) acts diagonally on every occurrence; this is
+exactly the clean OLD update. For a SMALL permutation \(\sigma\) and
+shared tuple \(d=(d_{g,i})_{g,i<J}\), define
+
+\[
+(P_{\sigma,d}U)(a;y,r)=
+ \prod_{g\in\mathrm{SMALL}}
+    V_g^{-1/2}q^{\max(\omega_g(y)-M,0)/2}
+ \sum_{\substack{(y,c)\in\prod_g\mathscr S_g\\
+                   c_{g,\sigma_g(i)}=d_{g,i}\ (i<J)}}
+          U((y,c),a,r).
+\tag{T14}
+\]
+
+A fibre with no valid marks contributes zero. These are conditional
+sums, not conditional probabilities. In the clean coefficient the SMALL
+scalar is exactly the product of the two half factors in (T14). The
+shared tuple has the same value at the two endpoints, and their residues
+differ by \(\Delta=o sD\). Partitioning both endpoint sums by
+\((d,y,r)\) gives precisely the pairing of \(P_{\sigma,d}U\) with the
+translated \(P_{\tau,d}F\), with the frozen BIG kernel between them. The
+displacement still depends on \(d\), the BIG shared marks and the
+auxiliaries. It has not been frozen before this disintegration.
+
+Use normalized Fourier coefficients, so that
+
+\[
+\widehat u(\chi)=\frac1{|\mathbb T|}\sum_tu(t)\overline{\chi(t)},
+\qquad
+\widehat{u(\cdot+\Delta)}(\chi)=\chi(\Delta)\widehat u(\chi).
+\]
+
+Parseval replaces translation by multiplication by a character. Write
+\(\chi(\Delta)=\mathrm e(\vartheta_\chi\Delta)\); the frozen BIG block
+now has frequency \(\theta+\vartheta_\chi\). The bound above is uniform
+in this frequency, however large the OLD sector. For this fixed prime
+sector put
+
+\[
+c_{\boldsymbol\pi}=
+ \prod_{g\in\mathrm{SMALL}}V_g^{-M}
+ \prod_{g\in\mathrm{BIG}}
+       \frac{\prod_{i=1}^{j_g}\pi_{g,i}\widetilde\mu_g(\pi_{g,i})}{j_g!}.
+\]
+
+The factors \(\pi_{g,i}\) convert OLD counting measure to normalized
+Haar measure on (T13). The exact clean pairing in this sector is
+
+\[
+c_{\boldsymbol\pi}\,
+ \mathbb E_{\sigma,\tau}\sum_d\sum_{\chi\in\widehat{\mathbb T}}
+ \mathsf B_{\widetilde\mu}^{\rm nd}
+   \bigl(\widehat{P_{\sigma,d}U}(\chi),
+         \widehat{P_{\tau,d}F}(\chi);
+         d_S,\zeta,\theta+\vartheta_\chi,o,s\bigr),
+\quad d_S=\prod_{g,i<J}d_{g,i}.
+\tag{T15}
+\]
+
+The two arguments of \(\mathsf B\) are functions of the whole BIG active
+array \(a\). After (T8) and (M0) they are the tests \(f,h\) of the
+orthogonal-average argument. Formula (T15) is the required operator
+identity: it keeps the full joint phase, both endpoint permutations, all
+shared values, and every translated OLD occurrence.
+
+There is no loss equal to \(|\mathbb T|\) in its norm estimate. For a
+fixed \(y,d\), the number of completions in one SMALL group is
+\((\omega_g(y)-J)_{1}\); for \(\ell\) omitted marks it is
+\((\omega_g(y)-J)_{\ell}\). Cauchy--Schwarz in that fibre, followed by
+summation over \(d\) and Parseval, bounds each lifted endpoint energy by
+\(C_{\rm cond}\) times its original sector energy, where
+
+\[
+C_{\rm cond}=\prod_{g\in\mathrm{SMALL}}
+       \frac{\ell!}{(1-q)^{\ell+1}V_g^\ell},\qquad \ell=1.
+\tag{T16}
+\]
+
+Indeed, on a nonempty fibre \(\omega_g=J+\ell+z\), and
+\(q^z(z+\ell)_{\ell}\le\sum_{z\ge0}q^z(z+\ell)_{\ell} =\ell!/(1-q)^{\ell+1}\).
+Every original ordered mark state occurs once when its shared tuple is
+summed. Cauchy--Schwarz over \((d,\chi)\) and then over sectors yields
+
+\[
+|\langle U,E_{\rm clean}^{(1)}F\rangle|^2
+ \le9L^{-2E_0}C_{\rm cond}^2\,\mathcal E(U)\mathcal E(F).
+\tag{T17}
+\]
+
+Here the superscript means that the OLD endpoint parameter is one. For
+general \(\rho_0\le1\), multiply both tests by
+\(\rho_0^{\#\text{zero OLD}}\); these multipliers and both OLD gates are
+contractions. Pullback and orbit averaging in (T4) are contractions as
+well. To pass from a pairing bound to an operator bound, set the first
+test equal to the output of the operator and cancel its norm (the zero
+output is immediate).
+
+If \(C_G\log L\) bounds the number of SMALL groups and \(V_g\ge v\),
+then \(C_{\rm cond}\le L^{c_{\rm cond}}\), with
+\(c_{\rm cond}=C_G\log\max(1,\ell!/((1-q)^{\ell+1}v^\ell))\). Choose
+\(E_0=E+c_{\rm cond}+1\) before choosing \(m\) or \(J\). For \(L\ge3\),
+(T17) is at most \(L^{-2E}\) times the two energies. This proves the
+clean part of (F7), with all normalizations specified.
+
+\Needspace{6\baselineskip}
+
+\hypertarget{marked-correlation-promotions-stores-and-the-full-transition}{%
+\subsubsection{Promotions, stores and the full
+transition}\label{marked-correlation-promotions-stores-and-the-full-transition}}
+
+Fix an OLD BIG prime \(p\), its residue \(r\), the BIG divisor \(D_B\),
+and an orientation \(o\in\{\pm1\}\). Let \(F\) be the product of all
+SMALL marks and \(U\) the product of the omitted \(\ell\) marks in each
+SMALL group. The retained SMALL divisor is \(D_S=F/U\). Promotion
+requires
+
+\[
+r+osD_SD_B\equiv0\pmod p,
+\quad\text{or equivalently}\quad
+rU+osD_BF\equiv0\pmod p. \tag{M11}
+\]
+
+The constant term is nonzero: \(p\nmid D_BF\) and \(0<|s|<p\).
+Furthermore
+
+\[
+\log U\le\ell\,\#\mathrm{SMALL}\,L^{1/5}
+ =O(\log L\,L^{1/5})<L^{3/10}\le\log p.
+\]
+
+Thus \(0<U<p\), and (M11) determines at most one \(U\). Distinct marks
+within each group and disjointness of the groups determine the omission
+tuple from \(U\). Uniform coordinate permutations induce uniform
+omission subsets. Hence
+
+\[
+\Pr(\text{an OLD promotion})
+\le\frac{\#\mathrm{OLD}}
+ {\binom{J+\ell}{\ell}^{\#\mathrm{SMALL}}}. \tag{M12}
+\]
+
+In the application \(\ell=1\), \(\#\mathrm{OLD}\le\lceil L^2\rceil\),
+and \(\#\mathrm{SMALL}\ge c_0\log L\) with \(c_0=(40\log2)^{-1}\). The
+right side is at most \(2L^{2-c_0\log(J+1)}\). If \(L^\kappa\) bounds
+the complete row cost, choose \(J\ge m\) so that
+
+\[
+2H_0+2\kappa+3\le c_0\log(J+1). \tag{M13}
+\]
+
+This makes the promotion row rare enough for the squared-energy saving
+\(L^{-2H_0}\). Reverse the transition orientation to obtain the same
+estimate for storing an active label: it is a rare column. The weighted
+Schur inequality combines each rare row or column bound with the full
+complementary row bound, then adds the two exceptional operators.
+Increasing the fixed precision pays their constant sum. This is why
+\(J\) is chosen after the mesh, conductor, and pattern parameters.
+
+The clean and exceptional parts sum to the literal operator \(E_o\).
+Apply their squared estimates at precision \(E+1\). The inequality
+\(\|u+v\|^2\le2\|u\|^2+2\|v\|^2\) gives
+
+\[
+\mathcal E(E_oF)\le4L^{-2(E+1)}\mathcal E(F)
+                  \le L^{-2E}\mathcal E(F). \tag{T18}
+\]
+
+The exceptional estimate did not require cancellation. The same positive
+row and column bounds, without the rare-event factor, apply if an
+arbitrary coefficient of modulus at most one is attached to each
+expanded transition. Thus, for a fixed exponent \(\kappa\),
+
+\[
+\mathcal E(E_o^\phi F)\le L^{2\kappa}\mathcal E(F),
+\qquad |\phi|\le1. \tag{T19}
+\]
+
+The exponent is independent of \(J\); its formula is given below. This
+distinction is needed in the forest proof: a sign multiplier at a
+collision owner uses (T19), not (T18).
+
+\Needspace{6\baselineskip}
+
+\hypertarget{marked-correlation-background-transitions-and-the-constants-in-the-moment-bound}{%
+\subsubsection{Background transitions and the constants in the moment
+bound}\label{marked-correlation-background-transitions-and-the-constants-in-the-moment-bound}}
+
+At visit \(i\), the background operator \(G_i\) leaves the SMALL state
+and all active BIG marks fixed. In one BIG group let \(Z\) be the
+indices of OLD atoms at residue zero. Choose \(A\subset Z\), delete
+those OLD occurrences, and append \(b\) new atoms
+\((p_1,0),\ldots,(p_b,0)\). The coefficient of this choice is exactly
+
+\[
+ \left(-\frac{\eta_i}{\rho_0}\right)^{|A|}
+ \left(\frac{q_i}{\rho_0^2}\right)^{|Z|-|A|}
+ \frac1{b!}\left(-\frac{\eta_i V_g}{\rho_0}\right)^b
+ \prod_{j=1}^b\widetilde\mu_g(p_j).
+\tag{T20}
+\]
+
+Sum over these choices, with the finite output cap, then take the
+product over groups and the orbit average (T4). These appended
+occurrences are \emph{background births}. A later use of an existing
+occurrence is not a birth. Formula (T20) explains both the signs and the
+single birth factorial. The OLD factorial in (T3) is the Hilbert measure
+and is not inserted a second time in an edge coefficient. The powers of
+\(\rho_0\) in (T5) and (T20) cancel at successive endpoints; they are an
+auxiliary norm device, not a change to the original residue density.
+
+Here are explicit constants for (F7)--(F11). They also distinguish the
+row constant used in removing the OLD cutoff from the smaller
+conditional-map constant (T16). For \(d_0=\ell+m\) put
+
+\[
+\begin{aligned}
+C_{\rm prom}(\rho_0,d_0)&=\sum_{j=0}^{d_0}\frac{j!}{(1-\rho_0)^{j+1}},\\
+C_{\rm small}&=\prod_{g\in\mathrm{SMALL}}
+       \frac{\ell!}{V_g^\ell(1-\sqrt q)^{\ell+1}},\\
+S_{\rm small}&=\sum_{x\in\prod_{g\in\mathrm{SMALL}}\mathscr S_g}
+                    \prod_g\frac1{|\mathbb T_g|V_g^M},\\
+a&=\mathcal K C_{\rm small}
+ \prod_{g\in\mathrm{BIG}}
+ \left[w_0^{d_0}4^{d_0}C_{\rm prom}(\rho_0,d_0)
+                 \max(1,V_g^{-1})^{d_0}2^{d_0}\right].
+\end{aligned}\tag{T21}
+\]
+
+Here \(\mathcal K\) is (T11), and \(w_0\) is specified in
+\protect\hyperlink{marked-correlation-restoring-all-histories}{the
+history restoration}. Thus \(S_{\rm small}\) is a finite total mass, not
+a universal constant or a probability normalization. Both
+\(C_{\rm small}\) and \(a\) depend on the actual group masses and \(L\);
+their polynomial \textbf{exponents} are fixed. The bounds on \(V_g\) and
+the number of groups make \(\mathcal K C_{\rm small}\le L^{C_E'}\) and
+\(a\le L^{C_b}\) eventually. \(C_E'\) here is a row-budget exponent,
+unrelated to the ordinary-slot exponent \(C_E\) in (B1).
+
+An explicit exponent for (T19) can be read without choosing \(J\).
+Choose \(C_G\) so that both group counts and
+\(|\mathcal A|+|\mathcal B|\) are at most \(C_G\log L\) and put
+
+\[
+\begin{aligned}
+R_v&=\max(1,v_{\max},v^{-1}),\\
+B_{\rm row}&=\max\{1,4^{d_0}C_{\rm prom}(\rho_0,d_0)
+                                  \max(1,v^{-1})^{d_0}2^{d_0}\},\\
+\kappa&=mC_G\log2+4C_q+2C_\xi+1\\
+&\quad+C_G\log\max\left(1,
+             \frac{\ell!}{(1-\sqrt q)^{\ell+1}v^\ell}\right)
+       +C_G\log B_{\rm row}+\frac{d_0C_G}2\log R_v.
+\end{aligned}\tag{T22}
+\]
+
+To see the uniformity, at most \(d_0\) slots per group are unshared. If
+\(z\) OLD occurrences have residue zero, choosing \(j\le d_0\) of them
+costs at most \((z)_j\rho_0^{z-j}\le C_{\rm prom}\). The SMALL row is
+bounded by the same falling-factorial calculation as (T16), with
+\(\sqrt q\) in place of \(q\). The number of patterns and the character
+caps give the first line of the exponent in (T22). The comparison of
+forward and reverse harmonic masses contributes at most \(R_v^{d_0G}\)
+to the squared bound. Weighted Schur, followed by (T4), gives (T19).
+Applying the rare-row estimate (M12) to this same calculation gives
+(M13), so \(J\) can indeed be chosen afterwards.
+
+The background estimate is uniform even in unit multipliers on its
+individual choices. For \(W_0,w_0,\rho_0\) as below, summing (T20) in
+absolute value with weight \(w_0^{|\mathrm{OLD}|}\) uses
+
+\[
+\frac1{\rho_0w_0}+\frac{\sqrt q}{\rho_0^2}\le1,
+\qquad \sum_{p\in P_g}\widetilde\mu_g(p)\le2.
+\]
+
+The deletion sum is binomial and the birth sum is exponential. In the
+transposed sum the factorials in (T3) give the corresponding binomial
+coefficients; hence the same weighted Schur argument gives
+\(\mathcal E(G_i^\phi F)\le\Gamma^2\mathcal E(F)\), with
+\(\Gamma=\exp(4W_0w_0G/\rho_0)\). Set
+
+\[
+l=L^{-S_0},\qquad h=L^\kappa,\qquad
+b=L^{S_0+\kappa},\quad K_r=S_0+\kappa,\qquad
+P_0=\left|\prod_{g\in\mathrm{BIG}}\prod_{p\in P_g}b_p\right|
+                \mathcal E(v)\Gamma^{N+1},
+\tag{T23}
+\]
+
+where \(v\) is one on states with empty OLD memory and zero otherwise.
+The initial distinct-active mask is retained in the history sum and can
+only reduce its boundary energy. Equations (T18)--(T23) supply all three
+estimates in (F7); the forest argument below restores the omitted
+distinctness between different birth times.
+
+\Needspace{6\baselineskip}
+
+\hypertarget{marked-correlation-restoring-all-histories}{%
+\subsection{Restoring all
+histories}\label{marked-correlation-restoring-all-histories}}
+
+Equalities between prime labels in a history are indexed by forests. The
+exact signed expansion, its coefficients, and the two bounds below are
+proved in
+\protect\hyperlink{forest-moments}{Section~\ref{forest-moments}}. Its
+random-sign factorization explains why each identification loses the
+local contraction at at most two visits. For
+\(N=2\lceil L^{13/25}\rceil\), the number of available labels is bounded
+by
+
+\[
+\mathcal A=(N+1)\#\mathrm{BIG}(J+1+\lceil L^2\rceil)\le L^4.
+\]
+
+A forest of rank \(r\) requires \(r\) identifications and there are at
+most \(\mathcal A^{2r}\) such forests. The expansion has two bounds for
+every forest contribution \(F_r\):
+
+\[
+|F_r|\le
+\min\{P_0(L^{-S_0})^N b^{2r},\ P_0a^N\delta^r\}, \tag{M15}
+\]
+
+where
+
+\[
+\begin{gathered}
+P_0\le L^{(C_v+2)N},\qquad b\le L^{K_r},\qquad a\le L^{C_b},\\
+S_0=E+C_v+5,\qquad \delta=\frac2{v e^{L^{3/10}}}.
+\end{gathered}
+\]
+
+The first bound uses the local signed contraction at each step; each
+identification replaces at most two local factors by their row bounds.
+The second uses absolute row bounds everywhere and charges one factor
+\(\delta\) to each independent equality of BIG prime labels. This is a
+finite reindexing of the same history expansion.
+
+Split at \(r=\lceil NL^{-3/20}\rceil\). Below the split, the exponent
+cost \((8+2K_r)r\) from the forest count and \(b^{2r}\) is at most \(N\)
+eventually. The first bound in (M15) is therefore at most
+\(L^{-(E+2)N}\) after counting forests of that rank. Above the split,
+
+\[
+(\mathcal A^2\delta)^r
+ \le e^{-rL^{3/10}/2}
+ \le e^{-NL^{3/20}/2},
+\]
+
+which dominates \(L^{(C_v+C_b+E+4)N}\). The second bound gives the same
+\(L^{-(E+2)N}\). There are at most \(\mathcal A+1\le L^N\) ranks;
+summing proves an upper bound \(L^{-EN}\) for the signed history sum
+with the OLD cutoff \(\#\mathrm{OLD}\le\lceil L^2\rceil\).
+
+There is no circular parameter choice here. The fixed volume exponent
+\(C_v\) is chosen from the harmonic mass bounds and \(q\), before \(m\)
+or \(J\). One may first choose \(\rho_0\in(q^{1/4},1)\) and then use
+
+\[
+W_0=\max(1,v_{\max}),\quad
+w_0=\max\!\left(1,\frac{4W_0}{\rho_0(1-\sqrt q/\rho_0^2)}\right),
+\quad C_v=\frac{4W_0w_0C_0}{\rho_0},
+\]
+
+where \(C_0\log L\) bounds the group count. Thus \(S_0\) is fixed before
+the local parameters. The later exponents \(K_r,C_b\) affect only the
+eventual threshold in the rank split.
+
+To remove this cutoff, put \(T_0=\lceil L^2\rceil\) and
+\(H_b=\lceil L^2/4\rceil\). The number of active BIG labels encountered
+at all visits is at most \((N+1)G(J+1)\), where \(G\) is the BIG group
+count. Eventually \(H_b+(N+1)G(J+1)\le T_0\). The first crossing of the
+OLD cutoff therefore requires at least \(H_b\) background births. In the
+positive history expansion, multiply each birth weight by \(2\). The
+discarded mass is at most \(2^{-H_b}\) times this single positive root
+sum; no factor counting histories is needed. Its explicit bound is
+
+\[
+S_{\rm small}e^{4(N+1)(1+\sqrt L)}
+ \left[C_\nu C_{\rm small}
+  \left(16\max(1,v^{-1})e^{\sqrt L}\right)^{(1+m)G}\right]^N,
+\]
+
+Here \(C_\nu=\mathcal K\), and
+
+\[
+C_\nu C_{\rm small}\le L^{C_E'},\qquad
+S_{\rm small}\le
+ \exp\!\bigl((C_0+1)L\log L(\sqrt L+\log\max(1,v^{-1}))\bigr).
+\] The discarded mass is consequently at most
+\(\exp(-\tfrac14(\log2)L^2+O_{\rm fixed}(L^{7/4}))\), hence at most
+\(L^{-(E+1)N}\). Use the forest bound at precision \(E+1\) as well.
+Adding the two errors gives \(2L^{-(E+1)N}\le L^{-EN}\) for the full
+history sum.
+
+\Needspace{6\baselineskip}
+
+\hypertarget{marked-correlation-from-residue-averages-to-the-integer-interval}{%
+\subsection{From residue averages to the integer
+interval}\label{marked-correlation-from-residue-averages-to-the-integer-interval}}
+
+For a fixed history \(\omega\), let \(h_i\) be its offsets. Its density
+at an integer \(n\) is
+
+\[
+D_\omega(n)=\prod_p\prod_{i=0}^N
+\begin{cases}
+\mathbf1_{p\mid n+h_i},&p\text{ is active at visit }i,\\
+q_i^{\mathbf1_{p\mid n+h_i}},&\text{otherwise},
+\end{cases} \tag{M16}
+\]
+
+with \(q_0=q_N=\sqrt q\) and \(q_i=q\) internally. Its model density
+\(v_\omega\) is the product of the exact averages over residues modulo
+each prime. This retains coincidences between offsets modulo a prime.
+Explicitly, let \(A_p\) be the visits at which \(p\) is active, and
+\(I_{p,t}=\{i:h_i\equiv t\pmod p\}\). The local factor is
+
+\[
+v_{\omega,p}=\begin{cases}
+0,&\text{the offsets on }A_p\text{ are not all congruent},\\
+\displaystyle\frac1p\prod_{i\in I_{p,t}\setminus A_p}q_i,
+ &A_p\ne\varnothing,\ h_i\equiv t\ (i\in A_p),\\
+\displaystyle1-\frac1p\sum_{t\bmod p}
+              \left(1-\prod_{i\in I_{p,t}}q_i\right),&A_p=\varnothing.
+\end{cases}\tag{M16a}
+\]
+
+The minus sign between the initial integer residue and \(t\) disappears
+under uniform averaging. There is one residue per \textbf{numerical
+prime} in (M16a), even if it appears in many active lists.
+
+We verify its connection to the memory expansion, which is needed before
+applying an interval estimate. A prime lifespan is either empty or an
+interval \([a,z]\subset[0,N]\). For a nonempty lifespan require
+\(h_a\equiv h_z\pmod p\), require every active visit to lie in \([a,z]\)
+and have offset congruent to \(h_a\), and allow \(a=z\) only when \(a\)
+is active. Its weight is
+
+\[
+\frac1p\epsilon_a\epsilon_z
+ \prod_{a<i<z,\ i\notin A_p}
+       (1-\eta_i1_{h_i\equiv h_a\ (p)}),
+\qquad
+\epsilon_i=\begin{cases}1,&i\in A_p,\\-\eta_i,&i\notin A_p.\end{cases}
+\tag{T24}
+\]
+
+The empty lifespan is allowed only if \(A_p=\varnothing\) and has weight
+\(b_p=1-\sum_i\eta_i/p\). The sum of all these weights is exactly
+(M16a). For an absent prime, expand the elementary identity
+
+\[
+\prod_{i\in I}(1-\eta_i)
+ =1-\sum_{i\in I}\eta_i
+  +\sum_{a<z,\ a,z\in I}\eta_a\eta_z
+                      \prod_{a<i<z,\ i\in I}(1-\eta_i)
+\tag{T25}
+\]
+
+in each residue class \(I=I_{p,t}\) and average over \(t\). The identity
+follows by telescoping twice, or induction on \(|I|\). For a represented
+prime, let \(a_0,z_0\) be its first and last active visits. The inactive
+factors strictly before \(a_0\) have the expansion
+\(1-\sum_{a<a_0}\eta_a1_{h_a\equiv h_{a_0}}  \prod_{a<i<a_0}(1-\eta_i1_{h_i\equiv h_{a_0}})\);
+use the reversed expansion after \(z_0\) and leave the middle factors
+unchanged. Multiplication gives exactly (T24), including the cases
+\(a=a_0\), \(z=z_0\), and a single active visit.
+
+To recover the transition description from these lifespans, follow each
+prime through its active visits and keep it in OLD between separated
+active runs. Leaving an active run stores it; returning promotes the
+same occurrence. An inactive left endpoint of a lifespan is a background
+birth, and an inactive right endpoint a background deletion. The
+intermediate residue is \(h_i-h_a\pmod p\), so all zero tests are the
+ones in (T24). Conversely, a history with distinct births determines
+these lifespans and active runs uniquely, apart from the ordering of
+simultaneous births and OLD representatives. Their permutation counts
+cancel respectively the birth factorials in (T20) and the sector
+factorials in (T3). At each prime the \(\rho_0\) powers cancel;
+\(b_p\widetilde\mu_g(p)=1/(V_gp)\); the remaining \(V_g^{-1}\) factors
+count active runs. These are exactly the factors obtained from the
+integer matrix's state and edge masses. Thus multiplication over primes
+and summation over the frame choices identify the restored signed memory
+sum with \(\sum_\omega c_\omega v_\omega\). The frame coefficient
+retains its sign, auxiliary ban and complex phase throughout this
+equality.
+
+Here is the finite approximation used for (M16). If active congruences
+at some prime are incompatible, both the integer density and its residue
+average vanish. Otherwise let \(Q_0\) be the product of the distinct
+active primes. Their congruences specify one class modulo \(Q_0\), with
+a fixed positive factor from the inactive visits at those primes. For
+each remaining prime put
+
+\[
+f_p(r)=1-\prod_{i=0}^N q_i^{1_{r+h_i\equiv0\ (p)}}.
+\]
+
+Then \(0\le f_p\le1\), it is supported on at most \(N+1\) residue
+classes, and its average is at most \((N+1)/p\le1/2\) eventually, since
+every marked prime is at least \(e^{L^{1/10}}\). Put
+
+\[
+\lambda=\sum_p\frac1p\sum_{r\bmod p}f_p(r),\qquad
+V_0=\prod_p\left(1-\frac1p\sum_r f_p(r)\right),\qquad
+U_0=1+\sum_p\sum_r f_p(r).
+\]
+
+Bonferroni truncation at orders \(2K\) and \(2K+1\), followed by CRT on
+each retained product, gives relative error on an interval of length
+\(X\) at most
+
+\[
+\frac{e^{4\lambda}}{2^{2K+1}}
+ +\frac{Q_0}{X}\,2(2K+2)e\,U_0^{2K+1}e^{2\lambda}. \tag{M17}
+\]
+
+Indeed, the omitted elementary symmetric sums are bounded using the sum
+\(\lambda\) of the local averages; the normalization by \(V_0\) costs at
+most \(e^{2\lambda}\). For each retained residue pattern, CRT counts its
+interval representatives with error at most one. Summing the absolute
+coefficients of the retained patterns gives the second term in (M17).
+
+Take \(K=\lceil L^{11/20}\rceil\). The actual ranges give
+
+\[
+\lambda=O(N\log L),\qquad
+\log Q_0=O_J(L^{23/25}\log L),\qquad
+K\log U_0=O(L^{19/20}),
+\]
+
+whereas \(X\ge e^{\gamma L}\) for a fixed \(\gamma>0\). Both terms in
+(M17) are smaller than \(L^{-EN}\) for every fixed \(E\) eventually. For
+complex history coefficients, the transfer is made before discarding any
+signs:
+
+\[
+\left|\sum_\omega c_\omega\sum_nD_\omega(n)
+ -X\sum_\omega c_\omega v_\omega\right|
+\le XL^{-EN}\sum_\omega|c_\omega|v_\omega. \tag{M18}
+\]
+
+The absolute mass on the right is at most \(L^{CN}\). Its exponent is
+fixed after \(J\); increasing the requested CRT accuracy absorbs it. The
+signed main sum on the left is the one already bounded by (M15).
+
+We spell out the finite physical matrix to which these history estimates
+apply. Fix a seed interval \(I=[a,b)\cap\mathbb Z\) of positive
+integers, of length \(X=b-a\ge e^{\gamma L}\). Put
+\(R=\lceil L^{13/25}\rceil\),
+\(r_{\rm path}=\lceil2R\Delta_{\max}\rceil\), with \(\Delta_{\max}\) as
+in (M20a), and take the carrier positions to be
+
+\[
+I^+=[a-r_{\rm path},b+r_{\rm path}]\cap\mathbb Z.
+\]
+
+Every prefix of every \(2R\)-step history from \(I\) belongs to \(I^+\):
+each displacement has absolute value at most \(\Delta_{\max}\), so the
+triangle inequality bounds a prefix by \(2R\Delta_{\max}\). Thus
+truncating the matrix to this common carrier introduces no
+history-dependent restriction on its starting interval. All residue
+counts below use the same \(I\) and the same length \(X\).
+
+Put \(M=J+1\). A state is an integer position \(n\in I^+\), together
+with, for each marked group \(g\), an ordered list \(\boldsymbol p_g\)
+of \(M\) distinct primes dividing \(n\). The residues of \(n\) determine
+all residue coordinates of the state. All states have the same reference
+mass
+
+\[
+m_0=\prod_g V_g^{-M};\qquad
+u_n=\sqrt{m_0}\sum_{\substack{s\text{ a state}\\\operatorname{pos}(s)=n}}e_s.
+\tag{M18a}
+\]
+
+Thus no mark fibre is normalized to have mass one.
+
+A frame consists of a raw pattern or a nonempty pair \((a,b)\) from
+(M2), an auxiliary prime for each freed BIG probe coordinate, and
+independent source and target permutations \(\sigma_g,\tau_g\in S_M\) in
+every group. For a comparison pattern, let
+\(C_g\subseteq\{0,\ldots,m-1\}\) be its freed coordinates in group
+\(g\); for a raw pattern and for SMALL groups, \(C_g=\varnothing\). The
+shared coordinates are \(S_g=\{0,\ldots,J-1\}\setminus C_g\). Write the
+auxiliary primes as \(\pi_{g,i}\) and give them the law
+
+\[
+\mu_{\rm aux}=\prod_{g\in\mathrm{BIG}}\prod_{i\in C_g}
+                 \frac1{V_g\pi_{g,i}}.
+\]
+
+Auxiliary values may repeat. Each must differ from every source and
+target mark in its own group. For states \(s,t\), a frame is allowed
+when their permuted marks agree at each shared coordinate and
+
+\[
+\begin{aligned}
+D_f&=\prod_g\prod_{i\in S_g}p^s_{g,\sigma_g(i)}
+       \prod_{g\in\mathrm{BIG}}\prod_{i\in C_g}\pi_{g,i},\\
+\operatorname{pos}(t)&=\operatorname{pos}(s)+2kD_f.
+\end{aligned} \tag{M18b}
+\]
+
+All factors of \(D_f\) retain their multiplicities. For the raw pattern
+let \(K_f=1\). For a comparison pattern put
+
+\[
+K_f=-(-1)^{|a|+|b|}K_A(D_a,X_a)K_B(D_b,X_b),
+\]
+
+where \(D_a,D_b\) are the corresponding products of auxiliary primes,
+\(X_a\) is the product of the \textbf{target} marks in the first probe
+block, and \(X_b\) is the product of the \textbf{source} marks in the
+second block. Both endpoint products use the permuted lists. The two
+kernels are exactly (M4), with the actual cell masses for these probe
+products.
+
+For an allowed frame define
+
+\[
+w_f(s,t)=\mu_{\rm aux}\prod_g
+ \left[(M!)^{-2}V_g^{-(M-|S_g|)}
+ q^{(\omega_g(\operatorname{pos}(s))+
+       \omega_g(\operatorname{pos}(t))-2M)/2}\right].
+\]
+
+The powers of \(q\) are the two endpoint dampings. Their exponents are
+nonnegative because each endpoint has \(M\) distinct marked divisors.
+The physical matrix is
+
+\[
+A_{s,t}=\sum_{f\text{ allowed}}w_f(s,t)K_fD_f^{i\zeta}. \tag{M18c}
+\]
+
+Reversing the two endpoint permutations preserves \(D_f\) and the real
+weight. Reversing the orientation conjugates the whole complex
+coefficient, including \(K_f\). The backwards matrix is therefore
+exactly \(A^*\).
+
+Expanding \((AA^*)^R\) gives the alternating histories above. Insert
+\(\mathrm e(2kD_f\theta)\) on a forward edge and its conjugate on a
+backward edge. The product is \(\mathrm e(\theta h_N)\), so integration
+for \(0\le\theta\le1\) keeps precisely the histories returning to the
+initial integer position. The initial and final mark lists remain free;
+the vectors \(u_n\) in (M18a) perform those sums. The restored history
+bound and (M18) consequently give
+
+\[
+T:=\sum_{n\in I}\langle u_n,(AA^*)^Ru_n\rangle
+\le XL^{-2RE},\qquad R=\lceil L^{13/25}\rceil. \tag{M19}
+\]
+
+\Needspace{6\baselineskip}
+
+\hypertarget{marked-correlation-the-endpoint-bound}{%
+\subsection{The endpoint
+bound}\label{marked-correlation-the-endpoint-bound}}
+
+The first endpoint has the form \(f=\sum_{n\in I}c_nu_n\); its
+coefficient depends on the integer position but not on the individual
+marks. The second endpoint \(g\) may depend on all marks. The finite
+spectral estimate used here is
+
+\[
+|\langle f,Ag\rangle|
+\le\sqrt3\,\|g\|\,\|f\|^{1-1/R}
+ (H_{\rm loc}C_{\rm sup}^2)^{1/(2R)}T^{1/(2R)}. \tag{M20}
+\]
+
+Here \(|c_n|\le C_{\rm sup}\) and a nonzero matrix entry changes the
+integer position by at most the positive integer \(H_{\rm loc}\). To
+prove the estimate, partition the positions into disjoint intervals
+\(I_j\) of \(H_{\rm loc}\) integers. Let \(f_j\) be the restriction of
+\(f\) to \(I_j\), and let \(g_j\) be the restriction of \(g\) to
+\(I_{j-1}\cup I_j\cup I_{j+1}\). Locality gives
+\(\langle f,Ag\rangle=\sum_j\langle f_j,Ag_j\rangle\) and
+\(\sum_j\|g_j\|^2\le3\|g\|^2\). Put \(P=AA^*\). Spectral interpolation
+for the nonnegative matrix \(P\), followed by Cauchy--Schwarz, gives
+
+\[
+|\langle f_j,Ag_j\rangle|
+ \le\|g_j\|\,\|f_j\|^{1-1/R}
+            \langle f_j,P^Rf_j\rangle^{1/(2R)}.
+\]
+
+Indeed, the spectral measure of \(P\) at \(f_j\) satisfies
+\(\langle f_j,Pf_j\rangle\le \|f_j\|^{2-2/R}\langle f_j,P^Rf_j\rangle^{1/R}\).
+Writing \(f_j=\sum_{n\in I\cap I_j}c_nu_n\) and applying Cauchy--Schwarz
+to the vectors \(P^{R/2}u_n\) yields
+
+\[
+\langle f_j,P^Rf_j\rangle
+ \le H_{\rm loc}C_{\rm sup}^2
+       \sum_{n\in I\cap I_j}\langle u_n,P^Ru_n\rangle.
+\]
+
+Hölder's inequality in \(j\), with exponents \(2\), \(2R/(R-1)\) and
+\(2R\), proves (M20), since \(\sum_j\|f_j\|^2=\|f\|^2\). For \(R=1\),
+omit the middle factor and use Cauchy--Schwarz. In the application
+\(R>1\).
+
+In the application we may take \(C_{\rm norm}=9\) and
+\(C_{\rm sup}=e^{5\sqrt L}\), with \(\|f\|,\|g\|\le\sqrt X L^9\)
+eventually. To specify the window, put
+
+\[
+\begin{aligned}
+C_D&=4(J+1)(4+1/\log2),\\
+\Delta_{\max}&=2L^{C_k}\exp(C_D\log L\,L^{2/5}),\\
+H_{\rm loc}&=2\lceil2R\Delta_{\max}\rceil+1.
+\end{aligned}\tag{M20a}
+\]
+
+Every frame satisfies \(D_f\le\exp(C_D\log L\,L^{2/5})\), including
+repeated auxiliaries, and every \(2R\)-step path from \(n\) stays within
+\(\lceil2R\Delta_{\max}\rceil\) of \(n\). The reference measure in (M20)
+is ordinary counting measure on the finite physical states;
+\(\sqrt{m_0}\) is in the vectors, not the norm. Since
+\(\log H_{\rm loc}=O_J(\log L\,L^{2/5})\) and \(R\ge L^{13/25}\), the
+local factor in (M20) is bounded. Apply (M19) with
+\(E'=E+2C_{\rm norm}+1\). Then (M20) is at most \(XL^{-E}\) eventually.
+The \protect\hyperlink{physical-lift}{physical-lift argument} gives the
+exact endpoint vectors, the Fourier pairing identity (L8), and the
+shared-prime restoration error (L4). It obtains the \(J+1\) marked
+physical states by multiplying both original integers by a common
+product of \(J\) primes per group; it does not require the original
+integers in (B17) to have that many distinct marked divisors.
+
+This proves the saving for the original term minus its arithmetic
+comparison term. It remains to estimate that comparison term itself.
+
+\Needspace{6\baselineskip}
+
+\hypertarget{marked-correlation-the-comparison-term-and-the-fine-discrepancy}{%
+\subsection{The comparison term and the fine
+discrepancy}\label{marked-correlation-the-comparison-term-and-the-fine-discrepancy}}
+
+We give the endpoint used in the comparison explicitly. If \(G\) is the
+union of the marked prime groups, let \(n_*\) be the part of \(n\) with
+all prime factors in \(G\) removed. For bounded coefficients
+\(\alpha,c\), a prime slot \(Q_*\) disjoint from \(G\), a character
+\(\chi\), and real frequencies \(\sigma_0,\sigma_1\), set
+
+\[
+\operatorname{Core}(n_*)=
+ \sum_{\substack{m p\mid n_*\\p\in Q_*}}
+ \alpha(m)\chi(m)m^{i\sigma_0}p^{i\sigma_1}c(n_*/mp).
+ \tag{M21}
+\]
+
+For each marked group \(P_g\), let \(\mathcal L_g(n)\) consist of its
+ordered lists of \(t_g\) distinct prime divisors of \(n\), and let
+\(\omega_g(n)\) count those distinct divisors. For a function \(b\) of
+the BIG lists with \(|b|\le1\), the literal marked weight is
+
+\[
+W_{\boldsymbol t}^{,b}(n)=
+ \prod_g\frac{q^{\omega_g(n)-t_g}}{V_g^{t_g}}
+ \sum_{\substack{\boldsymbol p_g\in\mathcal L_g(n)\\\text{all }g}}
+ b((\boldsymbol p_g)_{g\in\mathrm{BIG}}). \tag{M22}
+\]
+
+This includes the distinguished SMALL group; in the source its number of
+marks is \(k+1\). Multiplicities in \(n\) are not restricted by the
+distinctness of the marks. With a smooth cutoff \(\Lambda(n)\), the
+endpoint Fourier polynomial is
+
+\[
+\widehat E(\theta)=\sum_{1\le n\le N_{\rm cap}}
+ \Lambda(n)\varepsilon(n)\operatorname{Core}(n_*)
+ W_{\boldsymbol t}^{,b}(n)\mathrm e(n\theta). \tag{M23}
+\]
+
+The cell/character kernel (M4) has a concrete rank decomposition: each
+\((j,\chi)\) contributes the product of
+\(1_{D\in I_j}\overline{\chi(D)}\) and \(1_{X\in I_j}\chi(X)\), with
+coefficient \(\nu_j^{-1}\). There are at most \(n_AQ^2\) such terms in
+the first kernel and \(n_BQ^2\) in the second. Thus a comparison pattern
+has at most \(n_An_BQ^4\) pairs, each coefficient at most \(\xi^{-2}\).
+The support counts (M9a) bound this rank by a fixed power of \(L\). For
+retained cells there is a sharper bound: their disjoint probabilities
+sum to at most one, so their number is at most \(\xi^{-1}\) in either
+block. Including all patterns gives
+
+\[
+\begin{aligned}
+\#\{\text{ranks}\}&\le L^{C_{\rm pat}}Q^4\xi^{-2},\\
+\sum_{\text{ranks}}\nu_{j_A}^{-1}\nu_{j_B}^{-1}
+ &\le L^{C_{\rm pat}}Q^4\xi^{-4},\qquad
+C_{\rm pat}=m(3+1/\log2)\log2.
+\end{aligned}\tag{M23a}
+\]
+
+Here \(3+1/\log2\) is an upper group-count constant for the actual BIG
+family. The two inverse cell masses stay outside the endpoint tests. The
+remaining endpoint cell indicators and characters are the bounded list
+coefficient \(b\) in (M22).
+
+The auxiliary sum retains its dependence on the shift and cutoff. More
+explicitly, let \(\nu_A(u),\nu_B(v)\) be the probability laws of the two
+auxiliary products. Independence of the two disjoint probe blocks gives
+the exact finite identity
+
+\[
+\begin{aligned}
+&\sum_{\rm aux}\mu_{\rm aux}
+ 1_{D_A\in I_{j_A},D_B\in I_{j_B}}
+ \overline{\chi_A(D_A)\chi_B(D_B)}\,H(D_AD_B)\\
+&\quad=\sum_{u\in I_{j_A}}\sum_{v\in I_{j_B}}
+ \nu_A(u)\nu_B(v)\overline{\chi_A(u)\chi_B(v)}\,H(uv).
+\end{aligned}\tag{M23b}
+\]
+
+The inverse cell masses and the pattern sign multiply both sides. After
+the shared-divisor restoration described below, \(H(c)\) retains the
+shift \(2kc\) and the cutoff \(\Psi(n/(Zc))\). Thus (M23b) does not
+replace this dependence by a mass-one average. Fourier inversion of the
+cutoff as in (L8) separates its Mellin factor; additive Fourier
+inversion separates the two endpoint integers. This yields the pair of
+polynomials (M23), with an auxiliary bilinear phase
+\(\mathrm e(-2kuv\theta)\) on the right of (M23b). Partition \(u,v\)
+into the coarse dyads of (M9a) when applying (M7). The scales of a
+retained cell pair are \(H'=e^{j_Ah_A+j_Bh_B}\) and \(Y=ZH'\); its
+actual product lies between \(H'\) and \(e^{h_A+h_B}H'\). A fixed smooth
+cutoff equal to one on this ratio interval gives the endpoint support
+used in (M25). All rank, coefficient and Fourier costs are fixed before
+requesting the discrepancy precision below.
+
+Here is the resulting comparison identity with the endpoint factors
+displayed. For a pattern \((a,b)\) let \(t_g=M-|S_g|\) be its number of
+free marks; thus \(t_g=1\) in SMALL and \(t_g=1+|C_g|\) in BIG. For rank
+\(r=(j_A,\chi_A,j_B,\chi_B)\) define the two list functions
+
+\[
+b_{1,r}=\overline{1_{X_B\in I_{j_B}}\chi_B(X_B)},\qquad
+b_{2,r}=1_{X_A\in I_{j_A}}\chi_A(X_A).
+\tag{M23c}
+\]
+
+Here \(X_B\) is the source probe product and \(X_A\) the target probe
+product, with the shared entries deleted and the free entries kept in
+their original coordinate order. Both functions have modulus at most one
+and contain no auxiliary variables. With the two cores of (L7), define
+
+\[
+U_r(n)=\varepsilon(n)n^{it_1}\operatorname{Core}_1(n_*)
+                  W_{\boldsymbol t}^{,b_{1,r}}(n),\qquad
+V_r(n)=\varepsilon(n)n^{it_2}\operatorname{Core}_2(n_*)
+                  W_{\boldsymbol t}^{,b_{2,r}}(n).
+\tag{M23d}
+\]
+
+The first core is conjugated when \(U_r\) is conjugated in the pairing.
+For (B17) the phases are \(t_1=-(\tau+\xi_3)\), \(t_2=-\tau\),
+\(\zeta=-\xi_3\), as in (L7)--(L8). Write \(c=uv\) and
+\(s_{a,b}=-(-1)^{|a|+|b|}\). The independent-rank main contribution of
+this pattern and rank to the signed comparison part of \(A\) (hence to
+\(-Q_{\rm cmp}\) in (L8)) is exactly
+
+\[
+\begin{aligned}
+\frac{s_{a,b}}{\nu_{j_A}\nu_{j_B}}
+\sum_{\substack{u\in I_{j_A}\\v\in I_{j_B}}}
+ &\nu_A(u)\nu_B(v)\overline{\chi_A(u)\chi_B(v)}\,c^{i\zeta}\\
+&\cdot\sum_{\substack{n>0\\n+2kc>0}}
+ \frac{\Psi(n/(Zc))}{n}\overline{U_r(n)}V_r(n+2kc).
+\end{aligned}\tag{M23e}
+\]
+
+To check the removal of the shared divisor \(d\), substitute the
+original positions \(dn,dn'\) and \(D_f=dc\). The displacement becomes
+\(n'=n+2kc\) and the cutoff becomes \(\Psi(n/(Zc))\). The ordinary parts
+of the two integers are unchanged, since all prime factors of \(d\) are
+marked. The common parity is squared. The phase in \(d\) is
+\(d^{i(-t_1+t_2+\zeta)}=1\). The shared harmonic factors then sum to one
+on the unrestricted shared family; the exclusions and repeated-mark
+cases produce the weighted restoration error (M28), not an exact
+mass-one assertion on the restricted family.
+
+There is one further explicit difference in (M23e): the original
+auxiliary ban forbids a free endpoint mark from equalling an auxiliary
+prime. Partitioning the complete pair of free mark lists into the
+allowed and forbidden sets gives, exactly, the independent product of
+the two weights minus its collision contribution. A forbidden pair
+forces \(p\mid n\) for an auxiliary prime \(p\ge e^{L^{3/10}}\); if it
+divides the other endpoint, it also divides \(n\), since \(p\mid c\).
+Reindex \(n=pr\). The factor \(1/n\) and the divisor-moment bound for
+the two cores give a factor \(1/p\) with a fixed logarithmic cost. If
+\(L^{E_{\rm mark}}\) bounds either full marked weight, the error for one
+pattern and one fixed auxiliary assignment is at most
+
+\[
+C_JK_\Psi Q^4\xi^{-2}
+ L^{2E_{\rm mark}+16+C_\psi}e^{-L^{3/10}}.
+\tag{M23f}
+\]
+
+Here \(C_J=2J(3+1/\log2)\,64\cdot66\cdot3^{15}\); \(E_{\rm mark}\)
+depends only on \(J\). Summing auxiliary probabilities and at most
+\(L^{C_{\rm pat}}\) patterns preserves an error smaller than every fixed
+inverse power of \(L\). Thus (M23e), summed over ranks and patterns,
+equals that signed comparison up to the two specified errors (M28) and
+(M23f).
+
+For completeness, the Fourier pairing of (M23e) also has an exact form.
+Put \(\psi_{\log}(t)=\Psi(e^t)\). Choose a fixed real smooth cutoff
+\(\eta\), equal to one at both \(n/Y\) and \((n+2kc)/Y\) whenever the
+summand in (M23e) is nonzero, and supported in a fixed compact
+subinterval of \((0,\infty)\). Such a choice is uniform because
+\(1\le c/H'\le e^{h_A+h_B}\) and \(|k|/Z\to0\) uniformly. Set
+
+\[
+A_{r,s,Y}(n)=\frac{\eta(n/Y)}{n}n^{-2\pi is}U_r(n),\qquad
+B_{r,Y}(n)=\eta(n/Y)V_r(n),
+\tag{M23g}
+\]
+
+and use \(\widehat A(\theta)=\sum_n A(n)\mathrm e(n\theta)\), likewise
+for \(B\). Then (M23e) is
+
+\[
+\int_{\mathbb R}\widehat\psi_{\log}(s)
+ \int_0^1\mathcal K_{r,s}(\theta)
+       \overline{\widehat A_{r,s,Y}(\theta)}
+       \widehat B_{r,Y}(\theta)\,d\theta\,ds,
+\tag{M23h}
+\]
+
+where the full coupled kernel is
+
+\[
+\mathcal K_{r,s}(\theta)=
+\frac{s_{a,b}Z^{-2\pi is}}{\nu_{j_A}\nu_{j_B}}
+\sum_{\substack{u\in I_{j_A}\\v\in I_{j_B}}}
+\nu_A(u)\nu_B(v)\overline{\chi_A(u)\chi_B(v)}
+(uv)^{i\zeta-2\pi is}\mathrm e(-2kuv\theta).
+\tag{M23i}
+\]
+
+The circle integral imposes \(n'=n+2kuv\), and the Mellin integral
+restores \(\Psi(n/(Zuv))\), proving (M23h) term by term. The cell masses
+in the denominator cancel the total restricted product probability, so
+\(|\mathcal K_{r,s}(\theta)|\le1\) for every \(s,\theta\). On minor arcs
+(M7)--(M9) give the stronger saving, retaining both inverse cell masses
+in the coefficient budget (M23a). The endpoints (M23g) are now
+independent of \(u,v\), which is the precise interface needed for the
+arc-energy estimate.
+
+The coefficient \(\alpha\) has the complete-cell discrepancy (C3): for
+any prescribed \(B\), the fine mesh can be chosen so that
+
+\[
+\left|\sum_{a\le m\le b}
+       \frac{\alpha(m)\chi(m)m^{it}}m\right|\le L^{-B},
+\qquad q,|t|\le L^B,\quad [a,b]\subset[1,x^2]. \tag{M24}
+\]
+
+Here \(\alpha\) already includes its restriction to the factor interval
+\(K\subset[x^\beta,x^2]\) of multiplicative width at most two, with
+fixed \(\beta>0\). Thus the displayed sum means its intersection with
+\(K\). If nonempty, that intersection satisfies the lower endpoint and
+width conditions of (C3). The modulus \(q\) in this display is an
+integer conductor variable, distinct from the fixed damping \(q=1/2\).
+
+Let the two nonempty probe-product scales be \(U_1,U_2\), put
+\(H'=U_1U_2\) and \(Y=ZH'\), and suppose \(Z\ge xL^{-C_Z}\). The marked
+arc estimate obtained from (M24) is
+
+\[
+\int_{|\beta|\le L^{C_{\rm arc}}/H'}
+ |\widehat E(h/d+\beta)|^2\,d\beta
+ \le K_{\rm arc}YL^{-T}. \tag{M25}
+\]
+
+Here \(Q_*\) is the complete prime interval used by the comparison,
+contained in \([x^\tau,x^\eta]\) with \(0<\tau<\eta<1/4\); the support
+of \(\alpha\) is \(e^{\sqrt L}\)-rough. The cutoff has the prescribed
+polynomial bounds on its logarithmic derivatives, and
+\(2\le H'/L^{C_{\rm arc}}\le Y/(8A_\psi)\). These conditions hold for
+the actual data from (B16). Under them, (M25) is uniform for the
+polynomial conductor, frequency, and coefficient budgets in the
+comparison expansion. The support has \(e^{3L/4}\le Y\le e^{3L/2}\);
+take \(N_{\rm cap}=\lceil A_\psi Y\rceil\le x^2\), where \(A_\psi\)
+bounds the cutoff support.
+
+Here are the estimates establishing (M25). Peeling one distinguished
+SMALL mark leaves the core and parity at the original integer and
+evaluates only the remaining marked weight at \(n/p\). Separate the
+smooth logarithmic factors by Fourier inversion, and write
+\(H=H'/L^{C_{\rm arc}}\). The finite local-energy inequality (E1) and
+the exact separation (E9) in
+\protect\hyperlink{local-energy}{Section~\ref{local-energy}} give the
+following four terms. With \(B_{\rm amp}\ll L^{E_{\rm amp}}\) and
+\(B_s\ll L^{E_s}\) the resulting amplitude bounds, those terms, up to
+fixed constants, are
+
+\[
+\begin{aligned}
+&YV_s^{-2}d^2(1+\log_2N_{\rm cap})^8
+                   L^{-(T+2c_m+8)},\\
+&Y^{-1}L^{-(j-2)}
+ \bigl(LY/H+16N_{\rm cap}(1+\log N_{\rm cap})\bigr)
+ B_{\rm amp}^2N_{\rm cap}(1+\log N_{\rm cap})^{63},\\
+&(H/Y)^2 B_{\rm amp}^2N_{\rm cap}(1+\log N_{\rm cap})^{63},\\
+&3L B_s^2N_{\rm cap}(1+\log N_{\rm cap})^{16}e^{-L^{a_s}}.
+\end{aligned} \tag{M26}
+\]
+
+The first is the finite Mellin-window contribution (E13), obtained from
+(M24) and the small- and long-prime estimates, with \(d\le L^{c_m}\).
+The second is the weighted Mellin tail; choose
+\(j=\lceil2E_{\rm amp}+64+T\rceil+2\). The third is the error (E3) in
+replacing linear windows by logarithmic windows. Since \(Y=ZH'\),
+\(H/Y=1/(ZL^{C_{\rm arc}})\), so its exponential decay pays for every
+displayed logarithmic factor. The fourth accounts for squares of a
+peeled SMALL prime, whose size is at least \(e^{L^{a_s}}\); here
+\(a_s=1/10\) is available. Divisor-moment estimates give the displayed
+powers \(8,63,16\). Each line of (M26) is \(O(YL^{-T})\) with the stated
+choices, proving (M25). The window replacement follows from the Taylor
+estimate (E2) and finite overlap, with no prime distribution estimate on
+an interval of length \(H\).
+
+The first Fourier polynomial in the actual comparison has an additional
+factor \(1/n\). With its cutoff written as \(\eta(n/Y)\),
+
+\[
+\frac{\eta(n/Y)}n=Y^{-1}\frac{\eta(n/Y)}{n/Y}.
+\]
+
+The cutoff is supported away from zero. Applying (M25) to \(\eta(u)/u\)
+therefore gives energy \(K_{\rm arc}Y^{-1}L^{-T}\) for this first
+polynomial; the second has energy \(K_{\rm arc}YL^{-T}\).
+Cauchy--Schwarz cancels the two powers of \(Y\). Summing the rational
+arcs of the comparison gives \(2K_{\rm arc}L^{2c_m-T}\). Off those arcs,
+the auxiliary-product bilinear exponential-sum estimate gives
+\(L^{-A_1}\) against the global polynomial endpoint energy. Choose
+\(T,A_1\) to pay for the finite rank and pattern budgets. This makes the
+whole comparison term smaller than any requested logarithmic power.
+
+Subtracting this separately bounded term from the signed-operator
+estimate (M20) bounds the original correlation.
+
+\Needspace{6\baselineskip}
+
+\hypertarget{marked-correlation-caps-shared-divisors-and-the-parameter-order}{%
+\subsection{Caps, shared divisors, and the parameter
+order}\label{marked-correlation-caps-shared-divisors-and-the-parameter-order}}
+
+The finite comparison first imposes a cap on the marked part and allows
+marks shared between the two endpoints. Both modifications are removed
+quantitatively. The Rankin estimate from the weight chapter gives
+
+\[
+\sum_{\substack{u\le Y\\u_P>\lfloor e^{L/88}\rfloor}}W_1(u)
+ \le YL^{(3+1/\log2)\log(6e^{12})}e^{-L^{3/5}/88}. \tag{M27}
+\]
+
+Stripping shared divisors has error
+
+\[
+O\!\left(L^{8(J+1)\log2+2E_{\rm mark}+17+C_\psi}
+                e^{-L^{1/10}}\right). \tag{M28}
+\]
+
+The quotient cap is transported through the exact finite identity before
+using (M27); its final specialization has shared divisor one and zero
+extra marks. Thus no assertion that the marked part is squarefree, or
+that a cap is unchanged by arbitrary division, is needed. Both (M27) and
+(M28) are negligible at every fixed logarithmic accuracy.
+
+The choices can now be made in order. Fix the desired saving and all
+external frequency, shift, and cutoff bounds. Choose the local
+contraction precision and \(m\) using (M1)--(M3), then the arithmetic
+mesh, conductor, and retained-mass parameters using (M4)--(M10). Choose
+\(J\) using (M13). The forest row bounds, total path mass, comparison
+rank, Fourier-tail orders, and CRT precision are chosen after these
+fixed parameters. Finally choose the discrepancy order \(B\) and the
+fine-cell exponent \(S=2(B+1)+4\).
+
+These choices precede the positive lower exponent \(\beta\) of the fine
+interval and its positive roughness exponent \(\gamma\). Only the
+eventual threshold in \(L\) depends on \(\beta,\gamma\). Combining the
+endpoint bound (M20), the comparison estimate (M25), and the two
+restoration errors (M27)--(M28) gives, with precisely the coefficients
+of (B16)--(B17),
+
+\[
+|\mathcal C_{k,Z}|\le ZL^{-D_1}
+\]
+
+uniformly for \(0<|k|\le L^{C_k}\), \(xL^{-C_Z}\le Z\le xL^{C_Z}\), the
+stated polynomial frequency bounds, and either multiplicity-parity
+choice. This is (B18).

@@ -1,14 +1,36 @@
 # Verification record
 
-The local checks below apply to the formal inputs retained from preparation
-commit `1ecdaed9f4c4fb9b792cbd6cb8f89b5624f8790f`. The receipts are preserved
-unchanged. Their audited Lean, build, dependency and verifier files are
-byte-identical in this submission; the only changed file in the original
-source-hash manifest is the descriptive `formalization.yaml`.
-[SOURCE_EQUIVALENCE.json](SOURCE_EQUIVALENCE.json) records that comparison and
-both metadata hashes. No new local build or kernel run is claimed for the
-metadata-only revision. Palomar's full workflow independently checks the exact
-submitted commit and supplies its own report.
+## Complete protected verification
+
+The formal proof has passed the full [Palomar verification workflow in CI](https://github.com/inozemtsev/formal-math/actions/workflows/palomar-preflight.yml).
+The [completed run](https://github.com/inozemtsev/formal-math/actions/runs/43325891223)
+finished on 13 November 2026 at 03:12 Europe/Madrid after about 3 h 7 min.
+Its [mechanical report](verification/github-mechanical-report.json) records
+`status: pass`, with no errors or warnings. The checks include a fresh source
+build, an independently compiled and protected Challenge, statement comparison,
+Lean and NanoDa replay, and con-ron acceptance of 142,651 declarations.
+
+The same protected verifier also passed locally at 04:39 Europe/Madrid,
+in 16,241.26 seconds (about 4 h 31 min), within the 19,800-second shared
+execution budget. The [local summary](verification/local-protected-summary.json)
+records its scope and the checksum of the original report. Candidate build
+state was fresh; the pinned Mathlib dependency cache is permitted by the
+profile. These are complete protected checks, separate from the earlier
+incremental builds and unsandboxed diagnostics below.
+
+The article and documentation were added after those runs. The formal inputs
+are unchanged; historical reports retain their original source identity.
+The [workflow page](https://github.com/inozemtsev/formal-math/actions/workflows/palomar-preflight.yml)
+shows the CI result for each subsequent revision. Palomar intake uses a passing
+report for the exact submitted revision. Mechanical success is not editorial
+review, registration, endorsement or independent human peer review.
+
+## Earlier source and kernel checks
+
+The earlier receipts are preserved unchanged. Their audited Lean, build,
+dependency and verifier files remain byte-identical; only the descriptive
+metadata in their original source-hash manifest has changed.
+[SOURCE_EQUIVALENCE.json](SOURCE_EQUIVALENCE.json) records that comparison.
 
 The Lean 4.35.0-rc2 source build, exact-statement tests and axiom audit passed
 on 12 November 2026. All 956 internal Green64 modules, the public entry point,
@@ -64,8 +86,8 @@ records these checks; they are not source or kernel checks.
 The pinned bubblewrap 0.12.0 was built. Its namespace smoke test initially
 failed under the host's AppArmor restriction, then passed after the official
 path-specific profile was installed. Global namespace restrictions were not
-disabled. A complete protected workflow remains to be verified; the earlier
-local diagnostic without the sandbox does not establish that result.
+disabled. The subsequent complete protected runs passed as recorded above;
+the earlier unsandboxed diagnostic remains a separate check.
 
 Local diagnostic controls from the pinned Palomar verifier passed on
 12 November 2026. Lean, NanoDa and con-ron accepted the matching valid export

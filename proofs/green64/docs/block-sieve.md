@@ -1,0 +1,137 @@
+# The quantitative finite block sieve
+
+We prove the finite estimate used for the rectangle upper bound and the
+one-dimensional sieves. Its constants are independent of the block count.
+
+## 1. Statement
+
+Let $z>1$, let $h\ge2$ be even, and let $P_j$, $0\le j<J$, be finite
+sets of primes in $(z^{2^{-(j+1)}},z^{2^{-j}}]$. These blocks are disjoint;
+put $P=\bigcup_jP_j$. Let $\mathcal X$ be a finite set of objects with
+weights $w(x)\ge0$ and bad-prime sets $B(x)$. Suppose $X\ge0$,
+$0\le g(p)\le1-\eta$ for $p\in P$, where $\eta>0$, $C\ge0$, and
+$\sum_{p\in P_j}g(p)\le C$. For every $s\subseteq P$, assume
+
+$$
+\sum_{x\in\mathcal X}w(x)\prod_{p\in s}1_{p\in B(x)}
+ =X\prod_{p\in s}g(p)+r\!\left(\prod_{p\in s}p\right). \tag{BS1}
+$$
+
+Write
+
+$$
+\begin{gathered}
+V=\prod_{p\in P}(1-g(p)),\qquad D=z^{4h+2},\qquad
+\mathcal E=\sum_{\substack{d\mid\prod_{p\in P}p\\d\le D}}|r(d)|,\\
+K(C,\eta)=\frac{\exp(eC+C/\eta)}{1-e^{-1}},\qquad
+\rho=K(C,\eta)e^{-h},\qquad
+S=\sum_{x\in\mathcal X}w(x)1_{B(x)\cap P=\varnothing}.
+\end{gathered}
+$$
+
+Then
+
+$$
+XV(1-\rho e^\rho)-\mathcal E
+ \le S\le XV e^\rho+\mathcal E. \tag{BS2}
+$$
+
+Every divisor in $\mathcal E$ is squarefree. Both $J$ and $h$ may vary.
+
+## 2. Proof
+
+Set $k_j=(j+1)h$. For variables $t_p\in[0,1]$, define
+
+$$
+\begin{aligned}
+a_j(t)&=\prod_{p\in P_j}(1-t_p),\\
+u_j(t)&=\sum_{n=0}^{k_j}(-1)^n
+             \sum_{\substack{s\subseteq P_j\\|s|=n}}\prod_{p\in s}t_p,\\
+e_j(t)&=\sum_{\substack{s\subseteq P_j\\|s|=k_j+1}}\prod_{p\in s}t_p.
+\end{aligned}
+$$
+
+Even Bonferroni truncation gives $a_j\le u_j$ and
+$0\le u_j-a_j\le e_j$. To verify it, take independent Bernoulli
+variables of means $t_p$ and average
+$\sum_{n=0}^k(-1)^n\binom{q}{n}=(-1)^k\binom{q-1}{k}$ for $q>0$,
+handling $q=0$ separately. A telescoping expansion now gives
+
+$$
+\prod_j u_j-\sum_j e_j\prod_{i\ne j}u_i
+ \le\prod_j a_j\le\prod_j u_j. \tag{BS3}
+$$
+
+Apply (BS3) with $t_p=1_{p\in B(x)}$, multiply by $w(x)$ and sum.
+Both bounding polynomials have monomial coefficients of absolute value
+at most one. A subset contributes to the upper polynomial only when
+its degree in every block is at most $k_j$. It contributes to the
+subtracted sum only when exactly one block has degree $k_j+1$ and all
+other degrees are at most their cutoffs. These cases are disjoint,
+and the exceptional block is unique.
+
+Every surviving monomial has prime product at most $D$: its exponent
+of $z$ is at most $h\sum_{j\ge0}(j+1)2^{-j}+1=4h+1<4h+2$.
+Distinct prime subsets have distinct products. Inserting (BS1) therefore
+costs at most $\mathcal E$ for each bounding polynomial, with no extra
+divisor coefficients or factor $J$.
+
+Evaluate next at $t_p=g(p)$. Abbreviate $a_j=a_j(g)>0$. Since
+$\log(1-t)\ge-t/\eta$ for $0\le t\le1-\eta$,
+$a_j\ge e^{-C/\eta}$. Moreover
+
+$$
+e_j(g)\le\frac{C^{k_j+1}}{(k_j+1)!}\le\exp(eC-k_j-1),
+$$
+
+by retaining one term in the series for $\exp(eC)$. Thus
+$\delta_j=e_j(g)/a_j$ satisfies $\sum_j\delta_j\le\rho$.
+From $a_j\le u_j(g)\le a_j(1+\delta_j)$ we obtain
+
+$$
+V\le\prod_j u_j(g)\le Ve^\rho,
+\qquad
+\sum_j e_j(g)\prod_{i\ne j}u_i(g)\le V\rho e^\rho.
+$$
+
+Together with (BS3) and the remainder bound, these inequalities prove (BS2).
+
+## 3. Constants in the applications
+
+For [rectangles](rectangles.md), the local estimates give $C=12$,
+$\eta=2/9$, and $h=2$. Hence $\rho=e^{12e+52}/(1-e^{-1})$
+and $D=z^{10}$, exactly as in (R7). The block count may grow.
+
+For the preliminary sieve on $u+2$, the density is zero at $2$ and
+$1/(p-1)$ at odd primes. The reciprocal-prime block bounds give $C=8$,
+and $\eta=1/2$. Take $h=2\lfloor1/(40b)\rfloor$. If
+$0<b\le1/1000$, then $h\ge1/(40b)$, $h\ge50$ and $\rho\le1$.
+Consequently
+
+$$
+\rho e^\rho\le C_s e^{-1/(40b)},\qquad C_s=3K(8,1/2).
+$$
+
+This is the constant in (S7). The level exponent satisfies
+$b(4h+2)\le1/5+2b$. For the conditioned sieve in (S8b), use the same
+$C,\eta$ and let an even depth tend to infinity while keeping
+$W^{4h+2}$ below the remaining level after conditioning on the prime.
+Estimate (BS2) is uniform in this depth and the block count.
+
+For ordinary rough integers the density is $1/p$, with block bound
+$C=4$ and gap $\eta=1/2$. Put $K_0=K(4,1/2)$ and
+$C_{\rm sieve}=K_0e^{K_0}$. Since $\rho=K_0e^{-h}\le K_0$,
+both relative errors in (BS2) are at most $C_{\rm sieve}e^{-h}$.
+Counting multiples of each squarefree divisor has error at most one,
+so the total error is at most $2D$, as used in (S8d). Both $C_s$ and
+$C_{\rm sieve}$ are fixed before $b$ is chosen.
+
+## Source correspondence
+
+The statement and proof are `weighted_block_sieve` in
+[Foundations/Part001](../Green64/Library/Sieve/Foundations/Part001.lean).
+The shifted constant and depth estimates are in
+[Foundations/Part053](../Green64/Library/Sieve/Foundations/Part053.lean)
+and [Part054](../Green64/Library/Sieve/Foundations/Part054.lean).
+The ordinary-rough constant is `sieveC` in
+[Analysis/Estimates/Part003](../Green64/Library/Analysis/Estimates/Part003.lean).

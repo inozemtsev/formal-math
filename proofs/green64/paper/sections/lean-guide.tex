@@ -1,0 +1,302 @@
+\hypertarget{lean-guide}{%
+\section{Reading the Lean proof}\label{lean-guide}}
+
+The public theorem is {\small\nolinkurl{Green64.green_64}} in
+\href{../Green64/Main.lean}{\nolinkurl{Main.lean}}. Its statement is the
+direct proposition
+
+\begin{verbatim}
+{p : ℕ | p.Prime ∧ Odd (Ω (p - 2))}.Infinite
+\end{verbatim}
+
+The proof first constructs a prime above every natural bound.
+{\small\nolinkurl{Green64.primes_unbounded}} records positivity of
+\(p-2\) as well as its odd prime-factor count.
+{\small\nolinkurl{scripts/StatementTests.lean}} checks both exact
+propositions, including the multiplicity convention, and
+{\small\nolinkurl{scripts/AxiomAudit.lean}} prints their dependency
+axioms. Mathlib's {\small\nolinkurl{Ω}} is the length of
+{\small\nolinkurl{Nat.primeFactorsList}}, so it counts prime factors
+with multiplicity.
+
+The project separates a short final argument from the supporting
+analytic library. Module imports form an acyclic graph. Supporting
+declarations remain source code in {\small\nolinkurl{Green64/Library}};
+they are not external packages or precompiled proof objects. The final
+argument uses the following modules.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Mathematical step
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Module
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Main declaration
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Infinitely many primes & \href{../Green64/Main.lean}{\nolinkurl{Main}} &
+{\small\nolinkurl{Green64.green_64}} \\
+Witness above any bound &
+\href{../Green64/Infinitude.lean}{\nolinkurl{Infinitude}} &
+{\small\nolinkurl{prime_witnesses_unbounded}} \\
+Positive mass gives a prime of the required parity &
+\href{../Green64/PrimeExtraction.lean}{\nolinkurl{PrimeExtraction}} &
+{\small\nolinkurl{negative_parity_prime_candidates}} \\
+A fixed smooth cutoff &
+\href{../Green64/Localization.lean}{\nolinkurl{Localization}} &
+{\small\nolinkurl{localizingBump}} \\
+Subtract balanced composites &
+\href{../Green64/Sieve/PrimeMass.lean}{\nolinkurl{Sieve/PrimeMass}} &
+{\small\nolinkurl{negative_prime_mass_lower_bound}} \\
+Cover the composite remainder by prime pairs &
+\href{../Green64/Sieve/CompositeMass.lean}{\nolinkurl{Sieve/CompositeMass}}
+& {\small\nolinkurl{balanced_composite_mass_bound}} \\
+Transfer the proxy bound to sharp prime indicators &
+\href{../Green64/Sieve/BalancedMass.lean}{\nolinkurl{Sieve/BalancedMass}}
+& {\small\nolinkurl{balanced_prime_pair_and_composite_bound}} \\
+Bound the two prime proxies &
+\href{../Green64/Sieve/BalancedApproximation.lean}{\nolinkurl{Sieve/BalancedApproximation}}
+& {\small\nolinkurl{balanced_proxy_bound_uniform}} \\
+Sum positive bounds over balanced rectangles &
+\href{../Green64/Sieve/BalancedBoxes.lean}{\nolinkurl{Sieve/BalancedBoxes}}
+& {\small\nolinkurl{balanced_rough_pair_bound}} \\
+Uniform weighted rectangle bound &
+\href{../Green64/Sieve/WeightedBoxes.lean}{\nolinkurl{Sieve/WeightedBoxes}}
+& {\small\nolinkurl{weighted_box_bound}} \\
+Linear count of compatible dyadic rectangles &
+\href{../Green64/Sieve/DyadicCounting.lean}{\nolinkurl{Sieve/DyadicCounting}}
+& {\small\nolinkurl{compatible_dyad_labels_card}} \\
+Exact finite partition &
+\href{../Green64/Sieve/DyadicPartition.lean}{\nolinkurl{Sieve/DyadicPartition}}
+& the active-rectangle partition identities \\
+Support and rectangle geometry &
+\href{../Green64/Sieve/DyadicGeometry.lean}{\nolinkurl{Sieve/DyadicGeometry}}
+& the bounds for attained dyadic scales \\
+Normalize the finite main term &
+\href{../Green64/Sieve/BoxNormalization.lean}{\nolinkurl{Sieve/BoxNormalization}}
+& {\small\nolinkurl{box_main_Xrho_eventually}} \\
+Bound the finite remainder &
+\href{../Green64/Sieve/BoxRemainder.lean}{\nolinkurl{Sieve/BoxRemainder}}
+& {\small\nolinkurl{box_finite_error_exp_bound}} \\
+Make the remainder negligible &
+\href{../Green64/Sieve/BoxError.lean}{\nolinkurl{Sieve/BoxError}} &
+{\small\nolinkurl{box_error_uniform_little_o}} \\
+Euler-product estimates &
+\href{../Green64/Sieve/EulerProduct.lean}{\nolinkurl{Sieve/EulerProduct}}
+& {\small\nolinkurl{box_euler_bounds}} \\
+Account for both replacements &
+\href{../Green64/Sieve/ApproximationError.lean}{\nolinkurl{Sieve/ApproximationError}}
+& {\small\nolinkurl{balanced_sharp_le_proxy_error}} \\
+Close the analytic parameter choices &
+\href{../Green64/Sieve/Parameters.lean}{\nolinkurl{Sieve/Parameters}} &
+{\small\nolinkurl{proxy_parameters_exist}} \\
+\end{longtable}
+
+Unless a row says otherwise, the public analytic declarations are in
+namespace {\small\nolinkurl{Green64Analytic.Parity}}. Lower-level
+declarations retain their specific namespaces. Search a declaration with
+{\small\nolinkurl{rg}} if using an editor without Lean's
+go-to-definition support.
+
+\Needspace{6\baselineskip}
+
+\hypertarget{lean-guide-correspondence-with-the-mathematical-text}{%
+\subsection{Correspondence with the mathematical
+text}\label{lean-guide-correspondence-with-the-mathematical-text}}
+
+The following map records the exact source results used in the exposition.
+The probability notation in the weight chapter rewrites normalized sums;
+it does not introduce a probabilistic assumption.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Text
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Lean declarations
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Source
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Ordinary bands and moving depth &
+{\small\nolinkurl{sourceOriginalQ0Scale}},
+{\small\nolinkurl{sourceOriginalQActualBands}},
+{\small\nolinkurl{sourceOriginalLiteralDepth}} &
+\href{../Green64/Library/Correlation/Part065.lean}{\nolinkurl{Correlation/Part065}},
+\href{../Green64/Library/Weights/Part097.lean}{\nolinkurl{Weights/Part097}} \\
+Every admissible marked band &
+{\small\nolinkurl{sourceOriginalPGroupIndex}},
+{\small\nolinkurl{source_original_P_all_groups_mem_iff}},
+{\small\nolinkurl{sourceOriginalPAllActualBands}} &
+\href{../Green64/Library/Weights/SourcePOriginalGroupGeometry.lean}{group
+geometry},
+\href{../Green64/Library/Weights/Part019.lean}{\nolinkurl{Weights/Part019}},
+\href{../Green64/Library/Correlation/Part032.lean}{\nolinkurl{Correlation/Part032}} \\
+Factorial coefficient and marked weight &
+{\small\nolinkurl{sourceOriginalOrdinaryCoefficient}},
+{\small\nolinkurl{sourceOriginalW1}},
+{\small\nolinkurl{sourceOriginalA0}} &
+\href{../Green64/Library/Analysis/Estimates/TrueCellPrimeFibre.lean}{\nolinkurl{TrueCellPrimeFibre}} \\
+Parity projection & {\small\nolinkurl{parityWeight}} &
+\href{../Green64/Library/Sieve/Foundations/Part044.lean}{\nolinkurl{Foundations/Part044}} \\
+Exact multiplicity sign &
+{\small\nolinkurl{b628_parity_liouville_equals_P_phase434}},
+{\small\nolinkurl{b628_parity_negative_candidate_exact_target434}} &
+\href{../Green64/Library/Weights/ParityLiteralParityTarget.lean}{\nolinkurl{ParityLiteralParityTarget}} \\
+Ordinary harmonic lower bounds &
+{\small\nolinkurl{b635_actual_moving_Q_twelfth_floor434}},
+{\small\nolinkurl{b635_parity_admissible_band_count434}},
+{\small\nolinkurl{b635_parity_band_factor_numeric434}},
+{\small\nolinkurl{b635_parity_actual_HQ_lower_220434}} &
+\href{../Green64/Library/Weights/Part102.lean}{\nolinkurl{Weights/Part102}} \\
+Ordinary harmonic upper bound &
+{\small\nolinkurl{source_original_Q_actual_band_harmonic_le_four}} &
+\href{../Green64/Library/Weights/Part105.lean}{\nolinkurl{Weights/Part105}} \\
+Marked harmonic bounds &
+{\small\nolinkurl{source_original_P_all_actual_reciprocal_le_four434}},
+{\small\nolinkurl{source_original_P_all_reciprocal_floor_eventually}} &
+\href{../Green64/Library/Correlation/Part032.lean}{\nolinkurl{Correlation/Part032}},
+\href{../Green64/Library/Weights/Part107.lean}{\nolinkurl{Weights/Part107}} \\
+Euler normalization and Rankin tail &
+{\small\nolinkurl{source_original_P_group_harmonic_tsum_eq_Hg}},
+{\small\nolinkurl{source_original_P_actual_polylog_rankin_tail}} &
+\href{../Green64/Library/Weights/Part103.lean}{\nolinkurl{Weights/Part103}} \\
+Product law and both parity probabilities &
+{\small\nolinkurl{source_original_global_actual_P_normalized_harmonic_law}},
+{\small\nolinkurl{parity_original_P_global_actual_uniform_positive_parity434}}
+&
+\href{../Green64/Library/Weights/Part104.lean}{\nolinkurl{Weights/Part104}} \\
+Exact localized weight identity and corridor &
+{\small\nolinkurl{parity_original_XA_QP_literal_weights_exact_parity434}},
+{\small\nolinkurl{source_original_QP_actual_good_rest_corridor}} &
+\href{../Green64/Library/Weights/Part106.lean}{\nolinkurl{Weights/Part106}} \\
+Strong mass lower bound &
+{\small\nolinkurl{parity_original_XA_actual_HQ_HP_floor_eventually_parity434}},
+{\small\nolinkurl{parity_original_XA_literal_depth_lower_eventually_parity434}}
+&
+\href{../Green64/Library/Sieve/Foundations/Part005.lean}{\nolinkurl{Foundations/Part005}} \\
+Shared \(X_\rho\ge c_0e^LL^{-221}\) &
+{\small\nolinkurl{localizedMass_lower_bound}} &
+\href{../Green64/Library/Sieve/Foundations/Part050.lean}{\nolinkurl{Foundations/Part050}} \\
+Full logarithmic cells and roughness proxy &
+{\small\nolinkurl{sourceD20LogCell}},
+{\small\nolinkurl{sourceD20FullProxy}},
+{\small\nolinkurl{sourceD20FullDelta}} &
+\href{../Green64/Library/Weights/Part012.lean}{\nolinkurl{Weights/Part012}} \\
+Prime proxy and character estimate &
+{\small\nolinkurl{b627PrimeFullProxy434}},
+{\small\nolinkurl{b627_actual_fine_rough_all_character_saving434}} &
+\href{../Green64/Library/Analysis/Estimates/PrimeFineProxy.lean}{\nolinkurl{PrimeFineProxy}} \\
+Norm of the second proxy &
+{\small\nolinkurl{parity_original_actual_second_proxy_beta_half_norm_le_one434}}
+&
+\href{../Green64/Library/Sieve/Foundations/Part045.lean}{\nolinkurl{Foundations/Part045}} \\
+Actual signed source and common analytic precision &
+{\small\nolinkurl{parity_eventually_original_signed_quarter_b629_fine_one_slot_Psi_Mellin_source_anylog_common_precision434}}
+&
+\href{../Green64/Library/Sieve/Foundations/Part050.lean}{\nolinkurl{Foundations/Part050}} \\
+Whole rectangles and both replacement orders &
+{\small\nolinkurl{parity_eventually_original_both_parity_full_rectangles_proxy_steps434}}
+&
+\href{../Green64/Library/Sieve/Foundations/Part052.lean}{\nolinkurl{Foundations/Part052}} \\
+All finite error terms and normalization &
+{\small\nolinkurl{requiredProxyError}},
+{\small\nolinkurl{allOrdersProxyError}},
+{\small\nolinkurl{parity_original_littleO_exp222_to_Xrho434}} &
+\href{../Green64/Library/Sieve/Foundations/Part053.lean}{\nolinkurl{Foundations/Part053}} \\
+Singular product &
+{\small\nolinkurl{singularSeries_converges_and_ge_one}} &
+\href{../Green64/Library/Sieve/Foundations/Part006.lean}{\nolinkurl{Foundations/Part006}} \\
+Slot allocation, diagonal estimate, Fourier tails & Detailed source map
+in
+\protect\hyperlink{bilinear-source-correspondence}{Section~\ref{bilinear-source-correspondence}}
+&
+\href{../Green64/Library/Sieve/Foundations/Part050.lean}{\nolinkurl{Foundations/Part050}} \\
+Alternating resampling, physical moments, and comparison subtraction &
+Derivation in
+\protect\hyperlink{marked-correlation}{Section~\ref{marked-correlation}};
+source map in
+\protect\hyperlink{marked-correlation-correspondence-with-lean}{Section~\ref{marked-correlation-correspondence-with-lean}}
+&
+\href{../Green64/Library/Weights/Part092.lean}{\nolinkurl{Weights/Part092}},
+\href{../Green64/Library/Sieve/Foundations/Part008.lean}{\nolinkurl{Foundations/Part008}} \\
+Negative-parity congruence estimate &
+{\small\nolinkurl{parity_original_negative_congruence_D230_bound434}} &
+\href{../Green64/Library/Sieve/Foundations/Part053.lean}{\nolinkurl{Foundations/Part053}} \\
+Character decomposition, deleted-slot convolution, and conductor
+estimates & Detailed source map in
+\protect\hyperlink{congruences-source-correspondence}{Section~\ref{congruences-source-correspondence}}
+&
+\href{../Green64/Library/Weights/Part107.lean}{\nolinkurl{Weights/Part107}},
+\href{../Green64/Library/Weights/Part108.lean}{\nolinkurl{Part108}} \\
+Assignment masks, CRT, and the finite rectangle sieve & Detailed source
+map in
+\protect\hyperlink{rectangles-source-correspondence}{Section~\ref{rectangles-source-correspondence}}
+&
+\href{../Green64/Library/Sieve/Foundations/Part056.lean}{\nolinkurl{Foundations/Part056}},
+\href{../Green64/Library/Sieve/Foundations/Part057.lean}{\nolinkurl{Part057}} \\
+Rough-number density & {\small\nolinkurl{sourceSimplexTerm}},
+{\small\nolinkurl{sourceDensity}} &
+\href{../Green64/Library/Analysis/Estimates/Part003.lean}{\nolinkurl{Analysis/Estimates/Part003}} \\
+Remove unbalanced composites &
+{\small\nolinkurl{parity_original_exists_small_b_unbalanced_margin434}},
+{\small\nolinkurl{negative_prime_or_composite_mass_lower_bound}} &
+\href{../Green64/Library/Sieve/Foundations/Part055.lean}{\nolinkurl{Foundations/Part055}} \\
+\end{longtable}
+
+\Needspace{6\baselineskip}
+
+\hypertarget{lean-guide-the-analytic-library}{%
+\subsection{The analytic
+library}\label{lean-guide-the-analytic-library}}
+
+{\small\nolinkurl{Library/Weights}} develops labelled prime assignments,
+multiplicities, harmonic normalization, and the finite combinatorial
+operators used by the correlation argument.
+{\small\nolinkurl{Library/Correlation}} contains their signed
+correlations and reindexing identities.
+{\small\nolinkurl{Library/Sieve/Foundations}} connects those identities
+to the sieve and the finite factor sums.
+{\small\nolinkurl{Library/Analysis}}, {\small\nolinkurl{Library/OAI}},
+{\small\nolinkurl{Library/ChenTheorem}}, and the other retained source
+directories provide the analytic and arithmetic estimates used in those
+proofs. See \href{../THIRD_PARTY.md}{THIRD\_PARTY.md} for their origins.
+
+The \protect\hyperlink{bilinear}{bilinear chapter} follows the exact
+Cauchy square, the diagonal divisor bound, and the integration over the
+Fourier ball and its tail. The
+\protect\hyperlink{marked-correlation}{marked-correlation chapter}
+supplies the cancellation used inside that ball, including the
+separately bounded comparison term. The final analytic parameter
+construction discharges the hypotheses of these lower-level estimates.
+
+The {\small\nolinkurl{PartNNN}} files contain supporting results; the
+named files in {\small\nolinkurl{Green64/Sieve}} expose the final
+argument.
+
+\Needspace{6\baselineskip}
+
+\hypertarget{lean-guide-checking-what-is-proved}{%
+\subsection{Checking what is
+proved}\label{lean-guide-checking-what-is-proved}}
+
+A successful build alone is not the axiom audit. Run
+{\small\nolinkurl{scripts/verify.py}} and inspect its
+{\small\nolinkurl{VALIDATION.json}} receipt for the public theorem
+names, axioms, source hashes, dependency revisions, and command exit
+codes. The audit checks the infinite set proposition itself, together
+with the stronger unbounded-witness theorem. It does not substitute a
+conditional statement or a wrapper with an assumed analytic conclusion.

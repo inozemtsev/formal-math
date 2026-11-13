@@ -1,0 +1,24 @@
+{
+  "started_utc": "2026-11-12T23:09:04.180132+00:00",
+  "finished_utc": "2026-11-13T03:39:45.435739+00:00",
+  "repository": "inozemtsev/formal-math",
+  "commit": "21b9e0fb6428d689fa16f2d52fcdf4850c48b779",
+  "verifier_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+  "execution_profile": "palomar-standard-v1",
+  "execution_budget_seconds": 19800,
+  "elapsed_seconds": 16241.26,
+  "status": "pass",
+  "scope": "Summary of a completed local protected run; distinct from GitHub CI and registry registration.",
+  "errors": [],
+  "warnings": [],
+  "original_report_sha256": "f067340203bfb029f79fc94dbfba49ff2c9f2ae3fb7b8a2cb2de5ca647c2b635",
+  "kernel_attempts": [
+    {
+      "name": "con-ron",
+      "status": "accepted",
+      "reason": "complete",
+      "exit_code": 0,
+      "detail": "con-ron: accepted 142651 declarations (--verified)\n\ncon-ron: 1 inductive blocks modelled in-process: Lean.Syntax (30 generated records, checked by the fold as declarations and not counted as records of the file)"
+    }
+  ]
+}

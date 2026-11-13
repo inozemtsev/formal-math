@@ -64,8 +64,9 @@ command is not a Palomar verification or editorial-review result.
 
 Current results and source-hash receipts are in [VERIFICATION.md](VERIFICATION.md).
 The prose description, source relationships, AI contribution, scope and review
-status are recorded in [formalization.yaml](formalization.yaml). The full informal proof and PDF article are being revised separately and
-are not part of this submitted version.
+status are recorded in [formalization.yaml](formalization.yaml). The
+[proof idea](docs/proof-idea.md), [full Markdown proof](docs/proof.md) and
+[PDF article](paper/green64.pdf) are included, with [article sources](paper/README.md).
 
 ## Registry execution profile
 
@@ -105,7 +106,10 @@ the official reusable workflow in `mode: full`, with both its workflow and
 pipeline revision pinned to `14aa8d6b3c2f14a8540605e37144560b9a00e7e7`.
 It selects `palomar-standard-v1` and the project paths above. A successful
 local source build or standalone Comparator run does not replace this check.
-The actual run and artifact, not this document, establish its outcome.
+The complete workflow has passed in CI, and the protected verifier has also
+passed locally. [VERIFICATION.md](VERIFICATION.md) links the successful run
+and its original report. For submission, the passing report must identify the
+exact selected revision, including any documentation changes.
 
 ## Third-party licence request
 

@@ -1,0 +1,293 @@
+# Replacing prime and roughness tests
+
+We replace prime and roughness indicators by their complete-cell averages.
+The weights $A_\rho$, $x=e^L$, and $X_\rho$ are those of
+[the main proof](proof.md). All constants are fixed before taking
+$L\to\infty$. In particular, a constant attached to a finite partition
+is not allowed to vary with $L$.
+
+The estimates concern the particular prime and roughness discrepancies
+defined below. The other coefficient in a bilinear sum may be an arbitrary
+bounded complex function. This is the property needed when replacing the
+second of two factors.
+
+## 1. Complete logarithmic cells
+
+Put $W=\exp(\sqrt L)$ and $\Delta=L^{-S}$, where $S>0$ will be chosen.
+For $j\ge0$ define
+
+$$
+C_j=(e^{j\Delta},e^{(j+1)\Delta}]\cap\mathbb N.
+$$
+
+Every integer $n\ge2$ belongs to the unique cell with
+$j=\lceil\log n/\Delta\rceil-1$. Define the roughness indicator
+
+$$
+R_y(n)=1_{n\ge2,\ P^-(n)>y}.
+$$
+
+For either $I(n)=R_y(n)$, with $y\ge W$, or $I(n)=1_{n\text{ prime}}$,
+define its approximation by
+
+$$
+B_I(n)=R_W(n)\,
+ \frac{\sum_{m\in C_j}I(m)}{\sum_{m\in C_j}R_W(m)}
+ \quad(n\in C_j),\qquad \alpha_I(n)=I(n)-B_I(n). \tag{C1}
+$$
+
+A zero denominator is assigned the value zero. On a cell
+where $I$ is supported on the $W$-rough integers, a zero denominator
+also forces the numerator to vanish. Consequently
+
+$$
+\sum_{n\in C_j}\alpha_I(n)=0. \tag{C2}
+$$
+
+Restricting a coefficient to a factor interval means multiplying it by
+that interval's indicator. The ratio in (C1) continues to use the whole
+cell, including when the interval cuts one or both endpoint cells.
+This convention makes restriction to a smaller interval an exact identity.
+
+For the principal character, (C2) handles complete cells. On each such
+cell, subtract the value of $n^{-1+it}$ at one endpoint. The derivative
+bound
+
+$$
+\left|\frac{d}{dn}n^{-1+it}\right|\le\frac{1+|t|}{n^2}
+$$
+
+bounds the variation. At most two endpoint cells remain. Since $q\le W$,
+the principal character is one on every supported integer. The resulting
+bound is
+
+$$
+\left(8(e^\Delta-1)+\frac2a\right)(2+|t|).
+$$
+
+For a nonprincipal character, write each $y$-rough integer uniquely as
+$n=pd$, where $p=P^-(n)$. For fixed $d$, the prime $p$ lies in the
+interval obtained from $a\le pd\le b$, $p>y$, and $p\le P^-(d)$;
+when $d=1$ the last condition is omitted. This is a single clipped
+interval, even when $p$ divides $d$. Siegel--Walfisz and partial summation
+bound its prime character sum with weight $p^{-1+it}$ by
+$K(2+|t|)(\log y)^{-D'}$ for any requested $D'$, uniformly when the modulus
+is at most a fixed power of $\log y$. The outer cofactor costs only
+
+$$
+\sum_{d\le b}\frac1d\le1+\log b.
+$$
+
+Because $\log y\ge\sqrt L$, $b\le e^{2L}$, and $q,|t|\le L^B$,
+choosing $D'$ sufficiently large gives any fixed inverse power of $L$
+for the rough character sum. On each cell slice, the proxy is a scalar
+in $[0,1]$ times the $W$-rough indicator, so the same estimate applies.
+There are at most $2L^{S+1}+2$ slices. Requesting saving $L^{-(B+S+4)}$
+for the rough sums makes the total test-minus-proxy sum at most $L^{-B}$.
+
+Combining the two character cases gives the following precise statement: for
+fixed $B>0$, $S>2B$, and $\beta>0$, eventually, uniformly for
+
+$$
+2\le a\le b\le2a,\quad e^{\beta L}\le a,\quad b\le e^{2L},\quad
+1\le q\le L^B,\quad |t|\le L^B,\quad y\ge W,
+$$
+
+and every Dirichlet character $\chi$ modulo $q$,
+
+$$
+\left|\sum_{a\le n\le b}\alpha_{R_y}(n)\chi(n)n^{-1+it}\right|
+\le L^{-B}. \tag{C3}
+$$
+
+For the prime discrepancy, use $y=2\sqrt a$: every complete cell meeting
+$[a,b]$ lies in a range where $y$-roughness is equivalent to primality.
+The two proxies therefore agree on the complete cells, including the
+two cells cut by the interval endpoints.
+
+## 2. The bilinear estimate used in the proof
+
+For finite sets of positive integers $K,J$, set
+
+$$
+\mathcal T_\rho(K,J;\alpha,\beta)
+ =\sum_{0\le u\le Y}w_\rho(u)
+   \sum_{\substack{m\in K,\ n\in J\\mn=u+2}}\alpha(m)\beta(n),
+\qquad Y=\lfloor2x\rfloor. \tag{C4}
+$$
+
+All pairs are ordered, and $m=n$ is retained. In applications $\alpha$
+is a restricted discrepancy (C1), while $|\beta|\le1$.
+The [bilinear chapter](bilinear.md#1-the-statement-on-one-factor-rectangle)
+states the estimate with all factor ranges and quantifiers: on an
+admissible dyadic rectangle it bounds (C4) by $CxL^{-D}$ for any prescribed
+$D$, with the cell mesh and $C$ chosen before the interval endpoints and
+the bounded companion coefficient.
+
+Here is the parameter choice used to apply it. Fix
+$0<b_1<1/100$ and $0<\kappa<1/50$, and put
+
+$$
+\beta_P=b_1/12,\qquad \beta=b_1/3,\qquad b_*=b_1/3.
+$$
+
+Reserve one ordinary prime slot in a fixed band $Q_{j_Q}$ so small that
+
+$$
+\frac65\sigma2^{-j_Q}\le\frac{\beta_P}{4}.
+$$
+
+Such an index exists because $2^{-j}\to0$; the moving depth eventually
+contains it. Given an error exponent $D$, choose the analytic precision
+$A$ and the localization exponent $K_0$ with
+
+$$
+D+2+C_E+C_F\le A,\qquad 2A+2C_W+344\le K_0. \tag{C5}
+$$
+
+Here $C_W,C_E,C_F$ are the fixed polynomial exponents respectively
+bounding the marked weight, the selected-factor coefficients, and the
+Fourier integrals of the ordinary-slot cutoffs; their values are specified
+in [the bilinear reduction](bilinear.md). Choose $A$ first, then $K_0$.
+
+The derivation in [bilinear.md](bilinear.md) expands the ordinary slots,
+allocates a selected divisor $e\in[EL^{-88},E]$ with $E=UL^{-K_0}$,
+and applies Cauchy--Schwarz. For the explicitly defined sum $\mathcal B'$
+in (B8), with $G=L^{C_E}\prod_i|\widehat f_{\delta_i}(\vartheta_i)|$, it gives
+
+$$
+|\mathcal B'|^2\le6EVG^2
+ \left(2xL^{2C_W+344}+(C_{\rm phys}+24C_1)xL^{-A}\right). \tag{C6}
+$$
+
+The first term is the diagonal divisor-moment bound. The second follows
+from the [marked correlation](marked-correlation.md) and its Fourier tail.
+Since $EV\le C_{\rm box}xL^{-K_0}$, (C5) implies
+$|\mathcal B'|\le CGxL^{-A}$. The remaining slot integrals cost
+$L^{C_E+C_F}$. Fourier inversion of $\psi(t)=\Psi(e^t)$ restores the
+localization; its zeroth and $H$th absolute Fourier moments are finite,
+so the resulting constant is independent of $L$ and of the bounded
+companion coefficient.
+
+Apply the unsigned and signed estimates to the exact projection
+$A_\rho=(A_0+\rho A_0E)/2$. The triangle inequality and $|\rho|=1$
+give the same bound for $\mathcal T_\rho$.
+
+## 3. Two successive replacements
+
+Write $\mathcal T_{ij}$ for (C4) with the first coefficient sharp when
+$i=0$ and approximated when $i=1$, and similarly for the second coefficient.
+Then
+
+$$
+\mathcal T_{00}-\mathcal T_{11}
+=(\mathcal T_{00}-\mathcal T_{10})
+ +(\mathcal T_{10}-\mathcal T_{11}). \tag{C7}
+$$
+
+On the cells under consideration, (C1) gives $0\le B_I\le1$.
+Both companions are therefore bounded, so (B3) applies in either order.
+We use bounds $Q$ and $2Q$, respectively, for the two differences.
+
+A rectangle is partitioned into its attained binary dyadic rectangles.
+The finite carrier consists of the scales of actual positive factor pairs
+$mn=u+2$ with $\Psi(u/x)\ne0$. There are at most
+
+$$
+D_Y=(\lfloor\log_2(Y+2)\rfloor+1)^2 \tag{C8}
+$$
+
+such pairs of scales. All full-cell ratios remain those of (C1).
+The internal subdivision cost is absorbed by the extra $2$ in (C5).
+The external rectangle count (C8) is then paid explicitly. In the
+special balanced positive estimate, a sharper linear count is available;
+that separate count is used in [sieve.md](sieve.md#3-counting-balanced-rectangles).
+
+## 4. The finite error sum and its quantifiers
+
+Fix an integer $N$ and a nondecreasing sequence
+
+$$
+t_0=b_1,\qquad t_N=1/2-\kappa.
+$$
+
+For $i<N$, the unbalanced region consists of positive pairs $mn=u+2$
+with $x^{t_i}<n\le x^{t_{i+1}}$. Its first sharp coefficient is
+$R_{x^{t_i}}(m)$ and its second is the prime indicator at $n$.
+For the balanced region both coefficients are prime indicators, and
+both factors lie in
+$[x^{1/2-2\kappa},x^{1/2+2\kappa}]$.
+
+Let $U^{(i)}_{ab,\rho}$ and $B_{ab,\rho}$ be the corresponding sums with
+replacement flags $a,b\in\{0,1\}$. The total error actually used is
+
+$$
+\mathcal E(L)=\sum_{\rho=\pm1}\left(
+ \sum_{i<N}|U^{(i)}_{00,\rho}-U^{(i)}_{10,\rho}|
+ +|B_{00,\rho}-B_{10,\rho}|
+ +|B_{10,\rho}-B_{11,\rho}|\right). \tag{C9}
+$$
+
+A second quantity $\mathcal E_{\rm all}$ sums all four successive
+differences, in both replacement orders, for each of the $N+1$ regions
+and both signs.
+
+The bounds have the following quantifier order:
+
+$$
+\begin{gathered}
+\text{fix }N,b_1,\kappa,D\text{ and the cutoff }\Psi;\\
+\text{choose }H,J,B,S,C\text{ with }S>2(B+1)+3, C>0;\\
+\text{then for every admissible sequence }(t_i),
+\text{ eventually in }L,\\
+\mathcal E(L)\le2(N+3)Q(L),\qquad
+\mathcal E_{\rm all}(L)\le12(N+1)Q(L),\\
+Q(L)=C D_Y xL^{-D}. \tag{C10}
+\end{gathered}
+$$
+
+The threshold may depend on the partition. The approximation parameters
+and $C$ precede its endpoints. To check the factors in (C10), for one
+sign there are $N$ unbalanced first steps and two balanced steps with
+bounds $Q$ and $2Q$. This gives $(N+3)Q$. For each region and sign the
+four steps in both orders cost $Q+2Q+Q+2Q=6Q$.
+
+The conclusion follows from the rectangle estimates by finite partition
+and the triangle inequality.
+
+## 5. Normalization by the actual mass
+
+Take $D=230$. Since $Y=\lfloor2e^L\rfloor$, (C8) gives $D_Y=O(L^2)$.
+For fixed $N$ and the fixed parameters in (C10),
+
+$$
+\mathcal E(L),\mathcal E_{\rm all}(L)
+ =O(e^LL^{-228})=o(e^LL^{-222}). \tag{C11}
+$$
+
+The lower bound from [weights.md](weights.md) is uniform in the sign:
+
+$$
+\frac{X_\rho}{L}\ge c_0e^LL^{-222}.
+$$
+
+Given $\varepsilon>0$, apply (C11) with the absolute error tolerance
+$\varepsilon c_0$ and intersect its eventual range with the mass lower
+bound. This proves, for either sign,
+
+$$
+\mathcal E(L)=o(X_\rho/L),\qquad
+\mathcal E_{\rm all}(L)=o(X_\rho/L). \tag{C12}
+$$
+
+In particular, (C7) gives the balanced two-step error required in the
+final sieve argument.
+
+## Source correspondence
+
+| Text | Definitions and proved identities |
+| --- | --- |
+| (C1)--(C3), complete-cell discrepancies | [Weights/Part012](../Green64/Library/Weights/Part012.lean): `sourceD20Rough`, `sourceD20LogCell`, `sourceD20FullProxy`, `sourceD20FullDelta`, `sourceD20_full_delta_zero`; [Estimates/Part005](../Green64/Library/Analysis/Estimates/Part005.lean): `sourceD20_principal_interval_bound`, `sourceD20_mesh_scalar`, `sourceD21_full_nonprincipal_saving`; [PrimeFineProxy](../Green64/Library/Analysis/Estimates/PrimeFineProxy.lean): `b627PrimeFullProxy434`, `b627_actual_fine_rough_all_character_saving434`, `b627_prime_full_delta_eq_actual_rough434` |
+| (C5)--(C6), common bilinear precision | [Foundations/Part050](../Green64/Library/Sieve/Foundations/Part050.lean): `parity_original_TypeII_target_K0_precision_compatible434`, `parity_eventually_original_signed_quarter_b629_fine_one_slot_Psi_Mellin_source_anylog_common_precision434`; the exponents are defined in [Foundations/Part013](../Green64/Library/Sieve/Foundations/Part013.lean): `parityOriginalW1PolylogExponent434`, [Part011](../Green64/Library/Sieve/Foundations/Part011.lean): `parityOriginalSelectedECoefficientPolylogExponent434`, and [Part010](../Green64/Library/Sieve/Foundations/Part010.lean): `parityOriginalB590FixedFourierPolynomialExponent434` |
+| (C7)--(C8), two replacements and dyadic partition | [Foundations/Part045](../Green64/Library/Sieve/Foundations/Part045.lean): `parity_original_actual_fullcell_proxy_beta_norm_le_two434`, `parity_original_actual_second_proxy_beta_half_norm_le_one434`; [Foundations/Part050](../Green64/Library/Sieve/Foundations/Part050.lean): `parity_original_parity_positive_Icc_eq_quarter_nested_sources434` |
+| (C9)--(C12), total error and normalization | [Foundations/Part053](../Green64/Library/Sieve/Foundations/Part053.lean): `requiredProxyError`, `allOrdersProxyError`, `parity_eventually_original_sieve_all_proxy_errors434`, `parity_original_littleO_exp222_to_Xrho434`; [Parameters](../Green64/Sieve/Parameters.lean): `proxy_parameters_exist` |
