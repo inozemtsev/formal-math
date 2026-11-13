@@ -1,6 +1,21 @@
 # Verification record
 
-## Complete protected verification
+## Current submission configuration
+
+[Version 1 is registered in Palomar](https://palomar-registry.org/entry.html?id=PALOMAR-2026-11-13-000010&version=1).
+Its [complete CI preflight](https://github.com/inozemtsev/formal-math/actions/runs/43390233171)
+and [Palomar verification](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43406667853)
+passed, followed by automated editorial review.
+
+The configuration for version 2 selects only `Green64.green_64`, removes the
+supporting unbounded-witness statement from Challenge and updates the abstract.
+The proof, dependencies, written article and PDF are unchanged. The
+[full workflow](https://github.com/inozemtsev/formal-math/actions/workflows/palomar-preflight.yml)
+checks the revised configuration on its source revision before the next submission.
+Historical receipts below describe their original inputs, including the earlier
+two-statement Challenge; they are not a passing report for the new configuration.
+
+## Complete protected verification of the first version
 
 The formal proof has passed the full [Palomar verification workflow in CI](https://github.com/inozemtsev/formal-math/actions/workflows/palomar-preflight.yml).
 The [completed run](https://github.com/inozemtsev/formal-math/actions/runs/43325891223)
@@ -18,8 +33,9 @@ state was fresh; the pinned Mathlib dependency cache is permitted by the
 profile. These are complete protected checks, separate from the earlier
 incremental builds and unsandboxed diagnostics below.
 
-The article and documentation were added after those runs. The formal inputs
-are unchanged; historical reports retain their original source identity.
+The article and documentation were added after those runs, with the same formal
+inputs, before version 1 was registered. Historical reports retain their original
+source identity; the subsequent version 2 selection is described above.
 The [workflow page](https://github.com/inozemtsev/formal-math/actions/workflows/palomar-preflight.yml)
 shows the CI result for each subsequent revision. Palomar intake uses a passing
 report for the exact submitted revision. Mechanical success is not editorial
@@ -27,10 +43,11 @@ review, registration, endorsement or independent human peer review.
 
 ## Earlier source and kernel checks
 
-The earlier receipts are preserved unchanged. Their audited Lean, build,
-dependency and verifier files remain byte-identical; only the descriptive
-metadata in their original source-hash manifest has changed.
-[SOURCE_EQUIVALENCE.json](SOURCE_EQUIVALENCE.json) records that comparison.
+The earlier receipts are preserved unchanged.
+[SOURCE_EQUIVALENCE.json](SOURCE_EQUIVALENCE.json) records the comparison made
+before version 1 was registered: its audited Lean, build, dependency and verifier
+files were byte-identical, while descriptive metadata had changed. It is a
+historical receipt, not a source comparison for the revised submission files.
 
 The Lean 4.35.0-rc2 source build, exact-statement tests and axiom audit passed
 on 12 November 2026. All 956 internal Green64 modules, the public entry point,

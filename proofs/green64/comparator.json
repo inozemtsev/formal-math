@@ -1,6 +1,6 @@
 {
   "challenge_module": "Challenge",
   "solution_module": "Solution",
-  "theorem_names": ["Green64.primes_unbounded", "Green64.green_64"],
+  "theorem_names": ["Green64.green_64"],
   "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
 }

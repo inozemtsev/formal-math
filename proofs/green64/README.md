@@ -1,15 +1,15 @@
 # Green's Problem 64
 
 There are infinitely many primes $p$ such that $\Omega(p-2)$ is odd, where
-$\Omega(n)$ counts prime factors with multiplicity. The development also
-proves that such a prime exists above every natural bound, with $p-2>0$.
+$\Omega(n)$ counts prime factors with multiplicity. The proof obtains such
+primes above every natural bound.
 
 This is the fixed-shift question in Ben Green's
 [*100 Open Problems*, Problem 64](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf#problem.64).
 It concerns the Liouville parity of a fixed additive shift of primes, a question
 in analytic number theory and sieve theory. It makes an infinitude claim;
 no numerical threshold, uniform range of shifts, or squarefreeness assertion
-is part of the two submitted theorems.
+is part of the submitted theorem.
 
 ## Read the proof
 
@@ -30,14 +30,16 @@ no claim of mathematical priority.
 
 ## Verification
 
-The formal proof has passed the full [Palomar verification workflow in CI](https://github.com/inozemtsev/formal-math/actions/workflows/palomar-preflight.yml),
-including a fresh source build, protected statement comparison and kernel
-checks. The complete protected verifier has also passed locally. See
-[VERIFICATION.md](VERIFICATION.md) for the reports, timings and scope.
-Mechanical verification does not constitute registry registration or human
-peer review.
+[Version 1 is registered in Palomar](https://palomar-registry.org/entry.html?id=PALOMAR-2026-11-13-000010&version=1).
+The formal proof has passed the full Palomar verification workflow in CI and
+the complete protected local verifier. Version 2 selects `Green64.green_64`
+as the sole principal result; the
+[full workflow](https://github.com/inozemtsev/formal-math/actions/workflows/palomar-preflight.yml)
+checks the revised Challenge and selection for the next submission.
+[VERIFICATION.md](VERIFICATION.md) records the reports, timings and scope.
+Palomar's editorial review was automated; no human mathematical review is claimed.
 
-## Exact statements
+## Formal statement
 
 ```lean
 import Green64
@@ -46,23 +48,20 @@ open scoped ArithmeticFunction.Omega
 
 example : {p : ℕ | p.Prime ∧ Odd (Ω (p - 2))}.Infinite :=
   Green64.green_64
-
-example (M : ℕ) :
-    ∃ p : ℕ, p.Prime ∧ Odd (Ω (p - 2)) ∧ 0 < p - 2 ∧ M < p :=
-  Green64.primes_unbounded M
 ```
 
 Here subtraction is natural-number subtraction, and `Ω` is Mathlib's
 `ArithmeticFunction.cardFactors`. It counts multiplicities: for example,
 $p=11$ does not qualify because $\Omega(9)=2$. Mathlib sets
 $\Omega(0)=\Omega(1)=0$, so $p=2$ and $p=3$ are excluded. There are no additional
-hypotheses. The witness statement makes unboundedness and positivity explicit.
+hypotheses. The supporting lemma `Green64.primes_unbounded` supplies a prime
+above every natural bound and records $p-2>0$; it is used to prove infinitude.
 
-[Challenge.lean](Challenge.lean) states both claims using only Mathlib imports.
-Its two deliberate proof holes are the inputs to statement comparison.
-[Solution.lean](Solution.lean) proves the same declarations through
+[Challenge.lean](Challenge.lean) states `Green64.green_64` using only Mathlib
+imports. Its deliberate proof hole is the input to statement comparison.
+[Solution.lean](Solution.lean) supplies the proof through
 [Green64/Main.lean](Green64/Main.lean), independently of Challenge.
-[comparator.json](comparator.json) selects those two declarations and permits
+[comparator.json](comparator.json) selects only `Green64.green_64` and permits
 only `propext`, `Quot.sound`, and `Classical.choice`.
 
 ## Sources, authorship and scope
@@ -81,7 +80,7 @@ OpenAI describes results at different stages of verification and warns that
 some unformalized results may contain errors. Independent human verification
 of these manuscripts is not claimed here; see the
 [source-status note](ACKNOWLEDGEMENTS.md#verification-status-of-the-openai-sources).
-The supporting inputs needed for the two submitted Green64 statements are
+The supporting inputs needed for the submitted Green64 statement are
 proved in the included Lean development.
 
 Proof development and formalization: **gpt-6 astra**.
@@ -121,7 +120,7 @@ script requires an environment that supports bubblewrap namespaces.
 
 [VERIFICATION.md](VERIFICATION.md) records the successful protected CI and
 local verification, alongside the earlier source, statement and kernel checks.
-[SOURCE_EQUIVALENCE.json](SOURCE_EQUIVALENCE.json) records that the submitted
-Lean and build inputs are byte-identical to those used in the local checks;
-only the descriptive metadata in that audit's hash list has changed.
+[SOURCE_EQUIVALENCE.json](SOURCE_EQUIVALENCE.json) preserves the source comparison
+for the first version. The proof and dependencies remain unchanged; the revised
+Challenge and Comparator selection are checked by a fresh full workflow.
 [PALOMAR.md](PALOMAR.md) records the submission paths and pinned workflow.
