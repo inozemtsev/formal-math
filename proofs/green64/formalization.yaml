@@ -3,12 +3,14 @@ version: v0.4
 project:
   name: "Green's Problem 64: odd prime-factor parity in shifted primes"
   description: >-
-    There are infinitely many primes p for which p - 2 has an odd number of
-    prime factors, counted with multiplicity. A second theorem gives such
-    a prime above every natural bound and explicitly records p - 2 > 0.
-    Both statements have no additional hypotheses. The standalone Lean
-    development includes its supporting analytic number theory and uses
-    Mathlib as its only direct Lake dependency.
+    We prove in Lean that infinitely many primes p have Ω(p − 2) odd, where
+    Ω counts prime factors with multiplicity, giving an affirmative answer
+    to Green's Problem 64. The argument constructs a nonnegative weight
+    supported on odd prime-factor parity; correlation estimates and a
+    weighted sieve give positive total weight to integers u with u + 2 prime
+    at arbitrarily large scales. The supporting analytic number theory is
+    included in the formalization, with Mathlib as its only direct
+    dependency.
   authors: [Igor Inozemtsev]
   responsible_maintainers: [Igor Inozemtsev]
   license: Apache-2.0
@@ -94,21 +96,21 @@ related_formalizations:
 
 status:
   scope: >-
-    The infinitude statement for p - 2 and an unbounded-witness statement
-    are the principal claims. Subtraction is in the natural numbers, and
-    Omega is Mathlib's cardFactors. The witness statement includes positivity
-    of p - 2. Thresholds in the analytic argument are eventual; no explicit
-    numerical threshold is asserted. The Challenge's two deliberate proof
-    holes are excluded from the proof-development counts below.
+    The principal claim is the infinitude statement for p - 2.
+    Green64.primes_unbounded is a supporting lemma in its proof.
+    Subtraction is in the natural numbers, and Omega is Mathlib's cardFactors.
+    Thresholds in the analytic argument are eventual; no explicit numerical
+    threshold is asserted. The Challenge's single deliberate proof hole is
+    excluded from the proof-development counts below.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: [propext, Classical.choice, Quot.sound]
   known_gaps: >-
-    The formal proof has passed the full protected Palomar workflow in CI
-    and a complete protected local run. VERIFICATION.md records the scope,
-    timings and original reports; SOURCE_EQUIVALENCE.json records unchanged
-    formal inputs and descriptive metadata changes. Registry editorial review
-    and registration remain separate. The third-party permission issue in
+    Version 1 is registered in Palomar and passed its full protected
+    verification. VERIFICATION.md records that verification and earlier
+    protected CI and local checks. Each new submission requires a passing
+    full workflow for its source revision. SOURCE_EQUIVALENCE.json is a
+    historical receipt for the first version. The third-party permission issue in
     THIRD_PARTY.md remains unresolved. The repository maintainer was contacted
     by email on 2026-11-12; a reply and permission are pending. The request is
     not a licence grant or endorsement. The full informal proof, PDF article
@@ -135,15 +137,15 @@ automation:
 fidelity:
   divergences: >-
     The main proposition is the fixed-shift question stated as an affirmative
-    infinitude theorem. It has no extra hypotheses. The additional witness
-    theorem makes unboundedness and positivity explicit. Omega counts
+    infinitude theorem. It has no extra hypotheses. A supporting witness
+    lemma makes unboundedness and positivity explicit. Omega counts
     multiplicities, so p = 11 does not qualify, since Omega(9) = 2.
 
 review:
   status: agent-reviewed
   notes: >-
-    The full protected CI workflow and complete local protected verifier
-    passed for the formal inputs recorded in VERIFICATION.md. AI first-reader
+    The first version passed the full protected CI workflow and complete
+    local protected verifier recorded in VERIFICATION.md. AI first-reader
     and PDF reviews of the included article, their findings and repairs are
     recorded in paper/PDF_REVIEW.md and paper/REVISION.md. These are manuscript
     assessments, not additional formal proof certificates. No human peer review
@@ -159,8 +161,3 @@ alignment:
       module: Green64.Main
       status: proved
       note: "The proposition uses Nat.Prime and Mathlib's cardFactors without hypotheses."
-    - source: "Unbounded-witness form of Problem 64"
-      lean: Green64.primes_unbounded
-      module: Green64.Main
-      status: proved
-      note: "For every natural bound, supplies a larger prime and records p - 2 > 0."

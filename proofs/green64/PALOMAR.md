@@ -17,7 +17,13 @@ The submission selects a commit of `main` using these repository-relative paths:
 | Metadata | `proofs/green64/formalization.yaml` |
 | Challenge module | `Challenge` |
 | Solution module | `Solution` |
-| Compared declarations | `Green64.primes_unbounded`, `Green64.green_64` |
+| Compared declaration | `Green64.green_64` |
+
+The configuration prepares version 2 of
+[PALOMAR-2026-11-13-000010](https://palomar-registry.org/entry.html?id=PALOMAR-2026-11-13-000010&version=1).
+It selects the infinitude theorem as the single principal result;
+`Green64.primes_unbounded` remains a supporting lemma in the proof.
+The submission uses the same identifier through `existing_id`.
 
 The full mechanical workflow selects the exact commit through `github.sha`.
 A workflow run is a preflight check, not registration or editorial approval.
@@ -40,10 +46,10 @@ SHA in the manifest. Mathlib remains the sole direct Lake dependency.
 
 ## Statement separation and checks
 
-`Challenge.lean` imports only Mathlib and declares the two exact propositions.
-Its two deliberate `sorry` terms are statement holes. `Solution.lean` imports
-the complete proof through `Green64`, independently of the Challenge.
-The compared names have no extra hypotheses or substituted definitions.
+`Challenge.lean` imports only Mathlib and declares `Green64.green_64`.
+Its deliberate `sorry` is the statement hole. `Solution.lean` imports the
+complete proof through `Green64`, independently of the Challenge.
+The compared theorem has no extra hypotheses or substituted definitions.
 The only permitted axioms are `propext`, `Classical.choice` and `Quot.sound`.
 
 After downloading the Mathlib cache, run from this directory:
@@ -106,10 +112,11 @@ the official reusable workflow in `mode: full`, with both its workflow and
 pipeline revision pinned to `14aa8d6b3c2f14a8540605e37144560b9a00e7e7`.
 It selects `palomar-standard-v1` and the project paths above. A successful
 local source build or standalone Comparator run does not replace this check.
-The complete workflow has passed in CI, and the protected verifier has also
-passed locally. [VERIFICATION.md](VERIFICATION.md) links the successful run
-and its original report. For submission, the passing report must identify the
-exact selected revision, including any documentation changes.
+The first version passed the complete workflow in CI, the protected local
+verifier and Palomar's own verification. [VERIFICATION.md](VERIFICATION.md)
+links those successful runs and their original reports. The revised Challenge
+and selection require a fresh full workflow. For submission, its passing report
+must identify the exact selected revision, including any documentation changes.
 
 ## Third-party licence request
 
