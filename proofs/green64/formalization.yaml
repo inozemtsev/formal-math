@@ -1,16 +1,17 @@
 version: v0.4
 
 project:
-  name: "Green's Problem 64: odd prime-factor parity in shifted primes"
+  name: "Primes p for which Ω(p − 2) is odd (Green's Problem 64)"
   description: >-
-    We prove in Lean that infinitely many primes p have Ω(p − 2) odd, where
-    Ω counts prime factors with multiplicity, giving an affirmative answer
-    to Green's Problem 64. The argument constructs a nonnegative weight
-    supported on odd prime-factor parity; correlation estimates and a
-    weighted sieve give positive total weight to integers u with u + 2 prime
-    at arbitrarily large scales. The supporting analytic number theory is
-    included in the formalization, with Mathlib as its only direct
-    dependency.
+    For infinitely many primes p, Ω(p − 2) is odd, where Ω counts prime
+    factors with multiplicity. We assign nonnegative weights to integers u
+    in [x, 2x] with Ω(u) odd. Using a shifted correlation estimate, we sieve
+    the values u + 2 and obtain a lower bound for the combined weight of
+    primes and products of two large primes. A separate upper bound for
+    the contribution from those products leaves positive weight on primes
+    for every sufficiently large x.
+
+    Proof development and Lean formalization by gpt-6 astra.
   authors: [Igor Inozemtsev]
   responsible_maintainers: [Igor Inozemtsev]
   license: Apache-2.0
@@ -49,7 +50,8 @@ sources:
       common OpenAI sources. The broader shift, parity, squarefreeness and
       quantitative claims in this paper are not all formalized here. The
       retained source was hash-checked; the original URL returned 404 on
-      2026-11-12. See ACKNOWLEDGEMENTS.md for the exact source identity.
+      2026-11-12. The source revision and its role in the formalization are documented at
+      https://github.com/inozemtsev/formal-math/blob/ffd879ad992b8b58f23c4cc095e2b3ba0004be01/proofs/green64/ACKNOWLEDGEMENTS.md
   - title: "Prime Predecessors with an Even Number of Prime Factors"
     authors: [OpenAI]
     type: paper
@@ -63,7 +65,7 @@ sources:
     authors: [OpenAI]
     type: paper
     id: https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Weighted-Dilation-Graphs-Smooth-Shifted-Primes-and-Totient-Fibers-September-24-2026
-    relationship: builds-on
+    relationship: adapts
     author_endorsement: not-contacted
     note: >-
       Source of supporting dilation-graph, correlation, sieve and ordinary
@@ -74,8 +76,8 @@ related_formalizations:
   - id: https://github.com/google-deepmind/formal-conjectures/blob/a425ca3eb797fe927cb88c950565fdcbbbbada70/FormalConjectures/GreensOpenProblems/64.lean
     relationship: other
     note: >-
-      The main proposition matches Green64.green_64 in this statement
-      collection. Its utility package is not imported here.
+      The same Lean statement appears as Green64.green_64 in Google
+      DeepMind's formal-conjectures collection.
   - id: https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a
     relationship: builds-on
     note: "Adapted supporting analysis and number theory; see THIRD_PARTY.md."
@@ -98,7 +100,6 @@ status:
   scope: >-
     The principal claim is the infinitude statement for p - 2.
     Green64.primes_unbounded is a supporting lemma in its proof.
-    Subtraction is in the natural numbers, and Omega is Mathlib's cardFactors.
     Thresholds in the analytic argument are eventual; no explicit numerical
     threshold is asserted. The Challenge's single deliberate proof hole is
     excluded from the proof-development counts below.
